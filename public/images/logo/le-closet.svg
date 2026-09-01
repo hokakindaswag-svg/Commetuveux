@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 120" width="640" height="120" role="img" aria-label="Le Closet">
+  <title>Le Closet</title>
+  <text x="320" y="72" text-anchor="middle"
+        font-family="Cormorant Garamond, Georgia, 'Times New Roman', serif"
+        font-size="66" letter-spacing="14" fill="#530E0E">LE CLOSET</text>
+  <text x="320" y="102" text-anchor="middle"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="15" letter-spacing="9" fill="#530E0E" opacity="0.72">MANTEAUX · PARIS</text>
+</svg>

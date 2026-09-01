@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/*  Le Closet — base                                                    */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --font-inter: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-cormorant: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --header-height: 108px;
+  color-scheme: light;
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --header-height: 92px;
+  }
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-cream text-wood font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-wood;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: #530e0e;
+    color: #fdf9f5;
+  }
+
+  :focus-visible {
+    outline: 2px solid #530e0e;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply text-2xs uppercase tracking-brand text-brown;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 text-xs font-medium uppercase
+           tracking-widest transition-colors duration-300 ease-closet
+           disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-primary {
+    @apply btn bg-burgundy px-8 py-4 text-cream hover:bg-wood;
+  }
+
+  .btn-secondary {
+    @apply btn border border-wood/25 bg-transparent px-8 py-4 text-wood hover:border-wood hover:bg-wood hover:text-cream;
+  }
+
+  .btn-ghost {
+    @apply btn border-b border-wood/40 pb-1 text-wood hover:border-wood;
+  }
+
+  .field {
+    @apply w-full border border-wood/20 bg-white px-4 py-3 text-sm text-wood
+           placeholder:text-brown/50 focus:border-burgundy focus:outline-none;
+  }
+
+  .link-underline {
+    @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:h-px
+           after:w-0 after:bg-current after:transition-[width] after:duration-300
+           after:ease-closet hover:after:w-full;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Texture léopard éditoriale — utilisée avec parcimonie */
+  .leopard {
+    background-color: #f8e5d7;
+    background-image:
+      radial-gradient(ellipse 9px 7px at 18% 22%, #30150e 62%, transparent 64%),
+      radial-gradient(ellipse 13px 10px at 18% 22%, transparent 52%, #6b4e3a 54%, #6b4e3a 74%, transparent 76%),
+      radial-gradient(ellipse 8px 6px at 62% 44%, #30150e 62%, transparent 64%),
+      radial-gradient(ellipse 12px 9px at 62% 44%, transparent 52%, #6b4e3a 54%, #6b4e3a 74%, transparent 76%),
+      radial-gradient(ellipse 7px 6px at 38% 74%, #30150e 62%, transparent 64%),
+      radial-gradient(ellipse 11px 9px at 38% 74%, transparent 52%, #6b4e3a 54%, #6b4e3a 74%, transparent 76%),
+      radial-gradient(ellipse 9px 7px at 86% 86%, #30150e 62%, transparent 64%),
+      radial-gradient(ellipse 13px 10px at 86% 86%, transparent 52%, #6b4e3a 54%, #6b4e3a 74%, transparent 76%);
+    background-size: 92px 78px;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100]
+           focus:bg-burgundy focus:px-5 focus:py-3 focus:text-xs focus:uppercase
+           focus:tracking-widest focus:text-cream;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .scroll-mt-header {
+    scroll-margin-top: calc(var(--header-height) + 16px);
+  }
+}
