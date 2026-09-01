@@ -9,6 +9,7 @@ import { MinusIcon, PlusIcon } from '@/components/ui/Icons';
 import { formatPrice } from '@/lib/format';
 import { recommendationsFor } from '@/lib/catalog';
 import { site } from '@/data/site';
+import { assetPath } from '@/lib/paths';
 
 export function CartDrawer() {
   const { lines, cartOpen, closeCart, removeFromCart, setQuantity, subtotal, savings, cartCount } =
@@ -85,7 +86,7 @@ export function CartDrawer() {
                   onClick={closeCart}
                   className="relative aspect-product w-[88px] shrink-0 overflow-hidden bg-silk"
                 >
-                  <Image src={line.image} alt={line.name} fill sizes="88px" className="object-cover" />
+                  <Image src={assetPath(line.image)} alt={line.name} fill sizes="88px" className="object-cover" />
                 </Link>
 
                 <div className="flex min-w-0 flex-1 flex-col">
@@ -148,7 +149,7 @@ export function CartDrawer() {
                     <Link href={`/products/${p.slug}`} onClick={closeCart} className="group block">
                       <div className="relative aspect-product overflow-hidden bg-silk">
                         <Image
-                          src={p.images[0]}
+                          src={assetPath(p.images[0])}
                           alt={p.name}
                           fill
                           sizes="132px"

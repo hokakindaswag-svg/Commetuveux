@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { media, site } from '@/data/site';
+import { assetPath } from '@/lib/paths';
 
 export function Hero() {
   return (
@@ -8,7 +9,7 @@ export function Hero() {
       {/* Desktop / tablette */}
       <div className="relative hidden h-[calc(100svh-var(--header-height))] min-h-[560px] w-full sm:block">
         <Image
-          src={media.hero}
+          src={assetPath(media.hero)}
           alt="Manteaux Le Closet portés en studio, ambiance parisienne"
           fill
           priority
@@ -45,7 +46,7 @@ export function Hero() {
       <div className="sm:hidden">
         <div className="relative aspect-[3/4] w-full">
           <Image
-            src={media.heroMobile}
+            src={assetPath(media.heroMobile)}
             alt="Manteaux Le Closet portés en studio, ambiance parisienne"
             fill
             priority

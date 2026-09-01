@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from '@/components/ui/Icons';
+import { assetPath } from '@/lib/paths';
 
 export function ProductGallery({ images, name }: { images: string[]; name: string }) {
   const [active, setActive] = useState(0);
@@ -25,7 +26,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
                   active === i ? 'ring-1 ring-wood' : 'opacity-70 hover:opacity-100'
                 }`}
               >
-                <Image src={src} alt="" fill sizes="76px" className="object-cover" />
+                <Image src={assetPath(src)} alt="" fill sizes="76px" className="object-cover" />
               </button>
             </li>
           ))}
@@ -36,7 +37,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
       <div className="relative flex-1">
         <div className="relative aspect-product w-full overflow-hidden bg-silk">
           <Image
-            src={images[active]}
+            src={assetPath(images[active])}
             alt={`${name} — visuel ${active + 1}`}
             fill
             priority

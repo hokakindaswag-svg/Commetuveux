@@ -252,3 +252,33 @@ npm run start
 
 Pensez à définir `NEXT_PUBLIC_SITE_URL` sur le domaine de production pour que le sitemap,
 les URL canoniques et les données structurées pointent au bon endroit.
+
+### Mettre le site en ligne avec GitHub Pages (gratuit)
+
+Le catalogue étant entièrement statique (aucune base de données, aucune route serveur), le
+site peut aussi être publié directement sur GitHub Pages, sans compte ni service tiers.
+`.github/workflows/deploy-pages.yml` construit et publie automatiquement le site à chaque
+mise à jour de la branche `main`.
+
+Étapes, à faire une seule fois, directement sur github.com :
+
+1. **Fusionner votre branche de travail dans `main`** (si ce n’est pas déjà fait) : ouvrez
+   une pull request depuis GitHub et cliquez sur *Merge pull request*.
+2. Dans le dépôt, allez dans **Settings → Pages**.
+3. Sous *Build and deployment* → *Source*, choisissez **GitHub Actions**.
+4. C’est tout. Le site se construit automatiquement (visible dans l’onglet **Actions**) et
+   devient accessible sous 1 à 2 minutes à :
+
+   ```
+   https://<votre-compte>.github.io/<nom-du-dépôt>/
+   ```
+
+À chaque nouveau `git push` sur `main`, le site se reconstruit et se met à jour tout seul.
+
+Le workflow bascule automatiquement le site en mode export statique (`GITHUB_PAGES=true`) :
+basePath, préfixe des images et image Open Graph sont ajustés en conséquence
+(`next.config.mjs`, `lib/paths.ts`). Rien à faire de plus — cela n’affecte ni `npm run dev`,
+ni un déploiement sur Vercel/Netlify, qui continuent de fonctionner normalement.
+
+Si le dépôt est un jour renommé, mettez à jour la constante `repoName` dans
+`next.config.mjs`.

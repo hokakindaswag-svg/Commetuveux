@@ -8,6 +8,7 @@ import { Price } from '@/components/ui/Price';
 import { HeartIcon } from '@/components/ui/Icons';
 import { availableSizes, isInStock } from '@/lib/catalog';
 import type { Product, Size } from '@/types';
+import { assetPath } from '@/lib/paths';
 
 const badgeStyles: Record<string, string> = {
   'NOUVEAUTÉ': 'bg-cream text-wood',
@@ -42,7 +43,7 @@ export function ProductCard({
         >
           <div className="relative aspect-product w-full">
             <Image
-              src={product.images[0]}
+              src={assetPath(product.images[0])}
               alt={`${product.name} — coloris ${product.color.name}`}
               fill
               sizes={sizes}
@@ -51,7 +52,7 @@ export function ProductCard({
             />
             {product.images[1] ? (
               <Image
-                src={product.images[1]}
+                src={assetPath(product.images[1])}
                 alt=""
                 aria-hidden="true"
                 fill

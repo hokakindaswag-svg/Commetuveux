@@ -3,6 +3,10 @@ import { allProducts } from '@/lib/catalog';
 import { collections } from '@/data/collections';
 import { site } from '@/data/site';
 
+// Requis par `output: 'export'` (build GitHub Pages) : cette route n'a pas
+// de paramètres dynamiques, elle peut donc être générée une fois pour toutes.
+export const dynamic = 'force-static';
+
 const staticRoutes = [
   '',
   '/faq',

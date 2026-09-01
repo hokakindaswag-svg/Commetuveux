@@ -7,6 +7,7 @@ import { Newsletter } from '@/components/layout/Newsletter';
 import { collections, getCollection } from '@/data/collections';
 import { productsForCollection } from '@/lib/catalog';
 import { site } from '@/data/site';
+import { assetPath } from '@/lib/paths';
 
 export function generateStaticParams() {
   return collections.map((c) => ({ handle: c.handle }));
@@ -29,7 +30,9 @@ export async function generateMetadata({
     openGraph: {
       title: `${collection.title} | Le Closet`,
       description: collection.description,
-      images: [{ url: collection.image }],
+      // URL absolue : une URL relative écraserait le sous-dossier /Commetuveux
+      // du déploiement GitHub Pages (voir app/layout.tsx).
+      images: [{ url: `${site.url}${collection.image}` }],
     },
   };
 }
@@ -51,7 +54,7 @@ export default async function CollectionPage({
       <header className="relative isolate">
         <div className="relative h-[240px] w-full sm:h-[300px] lg:h-[360px]">
           <Image
-            src={collection.image}
+            src={assetPath(collection.image)}
             alt=""
             aria-hidden="true"
             fill

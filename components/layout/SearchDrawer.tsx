@@ -8,6 +8,7 @@ import { Drawer } from '@/components/ui/Drawer';
 import { Price } from '@/components/ui/Price';
 import { SearchIcon } from '@/components/ui/Icons';
 import { searchProducts } from '@/lib/catalog';
+import { assetPath } from '@/lib/paths';
 
 const suggestions = [
   'Manteau long',
@@ -89,7 +90,7 @@ export function SearchDrawer() {
                 >
                   <div className="relative aspect-product w-16 shrink-0 overflow-hidden bg-silk">
                     <Image
-                      src={p.images[0]}
+                      src={assetPath(p.images[0])}
                       alt=""
                       fill
                       sizes="64px"

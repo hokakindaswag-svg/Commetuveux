@@ -34,13 +34,16 @@ export const metadata: Metadata = {
     title: 'Le Closet — Manteaux Femme Tendance à 50€',
     description:
       'La destination française pour des manteaux femme tendance à prix accessibles. Tout à 50 €.',
-    images: [{ url: '/images/lifestyle/og-image.jpg', width: 1200, height: 630, alt: 'Le Closet' }],
+    // URL absolue plutôt que résolue via metadataBase : une URL relative
+    // commençant par "/" écraserait le sous-dossier /Commetuveux du
+    // déploiement GitHub Pages (règles de résolution d'URL standard).
+    images: [{ url: `${site.url}/images/lifestyle/og-image.jpg`, width: 1200, height: 630, alt: 'Le Closet' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Le Closet — Manteaux Femme Tendance à 50€',
     description: 'Des manteaux qu’on remarque. Des prix qu’on aime.',
-    images: ['/images/lifestyle/og-image.jpg'],
+    images: [`${site.url}/images/lifestyle/og-image.jpg`],
   },
   robots: { index: true, follow: true },
 };

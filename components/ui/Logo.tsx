@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { media } from '@/data/site';
+import { assetPath } from '@/lib/paths';
 
 /**
  * Logo Le Closet.
@@ -23,7 +24,7 @@ export function Logo({
   return (
     <Link href="/" aria-label="Le Closet — accueil" className={`inline-block ${className}`}>
       <Image
-        src={src}
+        src={assetPath(src)}
         alt="Le Closet"
         width={width}
         height={Math.round((width * 120) / 640)}

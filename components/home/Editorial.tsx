@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { assetPath } from '@/lib/paths';
 
 export function Editorial({
   image,
@@ -37,7 +38,7 @@ export function Editorial({
     <section className="relative isolate" aria-labelledby={`editorial-${title.slice(0, 8)}`}>
       <div className="relative min-h-[460px] w-full sm:min-h-[560px] lg:min-h-[660px]">
         <Image
-          src={image}
+          src={assetPath(image)}
           alt=""
           aria-hidden="true"
           fill

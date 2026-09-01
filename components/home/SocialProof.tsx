@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { media, site } from '@/data/site';
+import { assetPath } from '@/lib/paths';
 
 /**
  * Espace réservé au contenu client (UGC).
@@ -29,7 +30,7 @@ export function SocialProof() {
             className="relative aspect-[4/5] w-[62%] shrink-0 snap-start overflow-hidden bg-silk sm:w-auto"
           >
             <Image
-              src={src}
+              src={assetPath(src)}
               alt=""
               aria-hidden="true"
               fill

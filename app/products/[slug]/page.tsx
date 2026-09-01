@@ -32,7 +32,9 @@ export async function generateMetadata({
       type: 'website',
       title: `${product.name} | Le Closet`,
       description: product.description,
-      images: [{ url: product.images[0], alt: product.name }],
+      // URL absolue : une URL relative écraserait le sous-dossier /Commetuveux
+      // du déploiement GitHub Pages (voir app/layout.tsx).
+      images: [{ url: `${site.url}${product.images[0]}`, alt: product.name }],
     },
   };
 }

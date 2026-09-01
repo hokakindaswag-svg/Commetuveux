@@ -10,6 +10,7 @@ import { SectionHeading } from '@/components/home/SectionHeading';
 import { formatPrice } from '@/lib/format';
 import { recommendationsFor } from '@/lib/catalog';
 import { site } from '@/data/site';
+import { assetPath } from '@/lib/paths';
 
 export default function CartPage() {
   const { lines, subtotal, savings, cartCount, setQuantity, removeFromCart, hydrated } = useStore();
@@ -44,7 +45,7 @@ export default function CartPage() {
                   className="relative aspect-product w-24 shrink-0 overflow-hidden bg-silk sm:w-32"
                 >
                   <Image
-                    src={line.image}
+                    src={assetPath(line.image)}
                     alt={line.name}
                     fill
                     sizes="(min-width: 640px) 128px, 96px"
