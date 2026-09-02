@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { media } from '@/data/site';
 import { assetPath } from '@/lib/paths';
@@ -8,79 +7,76 @@ import { assetPath } from '@/lib/paths';
 /**
  * Vidéo de campagne en tête de page.
  *
- * L'image d'attente est rendue côté serveur et reste sous la vidéo : elle
- * assure l'affichage immédiat (et le rendu statique de la page), la vidéo
- * ne se charge qu'après hydratation et vient se poser par-dessus. Rien ne
- * bloque donc le premier affichage.
+ * La balise <video> est rendue côté serveur avec ses sources et l'attribut
+ * `autoplay` : la lecture démarre nativement, sans attendre l'hydratation.
+ * L'image d'attente passe par l'attribut `poster`, qui s'affiche tant que la
+ * première image n'est pas décodée — la tête de page n'est donc jamais vide.
  *
- * La lecture automatique est désactivée pour les visiteurs qui ont demandé
- * des animations réduites : ils gardent l'image fixe, avec un bouton pour
- * lancer la vidéo s'ils le souhaitent.
+ * Le JavaScript ne sert plus qu'à deux choses : mettre en pause si le
+ * visiteur a demandé des animations réduites, et proposer un bouton de
+ * lecture si le navigateur a refusé le démarrage automatique.
  */
 export function HeroVideo({ className = '' }: { className?: string }) {
-  const [autoplay, setAutoplay] = useState(false);
-  const [forced, setForced] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const apply = () => setAutoplay(!query.matches);
-    apply();
-    query.addEventListener('change', apply);
-    return () => query.removeEventListener('change', apply);
-  }, []);
-
-  const showVideo = autoplay || forced;
-
-  // La balise <source> étant ajoutée après le montage, il faut demander
-  // explicitement le chargement puis la lecture : l'attribut autoPlay seul
-  // ne suffit pas quand la source apparaît après coup. Un navigateur qui
-  // refuse la lecture automatique laisse simplement l'image d'attente.
-  useEffect(() => {
-    if (!showVideo) return;
     const video = videoRef.current;
     if (!video) return;
-    video.load();
-    video.play().catch(() => {
-      /* lecture refusée : l'image d'attente reste affichée */
-    });
-  }, [showVideo]);
+
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const sync = () => setPaused(video.paused);
+
+    const apply = () => {
+      if (query.matches) {
+        video.pause();
+        return;
+      }
+      // Une lecture refusée (économie de données, mode faible consommation)
+      // fait apparaître le bouton plutôt que de laisser un cadre figé sans
+      // explication.
+      video.play().catch(() => setPaused(true));
+    };
+
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', sync);
+    query.addEventListener('change', apply);
+    apply();
+
+    return () => {
+      video.removeEventListener('play', sync);
+      video.removeEventListener('pause', sync);
+      query.removeEventListener('change', apply);
+    };
+  }, []);
 
   return (
     <div className={`relative overflow-hidden border border-chocolate/10 bg-ivory ${className}`}>
-      <Image
-        src={assetPath(media.heroPoster)}
-        alt="Cape en fausse fourrure Studio Neige Paris portée en extérieur"
-        fill
-        priority
-        sizes="(min-width: 1024px) 30vw, 100vw"
-        className="object-cover"
-      />
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster={assetPath(media.heroPoster)}
+        aria-label="Les capes Studio Neige Paris, portées en ivoire, chocolat, taupe et noir"
+        className="h-full w-full object-cover"
+      >
+        {/* WebM d'abord (plus léger), MP4 en repli universel */}
+        <source src={assetPath(media.heroVideoWebm)} type="video/webm" />
+        <source src={assetPath(media.heroVideo)} type="video/mp4" />
+      </video>
 
-      {showVideo ? (
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-label="Les capes Studio Neige Paris, portées en ivoire, chocolat, taupe et noir"
-          className="absolute inset-0 h-full w-full object-cover"
-        >
-          {/* WebM d'abord (plus léger), MP4 en repli universel */}
-          <source src={assetPath(media.heroVideoWebm)} type="video/webm" />
-          <source src={assetPath(media.heroVideo)} type="video/mp4" />
-        </video>
-      ) : (
+      {paused ? (
         <button
           type="button"
-          onClick={() => setForced(true)}
+          onClick={() => videoRef.current?.play()}
           className="absolute inset-x-0 bottom-0 z-10 bg-cream/90 py-3.5 text-2xs uppercase tracking-brand text-chocolate transition-colors hover:bg-burgundy hover:text-ivory"
         >
           Lancer la vidéo
         </button>
-      )}
+      ) : null}
     </div>
   );
 }
