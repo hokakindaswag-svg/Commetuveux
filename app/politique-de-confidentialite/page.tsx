@@ -5,7 +5,7 @@ import { site } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Politique de confidentialité',
-  description: 'Politique de confidentialité et traitement des données personnelles sur Le Closet.',
+  description: 'Politique de confidentialité et traitement des données personnelles sur Studio Neige Paris.',
 };
 
 export default function Page() {
@@ -33,7 +33,7 @@ export default function Page() {
         </p>
         <h2>Stockage local</h2>
         <p>
-          Votre panier et votre wishlist sont enregistrés dans le stockage local de votre
+          Votre panier et votre sélection sont enregistrés dans le stockage local de votre
           navigateur. Ces informations ne quittent pas votre appareil et ne nous sont pas
           transmises.
         </p>

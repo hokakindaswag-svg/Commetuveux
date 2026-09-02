@@ -6,7 +6,7 @@ import { site } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'FAQ',
-  description: 'Questions fréquentes sur les manteaux Le Closet : tailles, livraison, retours, paiement.',
+  description: 'Questions fréquentes sur les pièces Studio Neige Paris : tailles, livraison, retours, paiement.',
 };
 
 export default function FaqPage() {
@@ -25,7 +25,7 @@ export default function FaqPage() {
                 title: 'Pourquoi tous vos manteaux sont-ils à 50 € ?',
                 content: (
                   <p>
-                    Le Closet ne vend qu’une seule catégorie : le manteau. Cette spécialisation
+                    Studio Neige Paris ne vend qu’une seule catégorie : le manteau. Cette spécialisation
                     nous permet de commander en volume sur un nombre limité de modèles et
                     d’appliquer un prix unique de {site.corePrice} € à toute la collection. Le
                     prix barré affiché correspond au prix conseillé d’origine du modèle.

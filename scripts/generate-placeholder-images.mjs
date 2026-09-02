@@ -1,6 +1,6 @@
 /**
  * ------------------------------------------------------------------
- *  Le Closet — génération des visuels de démonstration
+ *  STUDIO NEIGE PARIS — génération des visuels de démonstration
  * ------------------------------------------------------------------
  *  Ce script crée des illustrations vectorielles (rendues en .jpg) pour
  *  chaque manteau du catalogue ainsi que les visuels éditoriaux.
@@ -444,7 +444,7 @@ const run = async () => {
       figures: [{ hex: '#530E0E', category: 'manteaux-longs', style: 'ceinture', scale: 0.94, x: 0.72, bottom: 0.0 }],
     },
     {
-      file: 'collection-promotions.jpg', w: 1800, h: 620, tone: 'burgundy',
+      file: 'collection-editions-hiver.jpg', w: 1800, h: 620, tone: 'burgundy',
       figures: [{ hex: '#F1E4D6', category: 'similicuir', style: 'droit', scale: 0.94, x: 0.72, bottom: 0.0 }],
     },
     {
@@ -464,7 +464,7 @@ const run = async () => {
       figures: [{ hex: '#F1E4D6', category: 'fausse-fourrure', style: 'statement', scale: 0.92, x: 0.73, bottom: 0.0 }],
     },
     {
-      file: 'collection-tendance.jpg', w: 1800, h: 620, tone: 'silk',
+      file: 'collection-vestes.jpg', w: 1800, h: 620, tone: 'silk',
       figures: [{ hex: '#C08B4E', group: 'Léopard', category: 'fausse-fourrure', style: 'oversize', scale: 0.92, x: 0.73, bottom: 0.0 }],
     },
   ];
@@ -492,11 +492,22 @@ const run = async () => {
   }
   console.log(`✓ ${ugc.length} visuels UGC`);
 
+  // Image Open Graph : scène éditoriale + logo officiel de la marque.
+  const ogPath = path.join(OUT_LIFESTYLE, 'og-image.jpg');
   await renderScene({
-    w: 1200, h: 630, tone: 'burgundy',
-    figures: [{ hex: '#F1E4D6', category: 'manteaux-longs', style: 'ceinture', scale: 0.9, x: 0.78, bottom: 0.0 }],
-    file: path.join(OUT_LIFESTYLE, 'og-image.jpg'),
+    w: 1200, h: 630, tone: 'silk',
+    figures: [{ hex: '#4A2C1D', category: 'manteaux-longs', style: 'ceinture', scale: 0.86, x: 0.82, bottom: 0.0 }],
+    file: ogPath,
   });
+  const logoFile = path.join(ROOT, 'public/images/logo/studio-neige-paris.png');
+  if (fs.existsSync(logoFile)) {
+    const logo = await sharp(logoFile).resize({ width: 560 }).png().toBuffer();
+    const composed = await sharp(ogPath)
+      .composite([{ input: logo, left: 60, top: 210 }])
+      .jpeg(jpeg)
+      .toBuffer();
+    fs.writeFileSync(ogPath, composed);
+  }
   console.log('✓ image Open Graph');
 };
 

@@ -49,11 +49,11 @@ export function CollectionView({ products }: { products: Product[] }) {
   return (
     <div className="container-site pb-20">
       {/* Barre outils mobile — collante sous le header */}
-      <div className="sticky top-[52px] z-30 -mx-4 mb-6 grid grid-cols-2 border-y border-wood/10 bg-cream sm:-mx-6 lg:hidden">
+      <div className="sticky top-[52px] z-30 -mx-4 mb-6 grid grid-cols-2 border-y border-chocolate/10 bg-cream sm:-mx-6 lg:hidden">
         <button
           type="button"
           onClick={() => setFiltersOpen(true)}
-          className="flex items-center justify-center gap-2 border-r border-wood/10 py-4 text-2xs uppercase tracking-widest text-wood"
+          className="flex items-center justify-center gap-2 border-r border-chocolate/10 py-4 text-2xs uppercase tracking-widest text-chocolate"
         >
           <FilterIcon width={16} height={16} />
           Filtres{activeCount ? ` (${activeCount})` : ''}
@@ -61,7 +61,7 @@ export function CollectionView({ products }: { products: Product[] }) {
         <button
           type="button"
           onClick={() => setSortOpen(true)}
-          className="flex items-center justify-center gap-2 py-4 text-2xs uppercase tracking-widest text-wood"
+          className="flex items-center justify-center gap-2 py-4 text-2xs uppercase tracking-widest text-chocolate"
         >
           <SortIcon width={16} height={16} />
           Trier
@@ -83,16 +83,16 @@ export function CollectionView({ products }: { products: Product[] }) {
 
         <div>
           {/* Tri desktop */}
-          <div className="mb-6 hidden items-center justify-between border-b border-wood/10 pb-4 lg:flex">
+          <div className="mb-6 hidden items-center justify-between border-b border-chocolate/10 pb-4 lg:flex">
             <p className="text-2xs uppercase tracking-wider text-brown">
               {visible.length} {visible.length > 1 ? 'pièces' : 'pièce'}
             </p>
-            <label className="flex items-center gap-3 text-2xs uppercase tracking-widest text-wood">
+            <label className="flex items-center gap-3 text-2xs uppercase tracking-widest text-chocolate">
               Trier par
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortKey)}
-                className="border border-wood/20 bg-cream px-3 py-2 text-xs normal-case tracking-normal text-wood focus:border-burgundy focus:outline-none"
+                className="border border-chocolate/20 bg-cream px-3 py-2 text-xs normal-case tracking-normal text-chocolate focus:border-burgundy focus:outline-none"
               >
                 {sortOptions.map((option) => (
                   <option key={option.key} value={option.key}>
@@ -111,7 +111,7 @@ export function CollectionView({ products }: { products: Product[] }) {
                   <button
                     type="button"
                     onClick={() => toggle(group, value)}
-                    className="flex items-center gap-2 border border-wood/20 px-3 py-1.5 text-2xs uppercase tracking-wider text-wood transition-colors hover:border-burgundy hover:text-burgundy"
+                    className="flex items-center gap-2 border border-chocolate/20 px-3 py-1.5 text-2xs uppercase tracking-wider text-chocolate transition-colors hover:border-burgundy hover:text-burgundy"
                   >
                     <span className="sr-only">Retirer le filtre </span>
                     {groupLabels[group]} : {value}
@@ -135,7 +135,7 @@ export function CollectionView({ products }: { products: Product[] }) {
             <ProductGrid products={visible} priorityCount={4} />
           ) : (
             <div className="py-24 text-center">
-              <p className="text-sm text-wood">Aucun manteau ne correspond à ces filtres.</p>
+              <p className="text-sm text-chocolate">Aucun manteau ne correspond à ces filtres.</p>
               <button type="button" onClick={clear} className="btn-secondary mt-6">
                 Effacer les filtres
               </button>
@@ -185,7 +185,7 @@ export function CollectionView({ products }: { products: Product[] }) {
       >
         <ul className="px-5 py-2">
           {sortOptions.map((option) => (
-            <li key={option.key} className="border-b border-wood/10 last:border-0">
+            <li key={option.key} className="border-b border-chocolate/10 last:border-0">
               <button
                 type="button"
                 onClick={() => {
@@ -194,7 +194,7 @@ export function CollectionView({ products }: { products: Product[] }) {
                 }}
                 aria-pressed={sort === option.key}
                 className={`w-full py-4 text-left text-sm ${
-                  sort === option.key ? 'text-burgundy' : 'text-wood'
+                  sort === option.key ? 'text-burgundy' : 'text-chocolate'
                 }`}
               >
                 {option.label}

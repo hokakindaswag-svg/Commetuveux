@@ -5,23 +5,23 @@ import { site } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Conditions générales de vente',
-  description: 'Conditions générales de vente du site Le Closet.',
+  description: 'Conditions générales de vente du site Studio Neige Paris.',
 };
 
 export default function Page() {
   return (
     <>
-      <PageHeader title="Conditions générales de vente" intro="Les règles qui encadrent vos achats sur Le Closet." />
+      <PageHeader title="Conditions générales de vente" intro="Les règles qui encadrent vos achats sur Studio Neige Paris." />
       <Prose>
         <h2>1. Objet</h2>
         <p>
           Les présentes conditions régissent les ventes de manteaux réalisées sur le site
-          Le Closet. Toute commande implique leur acceptation sans réserve.
+          Studio Neige Paris. Toute commande implique leur acceptation sans réserve.
         </p>
         <h2>2. Prix</h2>
         <p>
           Les prix sont indiqués en euros toutes taxes comprises. Le prix barré correspond au
-          prix conseillé d’origine du modèle ; le prix de vente Le Closet est de{" "}
+          prix conseillé d’origine du modèle ; le prix de vente Studio Neige Paris est de{" "}
           {site.corePrice} €. Les frais de livraison sont indiqués avant validation de la
           commande.
         </p>
@@ -33,7 +33,7 @@ export default function Page() {
         <h2>4. Paiement</h2>
         <p>
           Le paiement s’effectue par carte bancaire, Apple Pay ou PayPal, via une connexion
-          chiffrée. Aucune donnée bancaire n’est conservée par Le Closet.
+          chiffrée. Aucune donnée bancaire n’est conservée par Studio Neige Paris.
         </p>
         <h2>5. Livraison</h2>
         <p>

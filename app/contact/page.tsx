@@ -5,7 +5,7 @@ import { site } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Contactez l’équipe Le Closet pour toute question sur votre commande.',
+  description: 'Contactez l’équipe Studio Neige Paris pour toute question sur votre commande.',
 };
 
 export default function Page() {

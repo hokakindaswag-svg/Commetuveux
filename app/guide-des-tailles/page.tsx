@@ -6,7 +6,7 @@ import { SizeGuideTable } from '@/components/product/SizeGuide';
 export const metadata: Metadata = {
   title: 'Guide des tailles',
   description:
-    'Le guide des tailles Le Closet : correspondances FR, mesures poitrine, taille et hanches pour bien choisir son manteau.',
+    'Le guide des tailles Studio Neige Paris : correspondances FR, mesures poitrine, taille et hanches pour bien choisir son manteau.',
 };
 
 export default function SizeGuidePage() {
@@ -21,26 +21,26 @@ export default function SizeGuidePage() {
           <SizeGuideTable />
 
           <section className="mt-14" aria-labelledby="measure-title">
-            <h2 id="measure-title" className="font-serif text-2xl text-wood">
+            <h2 id="measure-title" className="font-display text-2xl font-light uppercase tracking-widest text-chocolate">
               Comment se mesurer
             </h2>
             <ul className="mt-5 space-y-3 text-sm leading-relaxed text-brown">
               <li>
-                <span className="text-wood">Poitrine :</span> mesurez horizontalement à l’endroit
+                <span className="text-chocolate">Poitrine :</span> mesurez horizontalement à l’endroit
                 le plus fort, bras le long du corps.
               </li>
               <li>
-                <span className="text-wood">Taille :</span> mesurez au creux naturel de la taille,
+                <span className="text-chocolate">Taille :</span> mesurez au creux naturel de la taille,
                 sans serrer le mètre ruban.
               </li>
               <li>
-                <span className="text-wood">Hanches :</span> mesurez à l’endroit le plus fort,
+                <span className="text-chocolate">Hanches :</span> mesurez à l’endroit le plus fort,
                 pieds joints.
               </li>
             </ul>
             <p className="mt-8 text-sm leading-relaxed text-brown">
               Une question sur une coupe en particulier ?{' '}
-              <Link href="/contact" className="link-underline text-wood">
+              <Link href="/contact" className="link-underline text-chocolate">
                 Écrivez-nous
               </Link>
               , nous répondons sous 24 à 48 h ouvrées.

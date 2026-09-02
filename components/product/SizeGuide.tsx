@@ -15,9 +15,9 @@ export function SizeGuideTable() {
   return (
     <div className="overflow-x-auto">
       <table className="w-full min-w-[440px] border-collapse text-left text-sm">
-        <caption className="sr-only">Guide des tailles Le Closet, mesures en centimètres</caption>
+        <caption className="sr-only">Guide des tailles Studio Neige Paris, mesures en centimètres</caption>
         <thead>
-          <tr className="border-b border-wood/20 text-2xs uppercase tracking-wider text-wood">
+          <tr className="border-b border-chocolate/20 text-2xs uppercase tracking-wider text-chocolate">
             <th scope="col" className="py-3 pr-4 font-medium">Taille</th>
             <th scope="col" className="py-3 pr-4 font-medium">FR</th>
             <th scope="col" className="py-3 pr-4 font-medium">Poitrine</th>
@@ -27,8 +27,8 @@ export function SizeGuideTable() {
         </thead>
         <tbody className="text-brown">
           {rows.map((row) => (
-            <tr key={row.size} className="border-b border-wood/10">
-              <th scope="row" className="py-3 pr-4 font-medium text-wood">{row.size}</th>
+            <tr key={row.size} className="border-b border-chocolate/10">
+              <th scope="row" className="py-3 pr-4 font-medium text-chocolate">{row.size}</th>
               <td className="py-3 pr-4">{row.fr}</td>
               <td className="py-3 pr-4">{row.bust} cm</td>
               <td className="py-3 pr-4">{row.waist} cm</td>
@@ -52,7 +52,7 @@ export function SizeGuideButton() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="text-2xs uppercase tracking-wider text-wood underline underline-offset-4 transition-colors hover:text-burgundy"
+        className="text-2xs uppercase tracking-wider text-chocolate underline underline-offset-4 transition-colors hover:text-burgundy"
       >
         Guide des tailles
       </button>

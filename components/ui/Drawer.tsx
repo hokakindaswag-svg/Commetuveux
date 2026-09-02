@@ -72,7 +72,7 @@ export function Drawer({
       <div
         aria-hidden="true"
         onClick={onClose}
-        className="absolute inset-0 h-full w-full animate-fade-in bg-wood/40"
+        className="absolute inset-0 h-full w-full animate-fade-in bg-chocolate/40"
       />
       <div
         ref={panelRef}
@@ -81,15 +81,15 @@ export function Drawer({
           flex flex-col bg-cream shadow-2xl outline-none
           ${side === 'right' ? 'animate-slide-in-right' : 'animate-slide-in-left'}`}
       >
-        <header className="flex items-center justify-between border-b border-wood/10 px-5 py-4 sm:px-6">
-          <h2 id={labelledBy} className="text-xs uppercase tracking-widest text-wood">
+        <header className="flex items-center justify-between border-b border-chocolate/10 px-5 py-4 sm:px-6">
+          <h2 id={labelledBy} className="text-xs uppercase tracking-widest text-chocolate">
             {title}
           </h2>
           <button
             type="button"
             onClick={onClose}
             aria-label="Fermer"
-            className="-mr-2 p-2 text-wood transition-opacity hover:opacity-60"
+            className="-mr-2 p-2 text-chocolate transition-opacity hover:opacity-60"
           >
             <CloseIcon width={20} height={20} />
           </button>
@@ -97,7 +97,7 @@ export function Drawer({
 
         <div className="hide-scrollbar flex-1 overflow-y-auto overscroll-contain">{children}</div>
 
-        {footer ? <div className="border-t border-wood/10 bg-cream">{footer}</div> : null}
+        {footer ? <div className="border-t border-chocolate/10 bg-cream">{footer}</div> : null}
       </div>
     </div>
   );

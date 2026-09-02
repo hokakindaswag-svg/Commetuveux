@@ -1,12 +1,12 @@
 /* ------------------------------------------------------------------ */
-/*  Le Closet — modèle de données                                      */
+/*  Studio Neige Paris — modèle de données                            */
 /*  Tout le catalogue vit dans data/products.ts.                       */
 /* ------------------------------------------------------------------ */
 
 export type Size = 'XS' | 'S' | 'M' | 'L' | 'XL';
 
 export type Badge =
-  | 'NOUVEAUTÉ'
+  | 'NOUVEAU'
   | 'BEST-SELLER'
   | 'DERNIÈRES PIÈCES'
   | 'ÉDITION LIMITÉE'
@@ -66,7 +66,7 @@ export interface Product {
   id: string;
   slug: string;
   name: string;
-  /** Prix Le Closet, en euros. */
+  /** Prix Studio Neige Paris, en euros. */
   price: number;
   /** Prix barré (prix conseillé d'origine), en euros. */
   compareAtPrice: number | null;

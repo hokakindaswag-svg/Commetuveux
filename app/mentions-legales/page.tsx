@@ -5,17 +5,17 @@ import { site } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Mentions légales',
-  description: 'Mentions légales du site Le Closet.',
+  description: 'Mentions légales du site Studio Neige Paris.',
 };
 
 export default function Page() {
   return (
     <>
-      <PageHeader title="Mentions légales" intro="Informations légales relatives au site Le Closet." />
+      <PageHeader title="Mentions légales" intro="Informations légales relatives au site Studio Neige Paris." />
       <Prose>
         <h2>Éditeur du site</h2>
         <p>
-          Le Closet. Les informations d’immatriculation (raison sociale, forme juridique,
+          Studio Neige Paris. Les informations d’immatriculation (raison sociale, forme juridique,
           capital, RCS, SIRET, TVA intracommunautaire, adresse du siège et directeur de la
           publication) doivent être complétées ici avant la mise en ligne commerciale du site.
         </p>

@@ -12,37 +12,37 @@ import { site } from '@/data/site';
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: 'Le Closet — Manteaux Femme Tendance à 50€',
-    template: '%s | Le Closet',
+    default: 'Studio Neige Paris — Manteaux & vestes femme, le vestiaire d’hiver',
+    template: '%s | Studio Neige Paris',
   },
   description:
-    'Découvrez Le Closet, la destination française pour des manteaux femme tendance à prix accessibles. Manteaux longs, doudounes, fausse fourrure et teddy à 50 €.',
+    'Studio Neige Paris, le vestiaire d’hiver : manteaux longs, vestes, doudounes et fausse fourrure pour femme, à partir de 50 €. Livraison en France.',
   keywords: [
     'manteau femme',
-    'manteau 50 euros',
+    'veste femme hiver',
     'manteau long femme',
     'doudoune femme',
     'fausse fourrure',
-    'manteau tendance',
-    'Le Closet',
+    'vestiaire d’hiver',
+    'Studio Neige Paris',
   ],
   authors: [{ name: site.name }],
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    siteName: site.name,
-    title: 'Le Closet — Manteaux Femme Tendance à 50€',
+    siteName: site.fullName,
+    title: 'Studio Neige Paris — Le vestiaire d’hiver',
     description:
-      'La destination française pour des manteaux femme tendance à prix accessibles. Tout à 50 €.',
+      'Des manteaux désirables, pensés pour les journées froides. À partir de 50 €, livrés en France.',
     // URL absolue plutôt que résolue via metadataBase : une URL relative
     // commençant par "/" écraserait le sous-dossier /Commetuveux du
     // déploiement GitHub Pages (règles de résolution d'URL standard).
-    images: [{ url: `${site.url}/images/lifestyle/og-image.jpg`, width: 1200, height: 630, alt: 'Le Closet' }],
+    images: [{ url: `${site.url}/images/lifestyle/og-image.jpg`, width: 1200, height: 630, alt: 'Studio Neige Paris' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Le Closet — Manteaux Femme Tendance à 50€',
-    description: 'Des manteaux qu’on remarque. Des prix qu’on aime.',
+    title: 'Studio Neige Paris — Le vestiaire d’hiver',
+    description: 'Des manteaux désirables, pensés pour les journées froides.',
     images: [`${site.url}/images/lifestyle/og-image.jpg`],
   },
   robots: { index: true, follow: true },
@@ -57,10 +57,10 @@ export const viewport: Viewport = {
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'OnlineStore',
-  name: site.name,
+  name: site.fullName,
   url: site.url,
   description:
-    'Le Closet — manteaux femme tendance à 50 €, livrés en France.',
+    'Studio Neige Paris — manteaux et vestes femme, le vestiaire d’hiver, à partir de 50 €, livrés en France.',
   areaServed: 'FR',
   currenciesAccepted: 'EUR',
 };

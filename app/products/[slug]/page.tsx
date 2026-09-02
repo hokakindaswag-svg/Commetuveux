@@ -30,7 +30,7 @@ export async function generateMetadata({
     alternates: { canonical: `/products/${product.slug}` },
     openGraph: {
       type: 'website',
-      title: `${product.name} | Le Closet`,
+      title: `${product.name} | Studio Neige Paris`,
       description: product.description,
       // URL absolue : une URL relative écraserait le sous-dossier /Commetuveux
       // du déploiement GitHub Pages (voir app/layout.tsx).
@@ -78,18 +78,18 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <nav aria-label="Fil d’Ariane" className="mb-6">
           <ol className="flex flex-wrap items-center gap-2 text-2xs uppercase tracking-wider text-brown">
             <li>
-              <Link href="/" className="hover:text-wood">
+              <Link href="/" className="hover:text-chocolate">
                 Accueil
               </Link>
             </li>
             <li aria-hidden="true">/</li>
             <li>
-              <Link href="/collections/manteaux" className="hover:text-wood">
+              <Link href="/collections/manteaux" className="hover:text-chocolate">
                 Manteaux
               </Link>
             </li>
             <li aria-hidden="true">/</li>
-            <li className="text-wood">{product.name}</li>
+            <li className="text-chocolate">{product.name}</li>
           </ol>
         </nav>
 
@@ -124,7 +124,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                     content: (
                       <div className="space-y-3">
                         <p>
-                          <span className="text-wood">Matière principale :</span> {product.material}
+                          <span className="text-chocolate">Matière principale :</span> {product.material}
                         </p>
                         <p>{product.composition}</p>
                         <p>{product.care}</p>
@@ -143,7 +143,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                         <p>
                           Vous avez 14 jours après réception pour nous retourner un article non
                           porté, dans son emballage d’origine.{' '}
-                          <Link href="/retours" className="link-underline text-wood">
+                          <Link href="/retours" className="link-underline text-chocolate">
                             Voir la procédure de retour
                           </Link>
                           .
@@ -163,8 +163,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       {related.length ? (
         <section className="container-site py-16 lg:py-24" aria-labelledby="related-title">
           <SectionHeading
-            eyebrow="Compléter la sélection"
-            title="Tu pourrais aussi aimer…"
+            eyebrow="Compléter la silhouette"
+            title="Vous pourriez aussi aimer"
             href="/collections/manteaux"
           />
           <div className="mt-10">

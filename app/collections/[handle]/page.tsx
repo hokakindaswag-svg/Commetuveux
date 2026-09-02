@@ -28,7 +28,7 @@ export async function generateMetadata({
     description: collection.description,
     alternates: { canonical: `/collections/${collection.handle}` },
     openGraph: {
-      title: `${collection.title} | Le Closet`,
+      title: `${collection.title} | Studio Neige Paris`,
       description: collection.description,
       // URL absolue : une URL relative écraserait le sous-dossier /Commetuveux
       // du déploiement GitHub Pages (voir app/layout.tsx).
@@ -62,7 +62,7 @@ export default async function CollectionPage({
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-wood/35" />
+          <div className="absolute inset-0 bg-chocolate/35" />
           <div className="container-site relative flex h-full flex-col items-center justify-center text-center">
             <nav aria-label="Fil d’Ariane" className="mb-4">
               <ol className="flex items-center gap-2 text-2xs uppercase tracking-wider text-cream/80">
@@ -75,7 +75,7 @@ export default async function CollectionPage({
                 <li className="text-cream">{collection.title}</li>
               </ol>
             </nav>
-            <h1 className="font-serif text-4xl uppercase tracking-wider text-cream sm:text-5xl lg:text-6xl">
+            <h1 className="font-display text-4xl font-light uppercase tracking-brand text-cream sm:text-5xl lg:text-[56px]">
               {collection.title}
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-cream/85">

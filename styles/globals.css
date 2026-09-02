@@ -2,20 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ------------------------------------------------------------------ */
-/*  Le Closet — base                                                    */
-/* ------------------------------------------------------------------ */
+/* ==================================================================== */
+/*  STUDIO NEIGE PARIS — design tokens                                  */
+/*                                                                      */
+/*  SOURCE UNIQUE DE VÉRITÉ pour la charte.                             */
+/*  Pour changer l'identité de la marque, modifiez uniquement ce bloc :  */
+/*  tailwind.config.ts consomme ces variables, aucun composant ne code   */
+/*  de couleur en dur.                                                   */
+/*                                                                       */
+/*  Les valeurs sont en canaux RVB (et non en hexadécimal) pour que      */
+/*  Tailwind puisse appliquer l'opacité : bg-burgundy/40, border-        */
+/*  chocolate/15, etc.                                                   */
+/* ==================================================================== */
 
 :root {
-  --font-inter: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-cormorant: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --header-height: 108px;
+  --color-burgundy: 83 14 14; /* #530E0E — accent principal, CTA */
+  --color-pink: 243 160 170; /* #F3A0AA — accent secondaire */
+  --color-chocolate: 48 21 14; /* #30150E — typographie, sections foncées */
+  --color-ivory: 248 229 215; /* #F8E5D7 — blocs chauds, fonds d'images */
+  --color-brown: 107 78 58; /* #6B4E3A — texte secondaire */
+  --color-black: 0 0 0; /* #000000 */
+  --color-white: 255 255 255; /* #FFFFFF */
+
+  /* Nuances dérivées de la palette ci-dessus */
+  --color-cream: 253 250 246; /* #FDFAF6 — fond de page (ivoire très clair) */
+  --color-cream-warm: 250 243 235; /* #FAF3EB — fond de page alterné */
+  --color-ivory-deep: 240 214 196; /* #F0D6C4 — ivoire soutenu */
+  --color-pink-soft: 249 205 211; /* #F9CDD3 */
+  --color-pink-deep: 228 128 140; /* #E4808C */
+  --color-chocolate-light: 74 36 26; /* #4A241A */
+  --color-burgundy-light: 107 20 20; /* #6B1414 */
+
+  --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Cormorant Garamond', Didot, Georgia, 'Times New Roman', serif;
+
+  /* Hauteur du header : pilotée par Header.tsx (état déroulé / compact) */
+  --header-height: 116px;
+
   color-scheme: light;
 }
 
 @media (max-width: 1023px) {
   :root {
-    --header-height: 92px;
+    --header-height: 84px;
   }
 }
 
@@ -43,7 +72,7 @@
   }
 
   body {
-    @apply bg-cream text-wood font-sans antialiased;
+    @apply bg-cream font-sans text-chocolate antialiased;
     overflow-x: hidden;
   }
 
@@ -51,19 +80,19 @@
   h2,
   h3,
   h4 {
-    @apply text-wood;
+    @apply text-chocolate;
     text-wrap: balance;
   }
 
   ::selection {
-    background: #530e0e;
-    color: #fdf9f5;
+    background: rgb(var(--color-burgundy));
+    color: rgb(var(--color-ivory));
   }
 
   :focus-visible {
-    outline: 2px solid #530e0e;
+    outline: 2px solid rgb(var(--color-burgundy));
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: 1px;
   }
 
   input,
@@ -79,37 +108,63 @@
     @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-10;
   }
 
+  /* ---------------------------------------------------------------- */
+  /*  Typographie éditoriale                                          */
+  /* ---------------------------------------------------------------- */
+
+  /* Surtitre : petites capitales très espacées, signature de la marque */
   .eyebrow {
     @apply text-2xs uppercase tracking-brand text-brown;
   }
 
+  /* Titre de section : serif haute couture en capitales espacées */
+  .section-title {
+    @apply font-display text-[26px] font-light uppercase leading-[1.15]
+           tracking-[0.16em] text-chocolate sm:text-[32px] lg:text-[38px];
+  }
+
+  /* Titre de campagne : serif large, bas de casse, pour le hero */
+  .display-title {
+    @apply font-display text-[40px] font-light leading-[1.04] tracking-[0.01em]
+           text-chocolate sm:text-[56px] lg:text-[72px];
+  }
+
+  /* ---------------------------------------------------------------- */
+  /*  Boutons                                                          */
+  /* ---------------------------------------------------------------- */
+
   .btn {
-    @apply inline-flex items-center justify-center gap-2 text-xs font-medium uppercase
-           tracking-widest transition-colors duration-300 ease-closet
+    @apply inline-flex items-center justify-center gap-2 text-2xs font-medium uppercase
+           tracking-brand transition-all duration-300 ease-studio
            disabled:cursor-not-allowed disabled:opacity-40;
   }
 
   .btn-primary {
-    @apply btn bg-burgundy px-8 py-4 text-cream hover:bg-wood;
+    @apply btn bg-burgundy px-9 py-4 text-ivory hover:bg-chocolate;
   }
 
   .btn-secondary {
-    @apply btn border border-wood/25 bg-transparent px-8 py-4 text-wood hover:border-wood hover:bg-wood hover:text-cream;
+    @apply btn border border-chocolate/25 bg-transparent px-9 py-4 text-chocolate
+           hover:border-chocolate hover:bg-chocolate hover:text-ivory;
+  }
+
+  .btn-light {
+    @apply btn bg-ivory px-9 py-4 text-burgundy hover:bg-pink hover:text-chocolate;
   }
 
   .btn-ghost {
-    @apply btn border-b border-wood/40 pb-1 text-wood hover:border-wood;
+    @apply btn border-b border-chocolate/40 pb-1 text-chocolate hover:border-chocolate;
   }
 
   .field {
-    @apply w-full border border-wood/20 bg-white px-4 py-3 text-sm text-wood
+    @apply w-full border border-chocolate/20 bg-white px-4 py-3.5 text-sm text-chocolate
            placeholder:text-brown/50 focus:border-burgundy focus:outline-none;
   }
 
   .link-underline {
     @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:h-px
            after:w-0 after:bg-current after:transition-[width] after:duration-300
-           after:ease-closet hover:after:w-full;
+           after:ease-studio hover:after:w-full;
   }
 
   .hide-scrollbar {
@@ -120,25 +175,17 @@
     display: none;
   }
 
-  /* Texture léopard éditoriale — utilisée avec parcimonie */
-  .leopard {
-    background-color: #f8e5d7;
-    background-image:
-      radial-gradient(ellipse 9px 7px at 18% 22%, #30150e 62%, transparent 64%),
-      radial-gradient(ellipse 13px 10px at 18% 22%, transparent 52%, #6b4e3a 54%, #6b4e3a 74%, transparent 76%),
-      radial-gradient(ellipse 8px 6px at 62% 44%, #30150e 62%, transparent 64%),
-      radial-gradient(ellipse 12px 9px at 62% 44%, transparent 52%, #6b4e3a 54%, #6b4e3a 74%, transparent 76%),
-      radial-gradient(ellipse 7px 6px at 38% 74%, #30150e 62%, transparent 64%),
-      radial-gradient(ellipse 11px 9px at 38% 74%, transparent 52%, #6b4e3a 54%, #6b4e3a 74%, transparent 76%),
-      radial-gradient(ellipse 9px 7px at 86% 86%, #30150e 62%, transparent 64%),
-      radial-gradient(ellipse 13px 10px at 86% 86%, transparent 52%, #6b4e3a 54%, #6b4e3a 74%, transparent 76%);
-    background-size: 92px 78px;
-  }
+  /* ----------------------------------------------------------------
+     Signature léopard
+     Le motif est un composant SVG (components/ui/Leopard.tsx) et non une
+     classe CSS : de vraies rosettes irrégulières, impossibles à obtenir
+     proprement avec des dégradés radiaux répétés.
+     ---------------------------------------------------------------- */
 
   .skip-link {
     @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100]
            focus:bg-burgundy focus:px-5 focus:py-3 focus:text-xs focus:uppercase
-           focus:tracking-widest focus:text-cream;
+           focus:tracking-widest focus:text-ivory;
   }
 }
 

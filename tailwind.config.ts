@@ -1,5 +1,17 @@
 import type { Config } from 'tailwindcss';
 
+/**
+ * STUDIO NEIGE PARIS — thème.
+ *
+ * Les couleurs pointent vers les variables CSS définies dans
+ * styles/globals.css (:root). C'est là, et uniquement là, que se modifie
+ * la charte : ce fichier ne contient aucune valeur codée en dur.
+ *
+ * Le format `rgb(var(--x) / <alpha-value>)` permet de conserver les
+ * modificateurs d'opacité de Tailwind (bg-burgundy/40, border-chocolate/15…).
+ */
+const token = (name: string) => `rgb(var(--color-${name}) / <alpha-value>)`;
+
 const config: Config = {
   content: [
     './app/**/*.{ts,tsx}',
@@ -11,28 +23,39 @@ const config: Config = {
     extend: {
       colors: {
         burgundy: {
-          DEFAULT: '#530E0E',
-          50: '#FBF2F2',
-          100: '#F3DCDC',
-          600: '#6B1414',
-          700: '#530E0E',
-          900: '#360909',
+          DEFAULT: token('burgundy'),
+          light: token('burgundy-light'),
         },
-        wood: { DEFAULT: '#30150E', light: '#4A241A' },
-        brown: { DEFAULT: '#6B4E3A', light: '#8D6E56' },
-        blush: { DEFAULT: '#F3A0AA', soft: '#F9CDD3', deep: '#E4808C' },
-        silk: { DEFAULT: '#F8E5D7', deep: '#F0D6C4' },
-        cream: { DEFAULT: '#FDF9F5', warm: '#FAF3EC' },
-        ink: '#000000',
+        pink: {
+          DEFAULT: token('pink'),
+          soft: token('pink-soft'),
+          deep: token('pink-deep'),
+        },
+        chocolate: {
+          DEFAULT: token('chocolate'),
+          light: token('chocolate-light'),
+        },
+        ivory: {
+          DEFAULT: token('ivory'),
+          deep: token('ivory-deep'),
+        },
+        brown: token('brown'),
+        cream: {
+          DEFAULT: token('cream'),
+          warm: token('cream-warm'),
+        },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
-        serif: ['var(--font-cormorant)', 'Cormorant Garamond', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)'],
+        display: ['var(--font-display)'],
+        // Alias conservé : `font-serif` reste équivalent à `font-display`.
+        serif: ['var(--font-display)'],
       },
       letterSpacing: {
         wider: '.08em',
         widest: '.16em',
-        brand: '.24em',
+        brand: '.22em',
+        signature: '.34em',
       },
       fontSize: {
         '2xs': ['0.6875rem', { lineHeight: '1rem' }],
@@ -46,7 +69,7 @@ const config: Config = {
         site: '1600px',
       },
       transitionTimingFunction: {
-        closet: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
+        studio: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
       },
       keyframes: {
         'fade-in': { from: { opacity: '0' }, to: { opacity: '1' } },
@@ -66,10 +89,6 @@ const config: Config = {
           from: { opacity: '0', transform: 'translateY(-8px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
         },
-        marquee: {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-50%)' },
-        },
       },
       animation: {
         'fade-in': 'fade-in .35s ease both',
@@ -77,7 +96,6 @@ const config: Config = {
         'slide-in-right': 'slide-in-right .35s cubic-bezier(0.22, 0.61, 0.36, 1) both',
         'slide-in-left': 'slide-in-left .35s cubic-bezier(0.22, 0.61, 0.36, 1) both',
         'slide-down': 'slide-down .25s ease both',
-        marquee: 'marquee 26s linear infinite',
       },
     },
   },

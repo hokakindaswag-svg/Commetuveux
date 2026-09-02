@@ -1,8 +1,8 @@
 {
-  "name": "le-closet",
+  "name": "studio-neige-paris",
   "version": "1.0.0",
   "private": true,
-  "description": "Le Closet — boutique en ligne de manteaux femme à 50€.",
+  "description": "Studio Neige Paris — boutique en ligne de manteaux et vestes femme.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

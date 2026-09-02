@@ -154,3 +154,19 @@ export const TiktokIcon = (p: IconProps) => (
     <path d="M14.5 3.5c.4 2.2 2 3.8 4.2 4.1" />
   </svg>
 );
+
+export const PinterestIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M10 18.5 12.2 9" />
+    <path d="M9.4 13.2a3.4 3.4 0 1 1 5.1-2.6c0 2.3-1.3 3.9-3 3.9a1.9 1.9 0 0 1-1.6-.9" />
+  </svg>
+);
+
+/** Flocon — signature « Neige » de la maison. */
+export const SnowIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9" />
+    <path d="M12 6.4 10.1 4.5M12 6.4l1.9-1.9M12 17.6l-1.9 1.9M12 17.6l1.9 1.9" />
+  </svg>
+);

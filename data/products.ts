@@ -1,7 +1,7 @@
 import type { Product } from '@/types';
 
 /* ------------------------------------------------------------------ */
-/*  CATALOGUE LE CLOSET                                                */
+/*  CATALOGUE STUDIO NEIGE PARIS                                      */
 /*                                                                     */
 /*  Ajouter un manteau = ajouter un objet à ce tableau.                */
 /*  Les images sont de simples chemins vers /public/images/products/.  */
@@ -23,7 +23,7 @@ export const products: Product[] = [
     color: { name: 'Camel', hex: '#B78A5C', group: 'Marron' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: ['/images/products/manteau-long-camille-1.jpg', '/images/products/manteau-long-camille-2.jpg'],
-    badge: 'NOUVEAUTÉ',
+    badge: 'NOUVEAU',
     description:
       'Un manteau long qui tombe parfaitement, pensé pour envelopper la silhouette sans l’alourdir. Décliné en camel, il adopte une coupe oversize et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
     details: ['Coupe longue sous le genou', 'Col tailleur revers larges', 'Fermeture boutonnée dissimulée', 'Deux poches passepoilées'],
@@ -153,7 +153,7 @@ export const products: Product[] = [
     color: { name: 'Crème', hex: '#F1E4D6', group: 'Crème' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: ['/images/products/trench-eloise-1.jpg', '/images/products/trench-eloise-2.jpg'],
-    badge: 'NOUVEAUTÉ',
+    badge: 'NOUVEAU',
     description:
       'Le trench intemporel, revisité avec une coupe plus fluide et une ceinture à nouer. Décliné en crème, il adopte une coupe droite et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
     details: ['Ceinture à nouer amovible', 'Double boutonnage', 'Empiècement dos', 'Fente centrale au dos'],
@@ -283,7 +283,7 @@ export const products: Product[] = [
     color: { name: 'Bordeaux', hex: '#530E0E', group: 'Bordeaux' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: ['/images/products/doudoune-romane-1.jpg', '/images/products/doudoune-romane-2.jpg'],
-    badge: 'NOUVEAUTÉ',
+    badge: 'NOUVEAU',
     description:
       'La doudoune qu’on garde tout l’hiver : chaude, légère et jamais banale. Décliné en bordeaux, il adopte une coupe courte et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
     details: ['Garnissage chaud et léger', 'Capuche amovible', 'Fermeture zippée double curseur', 'Poches zippées chauffe-mains'],
@@ -413,7 +413,7 @@ export const products: Product[] = [
     color: { name: 'Gris perle', hex: '#B9B4AE', group: 'Gris' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: ['/images/products/manteau-laine-leonie-1.jpg', '/images/products/manteau-laine-leonie-2.jpg'],
-    badge: 'NOUVEAUTÉ',
+    badge: 'NOUVEAU',
     description:
       'Le manteau en laine mélangée qu’on garde des années : coupe nette, finitions soignées. Décliné en gris perle, il adopte une coupe ceinturée et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
     details: ['Laine mélangée douce', 'Col tailleur', 'Fermeture boutonnée', 'Deux poches passepoilées'],
@@ -543,7 +543,7 @@ export const products: Product[] = [
     color: { name: 'Gris perle', hex: '#B9B4AE', group: 'Gris' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: ['/images/products/veste-teddy-josephine-1.jpg', '/images/products/veste-teddy-josephine-2.jpg'],
-    badge: 'NOUVEAUTÉ',
+    badge: 'NOUVEAU',
     description:
       'La veste teddy en bouclette, douce comme un nuage et facile à porter du matin au soir. Décliné en gris perle, il adopte une coupe courte et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
     details: ['Maille bouclette douce', 'Col chemise', 'Fermeture zippée', 'Poches plaquées'],
@@ -673,7 +673,7 @@ export const products: Product[] = [
     color: { name: 'Prune', hex: '#5B2740', group: 'Bordeaux' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: ['/images/products/manteau-court-sidonie-1.jpg', '/images/products/manteau-court-sidonie-2.jpg'],
-    badge: 'NOUVEAUTÉ',
+    badge: 'NOUVEAU',
     description:
       'Un manteau court taille haute, celui qu’on enfile sur tout, du jean au slip dress. Décliné en prune, il adopte une coupe courte et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
     details: ['Coupe courte à la taille', 'Épaules légèrement structurées', 'Fermeture boutonnée', 'Finitions surpiquées'],
@@ -803,7 +803,7 @@ export const products: Product[] = [
     color: { name: 'Crème', hex: '#F1E4D6', group: 'Crème' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: ['/images/products/manteau-cuir-solene-1.jpg', '/images/products/manteau-cuir-solene-2.jpg'],
-    badge: 'NOUVEAUTÉ',
+    badge: 'NOUVEAU',
     description:
       'Un manteau en similicuir au tombé net, pour un look sûr de lui en trois secondes. Décliné en crème, il adopte une coupe ceinturée et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
     details: ['Similicuir souple au tombé net', 'Col chemise', 'Fermeture zippée métal', 'Coutures apparentes contrastées'],
@@ -933,7 +933,7 @@ export const products: Product[] = [
     color: { name: 'Crème', hex: '#F1E4D6', group: 'Crème' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: ['/images/products/manteau-fourrure-delphine-1.jpg', '/images/products/manteau-fourrure-delphine-2.jpg'],
-    badge: 'NOUVEAUTÉ',
+    badge: 'NOUVEAU',
     description:
       'La pièce statement de la saison : une fausse fourrure ultra douce, effet immédiat. Décliné en crème, il adopte une coupe cintrée et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
     details: ['Fausse fourrure très douce', 'Col montant enveloppant', 'Fermeture par crochets dissimulés', 'Deux poches latérales'],
@@ -1063,7 +1063,7 @@ export const products: Product[] = [
     color: { name: 'Prune', hex: '#5B2740', group: 'Bordeaux' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: ['/images/products/manteau-long-alma-1.jpg', '/images/products/manteau-long-alma-2.jpg'],
-    badge: 'NOUVEAUTÉ',
+    badge: 'NOUVEAU',
     description:
       'Un manteau long qui tombe parfaitement, pensé pour envelopper la silhouette sans l’alourdir. Décliné en prune, il adopte une coupe affirmée et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
     details: ['Coupe longue sous le genou', 'Col tailleur revers larges', 'Fermeture boutonnée dissimulée', 'Deux poches passepoilées'],
@@ -1193,7 +1193,7 @@ export const products: Product[] = [
     color: { name: 'Prune', hex: '#5B2740', group: 'Bordeaux' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: ['/images/products/trench-flore-1.jpg', '/images/products/trench-flore-2.jpg'],
-    badge: 'NOUVEAUTÉ',
+    badge: 'NOUVEAU',
     description:
       'Le trench intemporel, revisité avec une coupe plus fluide et une ceinture à nouer. Décliné en prune, il adopte une coupe affirmée et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
     details: ['Ceinture à nouer amovible', 'Double boutonnage', 'Empiècement dos', 'Poches italiennes'],
@@ -1323,7 +1323,7 @@ export const products: Product[] = [
     color: { name: 'Moka', hex: '#6B4E3A', group: 'Marron' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: ['/images/products/doudoune-lou-1.jpg', '/images/products/doudoune-lou-2.jpg'],
-    badge: 'NOUVEAUTÉ',
+    badge: 'NOUVEAU',
     description:
       'La doudoune qu’on garde tout l’hiver : chaude, légère et jamais banale. Décliné en moka, il adopte une coupe oversize et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
     details: ['Garnissage chaud et léger', 'Capuche amovible', 'Fermeture zippée double curseur', 'Bas et poignets élastiqués'],
@@ -1453,7 +1453,7 @@ export const products: Product[] = [
     color: { name: 'Camel', hex: '#B78A5C', group: 'Marron' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: ['/images/products/manteau-laine-quitterie-1.jpg', '/images/products/manteau-laine-quitterie-2.jpg'],
-    badge: 'NOUVEAUTÉ',
+    badge: 'NOUVEAU',
     description:
       'Le manteau en laine mélangée qu’on garde des années : coupe nette, finitions soignées. Décliné en camel, il adopte une coupe droite et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
     details: ['Laine mélangée douce', 'Col tailleur', 'Fermeture boutonnée', 'Coupe droite intemporelle'],

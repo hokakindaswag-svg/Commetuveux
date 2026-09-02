@@ -4,8 +4,8 @@ export default function NotFound() {
   return (
     <div className="container-site flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">
       <p className="eyebrow">Erreur 404</p>
-      <h1 className="mt-5 font-serif text-4xl leading-tight sm:text-5xl">
-        Cette page a quitté le closet.
+      <h1 className="display-title mt-5 text-[34px] sm:text-5xl">
+        Cette page a quitté le studio.
       </h1>
       <p className="mt-5 max-w-md text-sm leading-relaxed text-brown">
         La page que vous cherchez n’existe plus ou a changé d’adresse. Nos manteaux, eux, sont

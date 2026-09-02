@@ -43,7 +43,9 @@ export function ProductPurchase({ product }: { product: Product }) {
   return (
     <>
       <div ref={blockRef}>
-        <h1 className="font-serif text-3xl leading-tight text-wood sm:text-4xl">{product.name}</h1>
+        <h1 className="font-display text-[30px] font-light uppercase leading-[1.15] tracking-[0.1em] text-chocolate sm:text-[36px]">
+          {product.name}
+        </h1>
 
         <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
           <Price price={product.price} compareAtPrice={product.compareAtPrice} size="lg" showDiscount />
@@ -51,11 +53,11 @@ export function ProductPurchase({ product }: { product: Product }) {
         </div>
 
         <div className="mt-8">
-          <p className="text-2xs uppercase tracking-widest text-wood">
+          <p className="text-2xs uppercase tracking-widest text-chocolate">
             Couleur : <span className="text-brown">{product.color.name}</span>
           </p>
           <span
-            className="mt-3 inline-block h-9 w-9 rounded-full border border-wood ring-1 ring-wood ring-offset-2 ring-offset-cream"
+            className="mt-3 inline-block h-9 w-9 rounded-full border border-chocolate ring-1 ring-chocolate ring-offset-2 ring-offset-cream"
             style={{ backgroundColor: product.color.hex }}
             aria-hidden="true"
           />
@@ -63,7 +65,7 @@ export function ProductPurchase({ product }: { product: Product }) {
 
         <div className="mt-8">
           <div className="flex items-center justify-between">
-            <p className="text-2xs uppercase tracking-widest text-wood">Taille</p>
+            <p className="text-2xs uppercase tracking-widest text-chocolate">Taille</p>
             <SizeGuideButton />
           </div>
 
@@ -85,8 +87,8 @@ export function ProductPurchase({ product }: { product: Product }) {
                     size === s
                       ? 'border-burgundy bg-burgundy text-cream'
                       : disabled
-                        ? 'cursor-not-allowed border-wood/15 text-wood/35 line-through'
-                        : 'border-wood/25 text-wood hover:border-wood'
+                        ? 'cursor-not-allowed border-chocolate/15 text-chocolate/35 line-through'
+                        : 'border-chocolate/25 text-chocolate hover:border-chocolate'
                   }`}
                 >
                   {s}
@@ -121,14 +123,14 @@ export function ProductPurchase({ product }: { product: Product }) {
             type="button"
             onClick={() => toggleWishlist(product.id)}
             aria-pressed={wished}
-            aria-label={wished ? 'Retirer de la wishlist' : 'Ajouter à la wishlist'}
-            className="grid w-14 place-items-center border border-wood/25 text-wood transition-colors hover:border-wood"
+            aria-label={wished ? 'Retirer de ma sélection' : 'Ajouter à ma sélection'}
+            className="grid w-14 place-items-center border border-chocolate/25 text-chocolate transition-colors hover:border-chocolate"
           >
             <HeartIcon filled={wished} width={20} height={20} className={wished ? 'text-burgundy' : ''} />
           </button>
         </div>
 
-        <ul className="mt-8 space-y-3 border-t border-wood/10 pt-6 text-xs text-brown">
+        <ul className="mt-8 space-y-3 border-t border-chocolate/10 pt-6 text-xs text-brown">
           <li className="flex items-center gap-3">
             <TruckIcon width={18} height={18} className="text-burgundy" />
             Livraison suivie en France — expédition sous 48 h ouvrées
@@ -146,13 +148,13 @@ export function ProductPurchase({ product }: { product: Product }) {
 
       {/* Barre d'achat collante — mobile */}
       <div
-        className={`fixed inset-x-0 bottom-0 z-40 border-t border-wood/10 bg-cream/95 px-4 py-3 backdrop-blur transition-transform duration-300 ease-closet lg:hidden ${
+        className={`fixed inset-x-0 bottom-0 z-40 border-t border-chocolate/10 bg-cream/95 px-4 py-3 backdrop-blur transition-transform duration-300 ease-studio lg:hidden ${
           stickyVisible ? 'translate-y-0' : 'translate-y-full'
         }`}
       >
         <div className="flex items-center gap-3">
           <div className="min-w-0 flex-1">
-            <p className="truncate text-2xs uppercase tracking-wider text-wood">{product.name}</p>
+            <p className="truncate text-2xs uppercase tracking-wider text-chocolate">{product.name}</p>
             <Price price={product.price} compareAtPrice={product.compareAtPrice} size="sm" />
           </div>
           <label className="sr-only" htmlFor="sticky-size">
@@ -165,7 +167,7 @@ export function ProductPurchase({ product }: { product: Product }) {
               setSize(e.target.value as Size);
               setError(false);
             }}
-            className="border border-wood/25 bg-cream px-3 py-3 text-xs text-wood focus:border-burgundy focus:outline-none"
+            className="border border-chocolate/25 bg-cream px-3 py-3 text-xs text-chocolate focus:border-burgundy focus:outline-none"
           >
             <option value="">Taille</option>
             {product.sizes

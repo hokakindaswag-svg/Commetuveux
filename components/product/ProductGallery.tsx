@@ -22,8 +22,8 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
                 onClick={() => setActive(i)}
                 aria-label={`Voir le visuel ${i + 1} de ${name}`}
                 aria-current={active === i}
-                className={`relative aspect-product w-[76px] overflow-hidden bg-silk transition-opacity ${
-                  active === i ? 'ring-1 ring-wood' : 'opacity-70 hover:opacity-100'
+                className={`relative aspect-product w-[76px] overflow-hidden bg-ivory transition-opacity ${
+                  active === i ? 'ring-1 ring-chocolate' : 'opacity-70 hover:opacity-100'
                 }`}
               >
                 <Image src={assetPath(src)} alt="" fill sizes="76px" className="object-cover" />
@@ -35,7 +35,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
 
       {/* Visuel principal */}
       <div className="relative flex-1">
-        <div className="relative aspect-product w-full overflow-hidden bg-silk">
+        <div className="relative aspect-product w-full overflow-hidden bg-ivory">
           <Image
             src={assetPath(images[active])}
             alt={`${name} — visuel ${active + 1}`}
@@ -52,7 +52,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
               type="button"
               onClick={() => go(-1)}
               aria-label="Visuel précédent"
-              className="absolute left-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-cream/85 text-wood transition hover:bg-cream lg:hidden"
+              className="absolute left-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-cream/85 text-chocolate transition hover:bg-cream lg:hidden"
             >
               <ChevronLeft width={18} height={18} />
             </button>
@@ -60,7 +60,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
               type="button"
               onClick={() => go(1)}
               aria-label="Visuel suivant"
-              className="absolute right-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-cream/85 text-wood transition hover:bg-cream lg:hidden"
+              className="absolute right-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-cream/85 text-chocolate transition hover:bg-cream lg:hidden"
             >
               <ChevronRight width={18} height={18} />
             </button>
@@ -73,7 +73,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
                     aria-label={`Visuel ${i + 1}`}
                     aria-current={active === i}
                     className={`h-1.5 w-6 transition-colors ${
-                      active === i ? 'bg-wood' : 'bg-wood/25'
+                      active === i ? 'bg-chocolate' : 'bg-chocolate/25'
                     }`}
                   />
                 </li>

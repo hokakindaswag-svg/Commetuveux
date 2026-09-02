@@ -5,7 +5,7 @@ import { site } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Retours',
-  description: 'Procédure de retour des manteaux Le Closet : délais, conditions et remboursement.',
+  description: 'Procédure de retour des pièces Studio Neige Paris : délais, conditions et remboursement.',
 };
 
 export default function Page() {

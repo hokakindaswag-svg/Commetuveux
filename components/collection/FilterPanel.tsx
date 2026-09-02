@@ -25,13 +25,13 @@ function Group({
 }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <div className="border-b border-wood/10">
+    <div className="border-b border-chocolate/10">
       <h3>
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}
-          className="flex w-full items-center justify-between py-4 text-left text-2xs uppercase tracking-widest text-wood"
+          className="flex w-full items-center justify-between py-4 text-left text-2xs uppercase tracking-widest text-chocolate"
         >
           {label}
           <ChevronDown
@@ -56,7 +56,7 @@ function Checkbox({
   label: string;
 }) {
   return (
-    <label className="flex cursor-pointer items-center gap-3 py-1.5 text-sm text-wood">
+    <label className="flex cursor-pointer items-center gap-3 py-1.5 text-sm text-chocolate">
       <input
         type="checkbox"
         checked={checked}
@@ -86,9 +86,9 @@ export function FilterPanel({
 
   return (
     <div>
-      <div className="flex items-center justify-between border-b border-wood/10 pb-4">
+      <div className="flex items-center justify-between border-b border-chocolate/10 pb-4">
         {showTitle ? (
-          <p className="text-2xs uppercase tracking-widest text-wood">Filtres</p>
+          <p className="text-2xs uppercase tracking-widest text-chocolate">Filtres</p>
         ) : (
           <span aria-hidden="true" />
         )}
@@ -123,7 +123,7 @@ export function FilterPanel({
               className={`min-w-[46px] border px-3 py-2 text-xs transition-colors ${
                 has('sizes', size)
                   ? 'border-burgundy bg-burgundy text-cream'
-                  : 'border-wood/20 text-wood hover:border-wood'
+                  : 'border-chocolate/20 text-chocolate hover:border-chocolate'
               }`}
             >
               {size}
@@ -140,14 +140,14 @@ export function FilterPanel({
               type="button"
               aria-pressed={has('colors', color.name)}
               onClick={() => onToggle('colors', color.name)}
-              className="flex items-center gap-2.5 py-2 text-left text-sm text-wood"
+              className="flex items-center gap-2.5 py-2 text-left text-sm text-chocolate"
             >
               <span
                 aria-hidden="true"
                 className={`h-5 w-5 shrink-0 rounded-full border ${
                   has('colors', color.name)
                     ? 'border-burgundy ring-1 ring-burgundy ring-offset-2 ring-offset-cream'
-                    : 'border-wood/25'
+                    : 'border-chocolate/25'
                 }`}
                 style={{ backgroundColor: color.hex }}
               />
@@ -159,7 +159,7 @@ export function FilterPanel({
 
       <Group label="Prix">
         <p className="pb-2 text-2xs leading-relaxed text-brown">
-          Tous nos manteaux sont à 50 €. Filtrez par valeur d’origine.
+          Toutes nos pièces sont à 50 €. Filtrez par valeur d’origine.
         </p>
         {priceOptions.map((option) => (
           <Checkbox

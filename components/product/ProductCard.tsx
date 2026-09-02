@@ -7,15 +7,16 @@ import { useStore } from '@/components/providers/StoreProvider';
 import { Price } from '@/components/ui/Price';
 import { HeartIcon } from '@/components/ui/Icons';
 import { availableSizes, isInStock } from '@/lib/catalog';
-import type { Product, Size } from '@/types';
 import { assetPath } from '@/lib/paths';
+import type { Product, Size } from '@/types';
 
+/** Badges maison : discrets, typographiés, jamais criards. */
 const badgeStyles: Record<string, string> = {
-  'NOUVEAUTÉ': 'bg-cream text-wood',
-  'BEST-SELLER': 'bg-burgundy text-cream',
-  'DERNIÈRES PIÈCES': 'bg-wood text-cream',
-  'ÉDITION LIMITÉE': 'bg-blush text-wood',
-  'COUP DE CŒUR': 'bg-blush-soft text-wood',
+  NOUVEAU: 'bg-cream text-burgundy',
+  'BEST-SELLER': 'bg-burgundy text-ivory',
+  'DERNIÈRES PIÈCES': 'bg-chocolate text-ivory',
+  'ÉDITION LIMITÉE': 'bg-pink text-chocolate',
+  'COUP DE CŒUR': 'bg-pink-soft text-chocolate',
 };
 
 export function ProductCard({
@@ -35,7 +36,7 @@ export function ProductCard({
 
   return (
     <article className="group relative">
-      <div className="relative overflow-hidden bg-silk">
+      <div className="relative overflow-hidden bg-ivory">
         <Link
           href={`/products/${product.slug}`}
           className="block"
@@ -48,7 +49,7 @@ export function ProductCard({
               fill
               sizes={sizes}
               priority={priority}
-              className="object-cover transition-opacity duration-500 ease-closet group-hover:opacity-0"
+              className="object-cover transition-opacity duration-500 ease-studio group-hover:opacity-0"
             />
             {product.images[1] ? (
               <Image
@@ -58,16 +59,22 @@ export function ProductCard({
                 fill
                 sizes={sizes}
                 loading="lazy"
-                className="scale-[1.02] object-cover opacity-0 transition-all duration-700 ease-closet group-hover:scale-100 group-hover:opacity-100"
+                className="scale-[1.02] object-cover opacity-0 transition-all duration-700 ease-studio group-hover:scale-100 group-hover:opacity-100"
               />
             ) : null}
           </div>
         </Link>
 
+        {/* Cadre fin qui se révèle au survol — rappel du cadrage éditorial */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-2 border border-ivory/0 transition-colors duration-500 ease-studio group-hover:border-ivory/70"
+        />
+
         {product.badge ? (
           <span
-            className={`pointer-events-none absolute left-3 top-3 px-2.5 py-1 text-2xs font-medium tracking-wider ${
-              badgeStyles[product.badge] ?? 'bg-cream text-wood'
+            className={`pointer-events-none absolute left-3 top-3 px-2.5 py-1.5 text-[10px] uppercase tracking-brand ${
+              badgeStyles[product.badge] ?? 'bg-cream text-burgundy'
             }`}
           >
             {product.badge}
@@ -75,7 +82,7 @@ export function ProductCard({
         ) : null}
 
         {!inStock ? (
-          <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-wood/85 py-2 text-center text-2xs uppercase tracking-widest text-cream">
+          <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-chocolate/85 py-2.5 text-center text-2xs uppercase tracking-brand text-ivory">
             Épuisé
           </span>
         ) : null}
@@ -86,19 +93,24 @@ export function ProductCard({
           aria-pressed={wished}
           aria-label={
             wished
-              ? `Retirer ${product.name} de la wishlist`
-              : `Ajouter ${product.name} à la wishlist`
+              ? `Retirer ${product.name} de ma sélection`
+              : `Ajouter ${product.name} à ma sélection`
           }
-          className="absolute right-2.5 top-2.5 grid h-9 w-9 place-items-center rounded-full bg-cream/80 text-wood backdrop-blur-sm transition hover:bg-cream"
+          className="absolute right-2.5 top-2.5 grid h-9 w-9 place-items-center rounded-full bg-cream/85 text-chocolate backdrop-blur-sm transition hover:bg-cream"
         >
-          <HeartIcon filled={wished} width={17} height={17} className={wished ? 'text-burgundy' : ''} />
+          <HeartIcon
+            filled={wished}
+            width={17}
+            height={17}
+            className={wished ? 'text-burgundy' : ''}
+          />
         </button>
 
-        {/* Ajout rapide — desktop uniquement, pour ne pas encombrer la carte */}
+        {/* Ajout rapide — desktop uniquement, pour garder la carte épurée */}
         {inStock ? (
           <div className="pointer-events-none absolute inset-x-2 bottom-2 hidden lg:block">
             {quickAdd ? (
-              <div className="pointer-events-auto flex items-stretch gap-px bg-cream p-1 animate-fade-in">
+              <div className="pointer-events-auto flex animate-fade-in items-stretch gap-px bg-cream p-1">
                 {sizesAvailable.map((size) => (
                   <button
                     key={size}
@@ -107,7 +119,7 @@ export function ProductCard({
                       addToCart(product, size as Size);
                       setQuickAdd(false);
                     }}
-                    className="flex-1 py-2 text-2xs font-medium tracking-wider text-wood transition-colors hover:bg-burgundy hover:text-cream"
+                    className="flex-1 py-2.5 text-[10px] font-medium uppercase tracking-widest text-chocolate transition-colors hover:bg-burgundy hover:text-ivory"
                   >
                     {size}
                   </button>
@@ -117,7 +129,7 @@ export function ProductCard({
               <button
                 type="button"
                 onClick={() => setQuickAdd(true)}
-                className="pointer-events-auto w-full translate-y-2 bg-cream/95 py-3 text-2xs font-medium uppercase tracking-widest text-wood opacity-0 transition-all duration-300 ease-closet hover:bg-burgundy hover:text-cream group-hover:translate-y-0 group-hover:opacity-100 focus-visible:translate-y-0 focus-visible:opacity-100"
+                className="pointer-events-auto w-full translate-y-2 bg-cream/95 py-3.5 text-[10px] font-medium uppercase tracking-brand text-chocolate opacity-0 transition-all duration-300 ease-studio hover:bg-burgundy hover:text-ivory group-hover:translate-y-0 group-hover:opacity-100 focus-visible:translate-y-0 focus-visible:opacity-100"
               >
                 Ajout rapide
               </button>
@@ -126,17 +138,17 @@ export function ProductCard({
         ) : null}
       </div>
 
-      <div className="pt-3">
-        <h3 className="text-[13px] uppercase tracking-wider text-wood">
+      <div className="pt-4">
+        <h3 className="text-[11px] uppercase tracking-brand text-chocolate">
           <Link href={`/products/${product.slug}`} className="link-underline">
             {product.name}
           </Link>
         </h3>
-        <p className="mt-0.5 text-xs text-brown">{product.color.name}</p>
+        <p className="mt-1.5 text-xs text-brown">{product.color.name}</p>
         <Price
           price={product.price}
           compareAtPrice={product.compareAtPrice}
-          className="mt-1.5"
+          className="mt-2"
           showDiscount
         />
       </div>

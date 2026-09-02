@@ -13,15 +13,15 @@ export function Accordion({
   const [open, setOpen] = useState<string | null>(defaultOpen ?? null);
 
   return (
-    <div className="border-t border-wood/10">
+    <div className="border-t border-chocolate/10">
       {items.map((item) => (
-        <div key={item.title} className="border-b border-wood/10">
+        <div key={item.title} className="border-b border-chocolate/10">
           <h3>
             <button
               type="button"
               onClick={() => setOpen((o) => (o === item.title ? null : item.title))}
               aria-expanded={open === item.title}
-              className="flex w-full items-center justify-between py-5 text-left text-2xs uppercase tracking-widest text-wood"
+              className="flex w-full items-center justify-between py-5 text-left text-2xs uppercase tracking-widest text-chocolate"
             >
               {item.title}
               <ChevronDown

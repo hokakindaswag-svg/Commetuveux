@@ -25,13 +25,13 @@ export function CartDrawer() {
     <Drawer
       open={cartOpen}
       onClose={closeCart}
-      title={`Panier${cartCount ? ` (${cartCount})` : ''}`}
+      title={`Votre sélection${cartCount ? ` (${cartCount})` : ''}`}
       labelledBy="cart-title"
       footer={
         lines.length ? (
           <div className="px-5 py-5 sm:px-6">
             <div className="flex items-baseline justify-between">
-              <span className="text-xs uppercase tracking-widest text-wood">Sous-total</span>
+              <span className="text-xs uppercase tracking-widest text-chocolate">Sous-total</span>
               <span className="text-lg font-medium text-burgundy">{formatPrice(subtotal)}</span>
             </div>
             {savings > 0 ? (
@@ -48,7 +48,7 @@ export function CartDrawer() {
             <button
               type="button"
               onClick={closeCart}
-              className="mt-3 w-full text-center text-xs text-brown underline underline-offset-4 transition-colors hover:text-wood"
+              className="mt-3 w-full text-center text-xs text-brown underline underline-offset-4 transition-colors hover:text-chocolate"
             >
               Continuer mes achats
             </button>
@@ -58,33 +58,33 @@ export function CartDrawer() {
     >
       {lines.length === 0 ? (
         <div className="px-5 py-16 text-center sm:px-6">
-          <p className="text-sm text-wood">Votre panier est vide.</p>
+          <p className="text-sm text-chocolate">Votre sélection est vide.</p>
           <p className="mt-2 text-xs text-brown">
-            Tous nos manteaux sont à {site.corePrice} €. Il y en a forcément un pour vous.
+            Le vestiaire d’hiver vous attend, à partir de {site.corePrice} €.
           </p>
           <Link href="/collections/manteaux" onClick={closeCart} className="btn-primary mt-8">
-            Découvrir les manteaux
+            Découvrir la collection
           </Link>
         </div>
       ) : (
         <div className="px-5 sm:px-6">
           {remaining > 0 ? (
-            <p className="mt-5 bg-silk px-4 py-3 text-center text-2xs uppercase tracking-wider text-wood">
+            <p className="mt-5 bg-ivory px-4 py-3 text-center text-2xs uppercase tracking-wider text-chocolate">
               Plus que {formatPrice(remaining)} pour la livraison offerte
             </p>
           ) : (
-            <p className="mt-5 bg-silk px-4 py-3 text-center text-2xs uppercase tracking-wider text-wood">
+            <p className="mt-5 bg-ivory px-4 py-3 text-center text-2xs uppercase tracking-wider text-chocolate">
               Livraison offerte 🎉
             </p>
           )}
 
-          <ul className="divide-y divide-wood/10">
+          <ul className="divide-y divide-chocolate/10">
             {lines.map((line) => (
               <li key={`${line.productId}-${line.size}`} className="flex gap-4 py-5">
                 <Link
                   href={`/products/${line.slug}`}
                   onClick={closeCart}
-                  className="relative aspect-product w-[88px] shrink-0 overflow-hidden bg-silk"
+                  className="relative aspect-product w-[88px] shrink-0 overflow-hidden bg-ivory"
                 >
                   <Image src={assetPath(line.image)} alt={line.name} fill sizes="88px" className="object-cover" />
                 </Link>
@@ -92,7 +92,7 @@ export function CartDrawer() {
                 <div className="flex min-w-0 flex-1 flex-col">
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">
-                      <h3 className="truncate text-xs uppercase tracking-wider text-wood">
+                      <h3 className="truncate text-xs uppercase tracking-wider text-chocolate">
                         <Link href={`/products/${line.slug}`} onClick={closeCart}>
                           {line.name}
                         </Link>
@@ -105,23 +105,23 @@ export function CartDrawer() {
                   </div>
 
                   <div className="mt-auto flex items-center justify-between pt-3">
-                    <div className="inline-flex items-center border border-wood/20">
+                    <div className="inline-flex items-center border border-chocolate/20">
                       <button
                         type="button"
                         onClick={() => setQuantity(line.productId, line.size, line.quantity - 1)}
                         aria-label={`Réduire la quantité de ${line.name}`}
-                        className="grid h-8 w-8 place-items-center text-wood transition-colors hover:bg-silk"
+                        className="grid h-8 w-8 place-items-center text-chocolate transition-colors hover:bg-ivory"
                       >
                         <MinusIcon width={14} height={14} />
                       </button>
-                      <span className="w-8 text-center text-xs text-wood" aria-live="polite">
+                      <span className="w-8 text-center text-xs text-chocolate" aria-live="polite">
                         {line.quantity}
                       </span>
                       <button
                         type="button"
                         onClick={() => setQuantity(line.productId, line.size, line.quantity + 1)}
                         aria-label={`Augmenter la quantité de ${line.name}`}
-                        className="grid h-8 w-8 place-items-center text-wood transition-colors hover:bg-silk"
+                        className="grid h-8 w-8 place-items-center text-chocolate transition-colors hover:bg-ivory"
                       >
                         <PlusIcon width={14} height={14} />
                       </button>
@@ -141,22 +141,22 @@ export function CartDrawer() {
           </ul>
 
           {recommendations.length ? (
-            <section className="border-t border-wood/10 py-6">
-              <h3 className="eyebrow">Tu pourrais aussi aimer…</h3>
+            <section className="border-t border-chocolate/10 py-6">
+              <h3 className="eyebrow">Vous pourriez aussi aimer</h3>
               <ul className="hide-scrollbar -mx-5 mt-4 flex gap-3 overflow-x-auto px-5 sm:-mx-6 sm:px-6">
                 {recommendations.map((p) => (
                   <li key={p.id} className="w-[132px] shrink-0">
                     <Link href={`/products/${p.slug}`} onClick={closeCart} className="group block">
-                      <div className="relative aspect-product overflow-hidden bg-silk">
+                      <div className="relative aspect-product overflow-hidden bg-ivory">
                         <Image
                           src={assetPath(p.images[0])}
                           alt={p.name}
                           fill
                           sizes="132px"
-                          className="object-cover transition-transform duration-500 ease-closet group-hover:scale-105"
+                          className="object-cover transition-transform duration-500 ease-studio group-hover:scale-105"
                         />
                       </div>
-                      <p className="mt-2 truncate text-2xs uppercase tracking-wider text-wood">
+                      <p className="mt-2 truncate text-2xs uppercase tracking-wider text-chocolate">
                         {p.name}
                       </p>
                       <Price price={p.price} compareAtPrice={p.compareAtPrice} size="sm" />

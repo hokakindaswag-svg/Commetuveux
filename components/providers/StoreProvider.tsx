@@ -13,12 +13,12 @@ import {
 import type { CartLine, Product, Size } from '@/types';
 
 /* ------------------------------------------------------------------ */
-/*  Panier + wishlist, persistés dans le localStorage du navigateur.   */
+/*  Panier + sélection, persistés dans le localStorage du navigateur.  */
 /*  Aucun appel réseau : brancher ici votre backend / Shopify / Stripe.*/
 /* ------------------------------------------------------------------ */
 
-const CART_KEY = 'le-closet:cart';
-const WISHLIST_KEY = 'le-closet:wishlist';
+const CART_KEY = 'studio-neige:cart';
+const WISHLIST_KEY = 'studio-neige:wishlist';
 
 type CartAction =
   | { type: 'hydrate'; lines: CartLine[] }

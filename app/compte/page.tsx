@@ -4,7 +4,7 @@ import { PageHeader } from '@/components/layout/PageHeader';
 
 export const metadata: Metadata = {
   title: 'Mon compte',
-  description: 'Connectez-vous à votre compte Le Closet pour suivre vos commandes.',
+  description: 'Connectez-vous à votre compte Studio Neige Paris pour suivre vos commandes.',
 };
 
 export default function AccountPage() {
@@ -16,8 +16,8 @@ export default function AccountPage() {
       />
       <div className="container-site py-14 lg:py-20">
         <div className="mx-auto grid max-w-4xl gap-10 md:grid-cols-2">
-          <section className="border border-wood/15 p-8" aria-labelledby="login-title">
-            <h2 id="login-title" className="text-2xs uppercase tracking-widest text-wood">
+          <section className="border border-chocolate/15 p-8" aria-labelledby="login-title">
+            <h2 id="login-title" className="text-2xs uppercase tracking-widest text-chocolate">
               Se connecter
             </h2>
             <form className="mt-6 space-y-4">
@@ -47,22 +47,22 @@ export default function AccountPage() {
             </p>
           </section>
 
-          <section className="border border-wood/15 bg-cream-warm p-8" aria-labelledby="new-title">
-            <h2 id="new-title" className="text-2xs uppercase tracking-widest text-wood">
+          <section className="border border-chocolate/15 bg-cream-warm p-8" aria-labelledby="new-title">
+            <h2 id="new-title" className="text-2xs uppercase tracking-widest text-chocolate">
               Nouvelle cliente ?
             </h2>
             <p className="mt-6 text-sm leading-relaxed text-brown">
               Créez un compte pour suivre vos commandes, accélérer vos prochains achats et
-              retrouver votre wishlist sur tous vos appareils.
+              retrouver votre sélection sur tous vos appareils.
             </p>
             <Link href="/collections/manteaux" className="btn-secondary mt-8 w-full">
-              Découvrir les manteaux
+              Découvrir la collection
             </Link>
             <Link
               href="/wishlist"
-              className="mt-4 block text-center text-2xs uppercase tracking-wider text-wood underline underline-offset-4"
+              className="mt-4 block text-center text-2xs uppercase tracking-wider text-chocolate underline underline-offset-4"
             >
-              Voir ma wishlist
+              Voir ma sélection
             </Link>
           </section>
         </div>

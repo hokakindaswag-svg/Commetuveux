@@ -5,7 +5,7 @@ import { site } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Politique de retours',
-  description: 'Politique de retours détaillée de Le Closet.',
+  description: 'Politique de retours détaillée de Studio Neige Paris.',
 };
 
 export default function Page() {

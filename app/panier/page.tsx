@@ -19,7 +19,7 @@ export default function CartPage() {
 
   return (
     <div className="container-site py-12 lg:py-20">
-      <h1 className="font-serif text-4xl leading-tight sm:text-5xl">
+      <h1 className="section-title">
         Panier{hydrated && cartCount ? ` (${cartCount})` : ''}
       </h1>
 
@@ -27,22 +27,22 @@ export default function CartPage() {
         <p className="mt-10 text-sm text-brown">Chargement…</p>
       ) : lines.length === 0 ? (
         <div className="mt-10 max-w-md">
-          <p className="text-sm text-wood">Votre panier est vide.</p>
+          <p className="text-sm text-chocolate">Votre panier est vide.</p>
           <p className="mt-2 text-sm text-brown">
-            Tous nos manteaux sont à {site.corePrice} €. Il y en a forcément un pour vous.
+            Le vestiaire d’hiver vous attend, à partir de {site.corePrice} €.
           </p>
           <Link href="/collections/manteaux" className="btn-primary mt-8">
-            Découvrir les manteaux
+            Découvrir la collection
           </Link>
         </div>
       ) : (
         <div className="mt-10 lg:grid lg:grid-cols-[1fr_360px] lg:gap-14">
-          <ul className="divide-y divide-wood/10 border-y border-wood/10">
+          <ul className="divide-y divide-chocolate/10 border-y border-chocolate/10">
             {lines.map((line) => (
               <li key={`${line.productId}-${line.size}`} className="flex gap-4 py-6 sm:gap-6">
                 <Link
                   href={`/products/${line.slug}`}
-                  className="relative aspect-product w-24 shrink-0 overflow-hidden bg-silk sm:w-32"
+                  className="relative aspect-product w-24 shrink-0 overflow-hidden bg-ivory sm:w-32"
                 >
                   <Image
                     src={assetPath(line.image)}
@@ -56,7 +56,7 @@ export default function CartPage() {
                 <div className="flex min-w-0 flex-1 flex-col">
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0">
-                      <h2 className="text-sm uppercase tracking-wider text-wood">
+                      <h2 className="text-sm uppercase tracking-wider text-chocolate">
                         <Link href={`/products/${line.slug}`} className="link-underline">
                           {line.name}
                         </Link>
@@ -69,21 +69,21 @@ export default function CartPage() {
                   </div>
 
                   <div className="mt-auto flex items-center justify-between pt-4">
-                    <div className="inline-flex items-center border border-wood/20">
+                    <div className="inline-flex items-center border border-chocolate/20">
                       <button
                         type="button"
                         onClick={() => setQuantity(line.productId, line.size, line.quantity - 1)}
                         aria-label={`Réduire la quantité de ${line.name}`}
-                        className="grid h-9 w-9 place-items-center text-wood transition-colors hover:bg-silk"
+                        className="grid h-9 w-9 place-items-center text-chocolate transition-colors hover:bg-ivory"
                       >
                         <MinusIcon width={14} height={14} />
                       </button>
-                      <span className="w-9 text-center text-xs text-wood">{line.quantity}</span>
+                      <span className="w-9 text-center text-xs text-chocolate">{line.quantity}</span>
                       <button
                         type="button"
                         onClick={() => setQuantity(line.productId, line.size, line.quantity + 1)}
                         aria-label={`Augmenter la quantité de ${line.name}`}
-                        className="grid h-9 w-9 place-items-center text-wood transition-colors hover:bg-silk"
+                        className="grid h-9 w-9 place-items-center text-chocolate transition-colors hover:bg-ivory"
                       >
                         <PlusIcon width={14} height={14} />
                       </button>
@@ -102,13 +102,13 @@ export default function CartPage() {
           </ul>
 
           <aside className="mt-10 lg:mt-0" aria-label="Récapitulatif de commande">
-            <div className="border border-wood/15 bg-cream-warm p-6">
-              <h2 className="text-2xs uppercase tracking-widest text-wood">Récapitulatif</h2>
+            <div className="border border-chocolate/15 bg-cream-warm p-6">
+              <h2 className="text-2xs uppercase tracking-widest text-chocolate">Récapitulatif</h2>
 
               <dl className="mt-6 space-y-3 text-sm">
                 <div className="flex justify-between">
                   <dt className="text-brown">Sous-total</dt>
-                  <dd className="text-wood">{formatPrice(subtotal)}</dd>
+                  <dd className="text-chocolate">{formatPrice(subtotal)}</dd>
                 </div>
                 {savings > 0 ? (
                   <div className="flex justify-between">
@@ -118,14 +118,14 @@ export default function CartPage() {
                 ) : null}
                 <div className="flex justify-between">
                   <dt className="text-brown">Livraison</dt>
-                  <dd className="text-wood">
+                  <dd className="text-chocolate">
                     {remaining > 0 ? 'Calculée à l’étape suivante' : 'Offerte'}
                   </dd>
                 </div>
               </dl>
 
               {remaining > 0 ? (
-                <p className="mt-5 bg-silk px-4 py-3 text-center text-2xs uppercase tracking-wider text-wood">
+                <p className="mt-5 bg-ivory px-4 py-3 text-center text-2xs uppercase tracking-wider text-chocolate">
                   Plus que {formatPrice(remaining)} pour la livraison offerte
                 </p>
               ) : null}
@@ -145,8 +145,8 @@ export default function CartPage() {
       {recommendations.length ? (
         <section className="mt-20" aria-labelledby="cart-reco-title">
           <SectionHeading
-            eyebrow="Sélection"
-            title="Tu pourrais aussi aimer…"
+            eyebrow="La sélection"
+            title="Vous pourriez aussi aimer"
             href="/collections/manteaux"
           />
           <div className="mt-10">

@@ -5,7 +5,7 @@ import { site } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Livraison',
-  description: 'Modalités de livraison des manteaux Le Closet : délais, tarifs et suivi.',
+  description: 'Modalités de livraison des pièces Studio Neige Paris : délais, tarifs et suivi.',
 };
 
 export default function Page() {

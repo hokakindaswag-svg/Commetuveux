@@ -6,12 +6,21 @@ import { Trust } from '@/components/home/Trust';
 import { SocialProof } from '@/components/home/SocialProof';
 import { Newsletter } from '@/components/layout/Newsletter';
 import { ProductGrid } from '@/components/product/ProductGrid';
-import { allProducts, bestsellerProducts, featuredProducts } from '@/lib/catalog';
+import { allProducts, bestsellerProducts, featuredProducts, newProducts } from '@/lib/catalog';
 import { media, site } from '@/data/site';
+import { LeopardTexture } from '@/components/ui/Leopard';
+
+const familles = [
+  { label: 'Manteaux longs', href: '/collections/manteaux-longs' },
+  { label: 'Vestes', href: '/collections/vestes' },
+  { label: 'Fausse fourrure', href: '/collections/fausse-fourrure' },
+  { label: 'Doudounes', href: '/collections/doudounes' },
+];
 
 export default function HomePage() {
   const featured = featuredProducts(8);
   const bestsellers = bestsellerProducts(8);
+  const nouveautes = newProducts(4);
   const catalogue = allProducts;
 
   return (
@@ -19,99 +28,112 @@ export default function HomePage() {
       <Hero />
 
       {/* Les manteaux du moment */}
-      <section className="container-site py-16 lg:py-24" aria-labelledby="featured-title">
+      <section className="container-site py-20 lg:py-28" aria-labelledby="featured-title">
         <SectionHeading
-          eyebrow="Sélection"
+          eyebrow="La sélection"
           title="Les manteaux du moment"
-          subtitle="Les pièces qu’on veut porter toute la saison."
-          href="/collections/nouveautes"
-          hrefLabel="Voir les nouveautés"
+          subtitle="Les pièces qu’on veut porter toute la saison, du bureau au dernier métro."
+          href="/collections/manteaux"
+          hrefLabel="Voir la collection"
         />
-        <div className="mt-10">
+        <div className="mt-12">
           <ProductGrid products={featured} priorityCount={4} />
         </div>
       </section>
 
-      {/* Éditorial */}
+      {/* Éditorial de marque */}
       <Editorial
+        id="bienvenue-title"
         image={media.editorial}
-        eyebrow="Le Closet"
-        title="Bienvenue dans Le Closet"
-        text="Des manteaux qu’on remarque. Des prix qu’on aime. Un vestiaire pensé pour une seule chose : trouver LE manteau."
+        eyebrow="Studio Neige Paris"
+        title="Bienvenue chez Studio Neige"
+        text="Un vestiaire pensé pour les jours froids, les silhouettes féminines et les manteaux qu’on ne veut plus quitter."
         href="/collections/manteaux"
-        cta="Découvrir"
+        cta="Découvrir la collection"
         tone="dark"
         align="left"
       />
 
       {/* Best-sellers */}
-      <section className="container-site py-16 lg:py-24" aria-labelledby="bestsellers-title">
+      <section className="container-site py-20 lg:py-28" aria-labelledby="bestsellers-title">
         <SectionHeading
-          eyebrow="Best-sellers"
+          eyebrow="Les plus convoités"
           title="Les plus aimés ♡"
           subtitle="Les manteaux qui partent le plus vite."
           href="/collections/best-sellers"
         />
-        <div className="mt-10">
+        <div className="mt-12">
           <ProductGrid products={bestsellers} />
         </div>
       </section>
 
-      {/* Catégories */}
-      <section className="container-site pb-16 lg:pb-24" aria-labelledby="categories-title">
-        <h2 id="categories-title" className="sr-only">
-          Nos familles de manteaux
+      {/* Familles de produits */}
+      <section className="container-site pb-20 lg:pb-28" aria-labelledby="familles-title">
+        <h2 id="familles-title" className="sr-only">
+          Nos familles de pièces
         </h2>
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
-          {[
-            { label: 'Manteaux longs', href: '/collections/manteaux-longs' },
-            { label: 'Doudounes', href: '/collections/doudounes' },
-            { label: 'Fausse fourrure', href: '/collections/fausse-fourrure' },
-            { label: 'Manteaux tendance', href: '/collections/manteaux-tendance' },
-          ].map((c) => (
-            <li key={c.href}>
+          {familles.map((famille) => (
+            <li key={famille.href}>
               <Link
-                href={c.href}
-                className="flex h-24 items-center justify-center border border-wood/15 bg-cream-warm px-4 text-center text-2xs uppercase tracking-widest text-wood transition-colors hover:border-burgundy hover:bg-burgundy hover:text-cream sm:h-28"
+                href={famille.href}
+                className="flex h-24 items-center justify-center border border-chocolate/15 bg-cream-warm px-4 text-center text-2xs uppercase tracking-brand text-chocolate transition-colors hover:border-burgundy hover:bg-burgundy hover:text-ivory sm:h-28"
               >
-                {c.label}
+                {famille.label}
               </Link>
             </li>
           ))}
         </ul>
       </section>
 
-      {/* Bandeau prix */}
-      <section className="leopard py-14" aria-label="Notre promesse prix">
-        <div className="container-site">
-          <div className="mx-auto max-w-3xl bg-cream/95 px-6 py-12 text-center sm:px-12">
-            <p className="eyebrow">La promesse Le Closet</p>
-            <p className="mt-4 font-serif text-4xl leading-tight text-burgundy sm:text-5xl">
-              Tous nos manteaux à {site.corePrice} €
+      {/* Le choix du studio — encart léopard, signature de la maison */}
+      <section
+        className="relative isolate overflow-hidden py-16 lg:py-20"
+        aria-labelledby="choix-title"
+      >
+        <LeopardTexture id="leopard-choix" scale={0.68} />
+        <div className="container-site relative">
+          <div className="mx-auto max-w-4xl bg-cream px-6 py-14 text-center sm:px-14">
+            <p className="eyebrow">Le choix du studio</p>
+
+            <h2
+              id="choix-title"
+              className="mx-auto mt-5 max-w-2xl font-display text-3xl font-light leading-[1.12] text-chocolate sm:text-4xl lg:text-[44px]"
+            >
+              Une seule catégorie, travaillée à fond : le manteau.
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-brown">
+              Nous ne faisons que de l’outerwear. Cette spécialisation nous permet de proposer
+              toute la collection à partir de {site.corePrice} €, prix d’origine barré à l’appui.
             </p>
-            <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-brown">
-              Un seul prix, toute l’année. Comparez avec le prix d’origine barré sur chaque
-              étiquette.
-            </p>
+
+            <div className="mt-10">
+              <ProductGrid products={nouveautes} className="text-left" />
+            </div>
+
+            <Link href="/collections/nouveautes" className="btn-secondary mt-12">
+              Voir les nouveautés
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Tous les manteaux */}
-      <section className="container-site py-16 lg:py-24" aria-labelledby="all-title">
+      {/* Éditions hiver — le catalogue complet */}
+      <section className="container-site py-20 lg:py-28" aria-labelledby="all-title">
         <SectionHeading
-          eyebrow={`${catalogue.length}+ manteaux`}
-          title="Tous les manteaux"
-          subtitle="Le vestiaire complet Le Closet. Filtrez par taille, couleur, style ou matière."
+          eyebrow={`${catalogue.length} pièces au vestiaire`}
+          title="Éditions hiver"
+          subtitle="Le vestiaire complet Studio Neige. Filtrez par taille, couleur, style ou matière."
           href="/collections/manteaux"
           hrefLabel="Filtrer & trier"
         />
-        <div className="mt-10">
+        <div className="mt-12">
           <ProductGrid products={catalogue.slice(0, 24)} />
         </div>
-        <div className="mt-14 text-center">
+        <div className="mt-16 text-center">
           <Link href="/collections/manteaux" className="btn-primary">
-            Voir les {catalogue.length} manteaux
+            Voir les {catalogue.length} pièces
           </Link>
         </div>
       </section>

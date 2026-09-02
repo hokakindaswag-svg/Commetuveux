@@ -1,19 +1,23 @@
 import type { NavItem } from '@/types';
 
 /* ------------------------------------------------------------------ */
-/*  Configuration globale de la boutique                               */
+/*  STUDIO NEIGE PARIS — configuration globale                         */
 /* ------------------------------------------------------------------ */
 
 export const site = {
-  name: 'Le Closet',
-  legalName: 'Le Closet',
-  tagline: 'Manteaux femme à 50€',
+  /** Nom court, utilisé dans les titres et le fil d'Ariane. */
+  name: 'Studio Neige',
+  /** Signature complète de la marque. */
+  fullName: 'Studio Neige Paris',
+  legalName: 'Studio Neige Paris',
+  tagline: 'Le vestiaire d’hiver',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
   locale: 'fr_FR',
   currency: 'EUR',
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'bonjour@lecloset.fr',
-  instagram: process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE || 'lecloset',
-  tiktok: process.env.NEXT_PUBLIC_TIKTOK_HANDLE || 'lecloset',
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'bonjour@studioneige.fr',
+  instagram: process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE || 'studioneigeparis',
+  tiktok: process.env.NEXT_PUBLIC_TIKTOK_HANDLE || 'studioneigeparis',
+  pinterest: process.env.NEXT_PUBLIC_PINTEREST_HANDLE || 'studioneigeparis',
   newsletterEndpoint: process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT || '',
   /** Prix cœur de gamme, affiché partout sur le site. */
   corePrice: 50,
@@ -25,13 +29,13 @@ export const site = {
 /* ------------------------------------------------------------------ */
 
 export const announcements = [
-  'MANTEAUX À 50€ · LIVRAISON EN FRANCE',
-  'NOUVEAUX MANTEAUX CHAQUE SEMAINE',
-  'LE CLOSET — DES MANTEAUX À PRIX DOUX',
+  'MANTEAUX DÈS 50 € · LIVRAISON EN FRANCE',
+  'STUDIO NEIGE PARIS · LE VESTIAIRE D’HIVER',
+  'NOUVELLES PIÈCES CHAQUE SEMAINE',
 ];
 
 /* ------------------------------------------------------------------ */
-/*  Navigation                                                         */
+/*  Navigation principale — volontairement resserrée                   */
 /* ------------------------------------------------------------------ */
 
 export const mainNav: NavItem[] = [
@@ -44,60 +48,62 @@ export const mainNav: NavItem[] = [
       { label: 'Manteaux longs', href: '/collections/manteaux-longs' },
       { label: 'Manteaux courts', href: '/collections/manteaux-courts' },
       { label: 'Doudounes', href: '/collections/doudounes' },
-      { label: 'Fausse fourrure', href: '/collections/fausse-fourrure' },
-      { label: 'Manteaux tendance', href: '/collections/manteaux-tendance' },
+      { label: 'Éditions hiver', href: '/collections/editions-hiver' },
     ],
   },
+  { label: 'Vestes', href: '/collections/vestes' },
+  { label: 'Fourrures', href: '/collections/fausse-fourrure' },
   { label: 'Best-sellers', href: '/collections/best-sellers' },
-  { label: 'Promotions', href: '/collections/promotions', accent: true },
 ];
 
 export const footerNav: { title: string; links: NavItem[] }[] = [
   {
-    title: 'Shop',
+    title: 'Boutique',
     links: [
+      { label: 'Collection', href: '/collections/manteaux' },
       { label: 'Nouveautés', href: '/collections/nouveautes' },
-      { label: 'Manteaux', href: '/collections/manteaux' },
       { label: 'Best-sellers', href: '/collections/best-sellers' },
-      { label: 'Promotions', href: '/collections/promotions' },
+      { label: 'Contact', href: '/contact' },
     ],
   },
   {
     title: 'Aide',
     links: [
-      { label: 'FAQ', href: '/faq' },
       { label: 'Livraison', href: '/livraison' },
       { label: 'Retours', href: '/retours' },
-      { label: 'Guide des tailles', href: '/guide-des-tailles' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'Conditions', href: '/cgv' },
+      { label: 'Confidentialité', href: '/politique-de-confidentialite' },
     ],
   },
   {
-    title: 'Le Closet',
+    title: 'La maison',
     links: [
       { label: 'Notre histoire', href: '/notre-histoire' },
-      { label: 'Instagram', href: `https://instagram.com/${process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE || 'lecloset'}` },
-      { label: 'TikTok', href: `https://tiktok.com/@${process.env.NEXT_PUBLIC_TIKTOK_HANDLE || 'lecloset'}` },
-    ],
-  },
-  {
-    title: 'Informations',
-    links: [
+      { label: 'Guide des tailles', href: '/guide-des-tailles' },
       { label: 'Mentions légales', href: '/mentions-legales' },
-      { label: 'CGV', href: '/cgv' },
-      { label: 'Politique de confidentialité', href: '/politique-de-confidentialite' },
       { label: 'Politique de retours', href: '/politique-de-retours' },
     ],
   },
 ];
 
+/** Réseaux sociaux — affichés dans le footer et le menu mobile. */
+export const socialLinks = [
+  { label: 'Instagram', href: `https://instagram.com/${site.instagram}`, icon: 'instagram' as const },
+  { label: 'TikTok', href: `https://tiktok.com/@${site.tiktok}`, icon: 'tiktok' as const },
+  { label: 'Pinterest', href: `https://pinterest.com/${site.pinterest}`, icon: 'pinterest' as const },
+];
+
 /* ------------------------------------------------------------------ */
-/*  Visuels éditoriaux — remplacez simplement les fichiers             */
+/*  Visuels — remplacez simplement les fichiers pointés ici            */
 /* ------------------------------------------------------------------ */
 
 export const media = {
-  logo: '/images/logo/le-closet.svg',
-  logoMark: '/images/logo/le-closet-mark.svg',
+  /** Logo officiel, PNG à fond transparent. */
+  logo: '/images/logo/studio-neige-paris.png',
+  /** Proportions natives du logo, pour ne jamais le déformer. */
+  logoWidth: 1136,
+  logoHeight: 420,
   hero: '/images/lifestyle/hero-01.jpg',
   heroMobile: '/images/lifestyle/hero-01-mobile.jpg',
   editorial: '/images/lifestyle/editorial-01.jpg',
@@ -119,8 +125,8 @@ export const media = {
 
 export const trustPoints = [
   {
-    title: 'Livraison suivie',
-    text: 'Expédition depuis la France avec numéro de suivi sur chaque commande.',
+    title: 'Livraison en France',
+    text: 'Expédition depuis la France, avec numéro de suivi sur chaque commande.',
     icon: 'truck' as const,
   },
   {
@@ -130,7 +136,12 @@ export const trustPoints = [
   },
   {
     title: 'Retours simples',
-    text: '14 jours pour changer d’avis. Procédure de retour en ligne.',
+    text: '14 jours pour changer d’avis, procédure de retour en ligne.',
     icon: 'return' as const,
+  },
+  {
+    title: 'Pensé pour l’hiver',
+    text: 'Une sélection resserrée, entièrement dédiée aux manteaux et vestes.',
+    icon: 'snow' as const,
   },
 ];

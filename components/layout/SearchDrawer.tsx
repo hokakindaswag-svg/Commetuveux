@@ -13,8 +13,8 @@ import { assetPath } from '@/lib/paths';
 const suggestions = [
   'Manteau long',
   'Fausse fourrure',
+  'Veste teddy',
   'Doudoune',
-  'Teddy',
   'Trench',
   'Léopard',
 ];
@@ -51,8 +51,8 @@ export function SearchDrawer() {
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Chercher un manteau…"
-            aria-label="Chercher un manteau"
+            placeholder="Chercher une pièce…"
+            aria-label="Chercher une pièce"
             className="field pl-11"
           />
         </div>
@@ -66,7 +66,7 @@ export function SearchDrawer() {
                   <button
                     type="button"
                     onClick={() => setQuery(s)}
-                    className="border border-wood/20 px-3 py-2 text-xs text-wood transition-colors hover:border-wood hover:bg-wood hover:text-cream"
+                    className="border border-chocolate/20 px-3 py-2 text-xs text-chocolate transition-colors hover:border-chocolate hover:bg-chocolate hover:text-cream"
                   >
                     {s}
                   </button>
@@ -76,7 +76,7 @@ export function SearchDrawer() {
           </div>
         ) : results.length === 0 ? (
           <p className="mt-8 text-sm text-brown">
-            Aucun manteau ne correspond à « {query} ». Essayez « long », « fourrure » ou
+            Aucune pièce ne correspond à « {query} ». Essayez « long », « fourrure » ou
             « doudoune ».
           </p>
         ) : (
@@ -88,7 +88,7 @@ export function SearchDrawer() {
                   onClick={closeSearch}
                   className="flex items-center gap-4 transition-opacity hover:opacity-70"
                 >
-                  <div className="relative aspect-product w-16 shrink-0 overflow-hidden bg-silk">
+                  <div className="relative aspect-product w-16 shrink-0 overflow-hidden bg-ivory">
                     <Image
                       src={assetPath(p.images[0])}
                       alt=""
@@ -98,7 +98,7 @@ export function SearchDrawer() {
                     />
                   </div>
                   <div className="min-w-0">
-                    <p className="truncate text-xs uppercase tracking-wider text-wood">{p.name}</p>
+                    <p className="truncate text-xs uppercase tracking-wider text-chocolate">{p.name}</p>
                     <p className="text-xs text-brown">{p.color.name}</p>
                     <Price price={p.price} compareAtPrice={p.compareAtPrice} size="sm" className="mt-1" />
                   </div>
@@ -114,7 +114,7 @@ export function SearchDrawer() {
             onClick={closeSearch}
             className="btn-secondary mt-8 w-full"
           >
-            Voir tous les manteaux
+            Voir toute la collection
           </Link>
         ) : null}
       </div>

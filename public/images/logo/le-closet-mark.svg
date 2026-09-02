@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Le Closet">
-  <title>Le Closet</title>
-  <circle cx="60" cy="60" r="57" fill="none" stroke="#530E0E" stroke-width="2"/>
-  <text x="60" y="76" text-anchor="middle"
-        font-family="Cormorant Garamond, Georgia, serif"
-        font-size="52" letter-spacing="2" fill="#530E0E">LC</text>
-</svg>

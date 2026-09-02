@@ -1,6 +1,7 @@
-# Le Closet
+# Studio Neige Paris
 
-Boutique en ligne **Le Closet** — le vestiaire français dédié aux manteaux femme, tous à **50 €**.
+Boutique en ligne **Studio Neige Paris** — le vestiaire d'hiver : manteaux, vestes, doudounes
+et fausse fourrure pour femme, à partir de **50 €**.
 
 Site ecommerce complet : page d’accueil éditoriale, pages collection avec filtres et tris,
 fiches produit, panier en tiroir, wishlist, recherche, pages d’aide et pages légales.
@@ -55,6 +56,7 @@ cp .env.example .env.local
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Adresse affichée sur les pages Contact / FAQ |
 | `NEXT_PUBLIC_INSTAGRAM_HANDLE` | Compte Instagram (sans le `@`) |
 | `NEXT_PUBLIC_TIKTOK_HANDLE` | Compte TikTok (sans le `@`) |
+| `NEXT_PUBLIC_PINTEREST_HANDLE` | Compte Pinterest (sans le `@`) |
 | `NEXT_PUBLIC_NEWSLETTER_ENDPOINT` | Endpoint POST d’inscription newsletter. Vide = mode démo |
 
 ---
@@ -77,17 +79,17 @@ cp .env.example .env.local
 │   ├── collection/             Vue collection, panneau de filtres
 │   ├── cart/                   Tiroir panier
 │   ├── providers/              Contexte panier + wishlist
-│   └── ui/                     Icônes, prix, étoiles, tiroir, logo
+│   └── ui/                     Icônes, prix, étoiles, tiroir, logo, motif léopard
 ├── data/                       ← tout le contenu éditable
-│   ├── products.ts             Catalogue (60 manteaux)
+│   ├── products.ts             Catalogue (60 pièces)
 │   ├── collections.ts          Collections et leurs filtres
 │   ├── filters.ts              Options de filtres et de tri
 │   └── site.ts                 Marque, navigation, footer, visuels, réassurance
 ├── lib/                        Sélecteurs catalogue, filtres, tri, recherche, formatage
 ├── public/images/
-│   ├── products/               2 visuels par manteau
+│   ├── products/               2 visuels par pièce
 │   ├── lifestyle/              Hero, éditoriaux, bannières collection, UGC
-│   └── logo/                   Logo Le Closet
+│   └── logo/                   Logo Studio Neige Paris
 ├── scripts/                    Génération des visuels de démonstration
 ├── styles/globals.css          Base Tailwind + composants (boutons, champs, léopard)
 └── types/index.ts              Schéma Product, Collection, panier, filtres
@@ -95,7 +97,7 @@ cp .env.example .env.local
 
 ---
 
-## Ajouter un manteau
+## Ajouter une pièce
 
 Ouvrez `data/products.ts` et ajoutez un objet au tableau. C’est tout : la fiche produit,
 la grille, le sitemap et les données structurées sont générés automatiquement.
@@ -115,7 +117,7 @@ la grille, le sitemap et les données structurées sont générés automatiqueme
     '/images/products/manteau-long-victoire-1.jpg',
     '/images/products/manteau-long-victoire-2.jpg',  // visuel affiché au survol
   ],
-  badge: 'NOUVEAUTÉ',
+  badge: 'NOUVEAU',
   description: '…',
   details: ['…'],
   material: 'Laine mélangée',
@@ -177,40 +179,65 @@ photos en place, ce script peut être supprimé.
 
 ### Logo
 
-`public/images/logo/` contient trois fichiers à remplacer par le logo officiel Le Closet :
+Le logo officiel est un PNG à fond transparent :
 
-* `le-closet.svg` — version foncée, utilisée sur les fonds clairs (header) ;
-* `le-closet-light.svg` — version claire, utilisée sur les fonds bordeaux / bruns (footer) ;
-* `le-closet-mark.svg` — monogramme, utilisé comme favicon (`app/icon.svg`).
+* `public/images/logo/studio-neige-paris.png` — logo complet (STUDIO NEIGE / PARIS avec le
+  nœud léopard). Utilisé dans le header et dans le footer.
+* `app/icon.svg` — monogramme « SN », utilisé comme favicon.
+
+Le logo se pose naturellement sur l'ivoire et le crème. Sur les fonds très sombres, le mot
+« PARIS » perd du contraste : le footer l'affiche donc dans un encart ivoire assumé plutôt
+qu'en le recolorant. Pour changer de logo, remplacez le fichier et ajustez `media.logoWidth`
+/ `media.logoHeight` dans `data/site.ts` aux proportions du nouveau visuel — le composant
+`components/ui/Logo.tsx` s'occupe du reste et ne déforme jamais l'image.
 
 ---
 
 ## Charte
 
-| Couleur | Hex | Usage |
+Toutes les couleurs de la marque sont déclarées **une seule fois**, dans le bloc `:root` de
+`styles/globals.css`, sous forme de variables CSS. `tailwind.config.ts` les consomme via
+`rgb(var(--color-…) / <alpha-value>)`, ce qui préserve les modificateurs d'opacité
+(`bg-burgundy/40`). Aucun composant ne code de couleur en dur : pour changer l'identité,
+modifiez ce seul bloc.
+
+| Token | Hex | Usage |
 |---|---|---|
-| Bordeaux profond | `#530E0E` | CTA, prix, newsletter |
-| Bois riche | `#30150E` | Typographie, footer |
-| Rose cachemire | `#F3A0AA` | Accents |
-| Sable soyeux | `#F8E5D7` | Fonds d’images, blocs |
-| Brun | `#6B4E3A` | Texte secondaire |
-| Crème | `#FDF9F5` | Fond principal |
+| `--color-burgundy` | `#530E0E` | CTA, prix, newsletter, accents forts |
+| `--color-pink` | `#F3A0AA` | Accent secondaire, titres de rubriques |
+| `--color-chocolate` | `#30150E` | Typographie, footer, sections foncées |
+| `--color-ivory` | `#F8E5D7` | Blocs chauds, fonds d'images, texte sur foncé |
+| `--color-brown` | `#6B4E3A` | Texte secondaire |
+| `--color-black` / `--color-white` | `#000000` / `#FFFFFF` | Neutres |
+| `--color-cream` | `#FDFAF6` | Fond de page |
 
-Typographie : **Inter** (sans-serif, interface et produits) et **Cormorant Garamond**
-(serif éditorial, titres). Les polices sont chargées depuis Google Fonts via une balise
-`<link>` dans `app/layout.tsx` — ce choix permet à `npm run build` de fonctionner sans accès
-réseau. Pour passer à `next/font/google`, remplacez ce bloc et renseignez les variables
-`--font-inter` / `--font-cormorant` dans `styles/globals.css`.
+Typographie : **Inter** (sans-serif, interface et produits) et **Cormorant Garamond** (serif
+éditorial, titres). Trois classes utilitaires portent le système typographique, définies dans
+`styles/globals.css` : `.display-title` (hero), `.section-title` (titres de section, serif en
+capitales espacées) et `.eyebrow` (surtitres). Les polices sont chargées depuis Google Fonts
+via une balise `<link>` dans `app/layout.tsx` — ce choix permet à `npm run build` de
+fonctionner sans accès réseau.
 
-Le motif léopard est une texture CSS (`.leopard` dans `styles/globals.css`), utilisée
-ponctuellement comme accent éditorial.
+### Signature léopard
 
----
+Le léopard est la signature de la maison. Il est dessiné en **SVG vectoriel** dans
+`components/ui/Leopard.tsx` (et non en dégradés CSS, qui produisaient un quadrillage de pois
+peu flatteur) : de vraies rosettes, anneaux brisés, tailles et rotations irrégulières, avec
+un semis de petites taches pleines. Deux composants :
+
+* `<LeopardRule />` — filet fin de séparation entre deux sections (header, footer,
+  newsletter, blocs éditoriaux) ;
+* `<LeopardTexture />` — texture de fond pour un bloc (le parent doit être `relative` et
+  `overflow-hidden`).
+
+Le motif est déterministe : il est identique côté serveur et côté client, sans risque de
+désynchronisation d'hydratation. Il s'utilise **par touches** — jamais en aplat sur
+l'ensemble du site.
 
 ## Politique de prix
 
 Tous les manteaux sont vendus **50,00 €**. Le champ `compareAtPrice` porte le prix conseillé
-d’origine, affiché barré à côté du prix Le Closet, avec le pourcentage de remise.
+d’origine, affiché barré à côté du prix Studio Neige Paris, avec le pourcentage de remise.
 
 Comme le prix de vente est unique, le filtre « Prix » de la page collection porte sur la
 **valeur d’origine** (jusqu’à 99 €, 100–149 €, 150 € et +), ce qui permet de filtrer par
