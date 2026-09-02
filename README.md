@@ -86,6 +86,7 @@ cp .env.example .env.local
 │   ├── filters.ts              Options de filtres et de tri
 │   └── site.ts                 Marque, navigation, footer, visuels, réassurance
 ├── lib/                        Sélecteurs catalogue, filtres, tri, recherche, formatage
+├── public/videos/              Vidéo de campagne (tête de page)
 ├── public/images/
 │   ├── products/               2 visuels par pièce
 │   ├── lifestyle/              Hero, éditoriaux, bannières collection, UGC
@@ -143,7 +144,8 @@ listées dans `types/index.ts`.
 **Aucun visuel n’est codé en dur dans les composants.** Tout passe par les données :
 
 * visuels produit → `images: [...]` dans `data/products.ts` ;
-* hero, éditoriaux, bannières de collection, UGC → objet `media` dans `data/site.ts` ;
+* vidéo de campagne + son image d'attente, éditoriaux, bannières de collection, UGC →
+  objet `media` dans `data/site.ts` ;
 * logo → `public/images/logo/`.
 
 Pour utiliser vos propres photos, deux possibilités :
@@ -159,8 +161,8 @@ Formats recommandés :
 | Usage | Ratio | Dimensions conseillées |
 |---|---|---|
 | Produit | 3:4 | 900 × 1200 |
-| Hero desktop | 16:9 | 2400 × 1350 |
-| Hero mobile | 3:4 | 1080 × 1440 |
+| Vidéo de campagne (hero) | 9:16 | 576 × 1024, MP4 muet |
+| Image d'attente du hero | 9:16 | 720 × 1280 |
 | Éditorial | 3:2 / 4:5 | 1800 × 1200 |
 | Bannière collection | ~3:1 | 1800 × 620 |
 | UGC | 4:5 | 900 × 1125 |

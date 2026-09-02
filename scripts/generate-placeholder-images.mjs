@@ -406,17 +406,6 @@ const run = async () => {
 
   const scenes = [
     {
-      file: 'hero-01.jpg', w: 2400, h: 1350, tone: 'silk', leopardBand: false,
-      figures: [
-        { hex: '#B78A5C', category: 'manteaux-longs', style: 'ceinture', scale: 0.74, x: 0.61, bottom: 0.0 },
-        { hex: '#4A2C1D', category: 'fausse-fourrure', style: 'oversize', scale: 0.6, x: 0.8, bottom: 0.0 },
-      ],
-    },
-    {
-      file: 'hero-01-mobile.jpg', w: 1080, h: 1440, tone: 'silk',
-      figures: [{ hex: '#B78A5C', category: 'manteaux-longs', style: 'ceinture', scale: 0.78, x: 0.52, bottom: 0.02 }],
-    },
-    {
       file: 'editorial-01.jpg', w: 1800, h: 1200, tone: 'wood', leopardBand: false,
       figures: [
         { hex: '#530E0E', category: 'laine', style: 'oversize', scale: 0.82, x: 0.3, bottom: 0.0 },

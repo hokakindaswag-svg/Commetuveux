@@ -104,8 +104,16 @@ export const media = {
   /** Proportions natives du logo, pour ne jamais le déformer. */
   logoWidth: 1136,
   logoHeight: 420,
-  hero: '/images/lifestyle/hero-01.jpg',
-  heroMobile: '/images/lifestyle/hero-01-mobile.jpg',
+  /**
+   * Vidéo de campagne affichée en tête de page.
+   * Format vertical (9:16), sans son, en lecture automatique et en boucle.
+   * Deux encodages : WebM (plus léger) puis MP4 (compatible partout).
+   * Pour la remplacer : déposez un nouveau MP4 ici et une image d'attente
+   * (première image de la vidéo) dans heroPoster.
+   */
+  heroVideoWebm: '/videos/hero.webm',
+  heroVideo: '/videos/hero.mp4',
+  heroPoster: '/images/lifestyle/hero-poster.jpg',
   editorial: '/images/lifestyle/editorial-01.jpg',
   editorialSecondary: '/images/lifestyle/editorial-02.jpg',
   newsletter: '/images/lifestyle/editorial-03.jpg',
