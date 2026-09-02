@@ -5,7 +5,13 @@ import { Drawer } from '@/components/ui/Drawer';
 import { FilterIcon, SortIcon, CloseIcon } from '@/components/ui/Icons';
 import { FilterPanel } from './FilterPanel';
 import { ProductGrid } from '@/components/product/ProductGrid';
-import { countActiveFilters, emptyFilters, filterProducts, sortProducts } from '@/lib/catalog';
+import {
+  availableFacets,
+  countActiveFilters,
+  emptyFilters,
+  filterProducts,
+  sortProducts,
+} from '@/lib/catalog';
 import { sortOptions } from '@/data/filters';
 import type { Product, ProductFilters, SortKey } from '@/types';
 
@@ -41,6 +47,10 @@ export function CollectionView({ products }: { products: Product[] }) {
     [products, filters, sort]
   );
 
+  // Facettes calculées sur la collection entière, pas sur le résultat
+  // filtré : sinon cocher une option ferait disparaître les autres.
+  const facets = useMemo(() => availableFacets(products), [products]);
+
   const activeCount = countActiveFilters(filters);
   const activeChips = (Object.keys(filters) as GroupKey[]).flatMap((group) =>
     filters[group].map((value) => ({ group, value }))
@@ -74,6 +84,7 @@ export function CollectionView({ products }: { products: Product[] }) {
           <div className="sticky top-[96px]">
             <FilterPanel
               filters={filters}
+              facets={facets}
               onToggle={toggle}
               onClear={clear}
               resultCount={visible.length}
@@ -167,6 +178,7 @@ export function CollectionView({ products }: { products: Product[] }) {
         <div className="px-5 py-4">
           <FilterPanel
             filters={filters}
+            facets={facets}
             onToggle={toggle}
             onClear={clear}
             resultCount={visible.length}

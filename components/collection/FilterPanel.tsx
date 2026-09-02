@@ -10,6 +10,7 @@ import {
   sizeOptions,
   styleOptions,
 } from '@/data/filters';
+import type { Facets } from '@/lib/catalog';
 import type { ProductFilters } from '@/types';
 
 type GroupKey = keyof ProductFilters;
@@ -70,12 +71,15 @@ function Checkbox({
 
 export function FilterPanel({
   filters,
+  facets,
   onToggle,
   onClear,
   resultCount,
   showTitle = true,
 }: {
   filters: ProductFilters;
+  /** Options réellement représentées dans la collection affichée. */
+  facets: Facets;
   onToggle: (group: GroupKey, value: string) => void;
   onClear: () => void;
   resultCount: number;
@@ -83,6 +87,14 @@ export function FilterPanel({
   showTitle?: boolean;
 }) {
   const has = (group: GroupKey, value: string) => filters[group].includes(value);
+
+  // On ne garde que les options qui ramènent au moins une pièce, et on
+  // masque une facette qui n'offrirait plus de choix (une seule valeur
+  // possible : cocher revient à ne rien filtrer).
+  const colors = colorOptions.filter((c) => facets.colors.has(c.name));
+  const styles = styleOptions.filter((o) => facets.styles.has(o.value));
+  const materials = materialOptions.filter((m) => facets.materials.has(m));
+  const prices = priceOptions.filter((o) => facets.prices.has(o.label));
 
   return (
     <div>
@@ -132,9 +144,10 @@ export function FilterPanel({
         </div>
       </Group>
 
+      {colors.length > 1 ? (
       <Group label="Couleur">
         <div className="grid grid-cols-2 gap-x-3 pt-1">
-          {colorOptions.map((color) => (
+          {colors.map((color) => (
             <button
               key={color.name}
               type="button"
@@ -156,42 +169,49 @@ export function FilterPanel({
           ))}
         </div>
       </Group>
+      ) : null}
 
-      <Group label="Prix">
-        <p className="pb-2 text-2xs leading-relaxed text-brown">
-          Toutes nos pièces sont à 50 €. Filtrez par valeur d’origine.
-        </p>
-        {priceOptions.map((option) => (
-          <Checkbox
-            key={option.label}
-            label={option.label}
-            checked={has('price', option.label)}
-            onChange={() => onToggle('price', option.label)}
-          />
-        ))}
-      </Group>
+      {prices.length > 1 ? (
+        <Group label="Prix">
+          <p className="pb-2 text-2xs leading-relaxed text-brown">
+            Toutes nos pièces sont à 50 €. Filtrez par valeur d’origine.
+          </p>
+          {prices.map((option) => (
+            <Checkbox
+              key={option.label}
+              label={option.label}
+              checked={has('price', option.label)}
+              onChange={() => onToggle('price', option.label)}
+            />
+          ))}
+        </Group>
+      ) : null}
 
-      <Group label="Style">
-        {styleOptions.map((option) => (
-          <Checkbox
-            key={option.value}
-            label={option.label}
-            checked={has('styles', option.value)}
-            onChange={() => onToggle('styles', option.value)}
-          />
-        ))}
-      </Group>
+      {styles.length > 1 ? (
+        <Group label="Style">
+          {styles.map((option) => (
+            <Checkbox
+              key={option.value}
+              label={option.label}
+              checked={has('styles', option.value)}
+              onChange={() => onToggle('styles', option.value)}
+            />
+          ))}
+        </Group>
+      ) : null}
 
-      <Group label="Matière">
-        {materialOptions.map((option) => (
-          <Checkbox
-            key={option}
-            label={option}
-            checked={has('materials', option)}
-            onChange={() => onToggle('materials', option)}
-          />
-        ))}
-      </Group>
+      {materials.length > 1 ? (
+        <Group label="Matière">
+          {materials.map((option) => (
+            <Checkbox
+              key={option}
+              label={option}
+              checked={has('materials', option)}
+              onChange={() => onToggle('materials', option)}
+            />
+          ))}
+        </Group>
+      ) : null}
 
       <p className="pt-5 text-2xs uppercase tracking-wider text-brown" aria-live="polite">
         {resultCount} {resultCount > 1 ? 'pièces' : 'pièce'}

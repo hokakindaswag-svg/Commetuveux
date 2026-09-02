@@ -18,7 +18,7 @@ export const products: Product[] = [
     slug: 'cape-fourrure-iris',
     name: 'CAPE FOURRURE IRIS',
     price: 50,
-    compareAtPrice: 159,
+    compareAtPrice: 169.99,
     category: 'fausse-fourrure',
     style: 'statement',
     color: { name: 'Ivoire', hex: '#F6EFE6', group: 'Crème' },
@@ -56,7 +56,7 @@ export const products: Product[] = [
     slug: 'cape-fourrure-maud',
     name: 'CAPE FOURRURE MAUD',
     price: 50,
-    compareAtPrice: 139,
+    compareAtPrice: 169.99,
     category: 'fausse-fourrure',
     style: 'statement',
     color: { name: 'Taupe', hex: '#9C8378', group: 'Marron' },
@@ -94,7 +94,7 @@ export const products: Product[] = [
     slug: 'veste-capuche-alma',
     name: 'VESTE CAPUCHE ALMA',
     price: 50,
-    compareAtPrice: 149,
+    compareAtPrice: 169.99,
     category: 'manteaux-courts',
     style: 'capuche',
     color: { name: 'Sable', hex: '#D9BB9A', group: 'Beige' },
@@ -134,9 +134,7 @@ export const products: Product[] = [
     slug: 'veste-fourrure-nina',
     name: 'VESTE FOURRURE NINA',
     price: 50,
-    // Prix de référence à renseigner par la marque : un prix barré est une
-    // allégation encadrée, il ne s'invente pas.
-    compareAtPrice: null,
+    compareAtPrice: 169.99,
     category: 'fausse-fourrure',
     style: 'crop',
     color: { name: 'Ivoire', hex: '#EFE9E0', group: 'Crème' },
@@ -172,8 +170,7 @@ export const products: Product[] = [
     slug: 'veste-capuche-lea',
     name: 'VESTE CAPUCHE LÉA',
     price: 50,
-    // Prix de référence à renseigner par la marque.
-    compareAtPrice: null,
+    compareAtPrice: 169.99,
     category: 'manteaux-courts',
     style: 'capuche',
     color: { name: 'Camel', hex: '#AB886D', group: 'Beige' },
@@ -211,8 +208,7 @@ export const products: Product[] = [
     slug: 'manteau-col-fourrure-vera',
     name: 'MANTEAU COL FOURRURE VERA',
     price: 50,
-    // Prix de référence à renseigner par la marque.
-    compareAtPrice: null,
+    compareAtPrice: 169.99,
     category: 'manteaux-courts',
     style: 'ceinture',
     color: { name: 'Noir', hex: '#121212', group: 'Noir' },
@@ -226,19 +222,19 @@ export const products: Product[] = [
     ],
     badge: 'NOUVEAU',
     description:
-      'Un manteau court en drap de laine noir, taillé autour d’un immense col fourrure brun qui couvre les épaules comme une étole. La ceinture à nouer marque la taille et fait tomber le bas en corolle. Le contraste noir et brun en fait une pièce de soirée autant qu’un manteau de tous les jours.',
+      'Un manteau court en drap de laine noir, taillé autour d’un immense col en fausse fourrure brune qui couvre les épaules comme une étole. La ceinture à nouer marque la taille et fait tomber le bas en corolle. Le contraste noir et brun en fait une pièce de soirée autant qu’un manteau de tous les jours.',
     details: [
       'Coupe courte, bas évasé',
-      'Très large col fourrure couvrant les épaules',
+      'Très large col en fausse fourrure couvrant les épaules',
       'Ceinture à nouer, passants latéraux',
       'Manches longues légèrement évasées',
     ],
     material: 'Laine mélangée',
-    // Corps en drap de laine. La nature du col (fourrure véritable ou
-    // synthétique) reste à confirmer par la marque : elle conditionne
-    // l'étiquetage réglementaire et le classement en « fausse fourrure ».
-    composition: 'Composition à confirmer par la marque.',
-    care: 'Nettoyage à sec uniquement. Brosser le col dans le sens du poil.',
+    // Corps en drap de laine ; col en fausse fourrure (confirmé par la
+    // marque). Les pourcentages exacts restent à préciser sur l'étiquette.
+    composition:
+      'Corps en drap de laine · Col en fausse fourrure, sans fourrure animale · Doublure : 100% polyester',
+    care: 'Nettoyage à sec uniquement. Brosser la fausse fourrure du col dans le sens du poil.',
     featured: true,
     bestseller: false,
     newArrival: true,

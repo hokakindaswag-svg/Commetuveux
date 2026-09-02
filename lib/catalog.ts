@@ -80,6 +80,30 @@ export const emptyFilters: ProductFilters = {
   materials: [],
 };
 
+/**
+ * Options de facette réellement représentées dans une liste de produits.
+ *
+ * Le panneau de filtres s'appuie dessus pour ne proposer que des cases qui
+ * ramènent au moins une pièce : avec un catalogue court, une facette
+ * exhaustive n'offrirait que des impasses. Les options réapparaissent
+ * d'elles-mêmes à mesure que le vestiaire s'étoffe.
+ */
+export function availableFacets(list: Product[]) {
+  const priceLabel = (p: Product) => {
+    const value = p.compareAtPrice ?? p.price;
+    return priceOptions.find((o) => value >= o.min && value <= o.max)?.label;
+  };
+
+  return {
+    colors: new Set<string>(list.map((p) => p.color.group)),
+    styles: new Set<string>(list.map((p) => p.style)),
+    materials: new Set<string>(list.map((p) => p.material)),
+    prices: new Set(list.map(priceLabel).filter((l): l is string => Boolean(l))),
+  };
+}
+
+export type Facets = ReturnType<typeof availableFacets>;
+
 export const filterProducts = (list: Product[], filters: ProductFilters) =>
   list.filter((p) => {
     if (filters.availability.length) {
