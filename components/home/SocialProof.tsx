@@ -1,14 +1,13 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { media, site } from '@/data/site';
-import { assetPath } from '@/lib/paths';
 
 /**
  * Espace réservé au contenu client (UGC).
  *
- * Les visuels sont des placeholders : remplacez les fichiers listés dans
- * `media.ugc` (data/site.ts) par vos vraies photos clientes. Aucun avis ni
- * témoignage n'est inventé ici.
+ * Tant qu'aucune photo cliente n'a été reçue, la section affiche des
+ * emplacements vides plutôt que des images d'illustration : mieux vaut un
+ * cadre manifestement en attente qu'un visuel qui ferait passer une photo
+ * de marque pour une photo cliente. Aucun avis n'est inventé ici non plus.
  */
 export function SocialProof() {
   return (
@@ -33,22 +32,13 @@ export function SocialProof() {
       </div>
 
       <ul className="hide-scrollbar mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible lg:grid-cols-6">
-        {media.ugc.map((src, i) => (
+        {Array.from({ length: media.ugcSlots }).map((_, i) => (
           <li
-            key={src}
-            className="group relative aspect-[4/5] w-[62%] shrink-0 snap-start overflow-hidden bg-ivory sm:w-auto"
+            key={i}
+            className="flex aspect-[4/5] w-[62%] shrink-0 snap-start items-center justify-center border border-dashed border-chocolate/20 bg-cream-warm sm:w-auto"
           >
-            <Image
-              src={assetPath(src)}
-              alt=""
-              aria-hidden="true"
-              fill
-              sizes="(min-width: 1024px) 16vw, (min-width: 640px) 32vw, 62vw"
-              loading="lazy"
-              className="object-cover transition-transform duration-700 ease-studio group-hover:scale-105"
-            />
-            <span className="absolute bottom-2 left-2 bg-cream/85 px-2 py-1 text-[10px] uppercase tracking-widest text-chocolate">
-              Votre photo #{i + 1}
+            <span className="text-[10px] uppercase tracking-widest text-brown/60">
+              Votre photo
             </span>
           </li>
         ))}

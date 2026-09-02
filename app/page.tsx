@@ -6,14 +6,21 @@ import { Trust } from '@/components/home/Trust';
 import { SocialProof } from '@/components/home/SocialProof';
 import { Newsletter } from '@/components/layout/Newsletter';
 import { ProductGrid } from '@/components/product/ProductGrid';
-import { allProducts, bestsellerProducts, featuredProducts, newProducts } from '@/lib/catalog';
+import {
+  allProducts,
+  bestsellerProducts,
+  featuredProducts,
+  keepReachable,
+  newProducts,
+} from '@/lib/catalog';
 import { media, site } from '@/data/site';
 import { LeopardTexture } from '@/components/ui/Leopard';
 
-const familles = [
-  { label: 'Manteaux longs', href: '/collections/manteaux-longs' },
-  { label: 'Vestes', href: '/collections/vestes' },
+/** Familles mises en avant — celles qui sont vides disparaissent d'elles-mêmes. */
+const toutesFamilles = [
   { label: 'Fausse fourrure', href: '/collections/fausse-fourrure' },
+  { label: 'Vestes', href: '/collections/vestes' },
+  { label: 'Manteaux longs', href: '/collections/manteaux-longs' },
   { label: 'Doudounes', href: '/collections/doudounes' },
 ];
 
@@ -22,6 +29,15 @@ export default function HomePage() {
   const bestsellers = bestsellerProducts(8);
   const nouveautes = newProducts(4);
   const catalogue = allProducts;
+  const familles = keepReachable(toutesFamilles);
+
+  // Avec un catalogue encore court, les trois grilles de la page
+  // montreraient les mêmes pièces. On n'affiche une grille que si elle
+  // apporte des produits que la précédente ne montrait pas déjà ; les
+  // sections reviennent d'elles-mêmes quand le vestiaire s'étoffe.
+  const dejaVues = new Set(featured.map((p) => p.id));
+  const nouveautesInedites = nouveautes.filter((p) => !dejaVues.has(p.id));
+  const catalogueInedit = catalogue.filter((p) => !dejaVues.has(p.id));
 
   return (
     <>
@@ -54,20 +70,23 @@ export default function HomePage() {
         align="left"
       />
 
-      {/* Best-sellers */}
-      <section className="container-site py-20 lg:py-28" aria-labelledby="bestsellers-title">
-        <SectionHeading
-          eyebrow="Les plus convoités"
-          title="Les plus aimés ♡"
-          subtitle="Les manteaux qui partent le plus vite."
-          href="/collections/best-sellers"
-        />
-        <div className="mt-12">
-          <ProductGrid products={bestsellers} />
-        </div>
-      </section>
+      {/* Best-sellers — affiché seulement quand des pièces sont marquées ainsi */}
+      {bestsellers.length > 0 ? (
+        <section className="container-site py-20 lg:py-28" aria-labelledby="bestsellers-title">
+          <SectionHeading
+            eyebrow="Les plus convoités"
+            title="Les plus aimés ♡"
+            subtitle="Les manteaux qui partent le plus vite."
+            href="/collections/best-sellers"
+          />
+          <div className="mt-12">
+            <ProductGrid products={bestsellers} />
+          </div>
+        </section>
+      ) : null}
 
       {/* Familles de produits */}
+      {familles.length > 0 ? (
       <section className="container-site pb-20 lg:pb-28" aria-labelledby="familles-title">
         <h2 id="familles-title" className="sr-only">
           Nos familles de pièces
@@ -85,6 +104,7 @@ export default function HomePage() {
           ))}
         </ul>
       </section>
+      ) : null}
 
       {/* Le choix du studio — encart léopard, signature de la maison */}
       <section
@@ -108,9 +128,11 @@ export default function HomePage() {
               toute la collection à partir de {site.corePrice} €, prix d’origine barré à l’appui.
             </p>
 
-            <div className="mt-10">
-              <ProductGrid products={nouveautes} className="text-left" />
-            </div>
+            {nouveautesInedites.length > 0 ? (
+              <div className="mt-10">
+                <ProductGrid products={nouveautesInedites} className="text-left" />
+              </div>
+            ) : null}
 
             <Link href="/collections/nouveautes" className="btn-secondary mt-12">
               Voir les nouveautés
@@ -119,24 +141,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Éditions hiver — le catalogue complet */}
-      <section className="container-site py-20 lg:py-28" aria-labelledby="all-title">
-        <SectionHeading
-          eyebrow={`${catalogue.length} pièces au vestiaire`}
-          title="Éditions hiver"
-          subtitle="Le vestiaire complet Studio Neige. Filtrez par taille, couleur, style ou matière."
-          href="/collections/manteaux"
-          hrefLabel="Filtrer & trier"
-        />
-        <div className="mt-12">
-          <ProductGrid products={catalogue.slice(0, 24)} />
-        </div>
-        <div className="mt-16 text-center">
-          <Link href="/collections/manteaux" className="btn-primary">
-            Voir les {catalogue.length} pièces
-          </Link>
-        </div>
-      </section>
+      {/* Éditions hiver — masquée tant qu'elle doublonnerait la sélection */}
+      {catalogueInedit.length > 0 ? (
+        <section className="container-site py-20 lg:py-28" aria-labelledby="all-title">
+          <SectionHeading
+            eyebrow={`${catalogue.length} ${catalogue.length > 1 ? 'pièces' : 'pièce'} au vestiaire`}
+            title="Éditions hiver"
+            subtitle="Le vestiaire complet Studio Neige. Filtrez par taille, couleur, style ou matière."
+            href="/collections/manteaux"
+            hrefLabel="Filtrer & trier"
+          />
+          <div className="mt-12">
+            <ProductGrid products={catalogue.slice(0, 24)} />
+          </div>
+          <div className="mt-16 text-center">
+            <Link href="/collections/manteaux" className="btn-primary">
+              Voir {catalogue.length > 1 ? `les ${catalogue.length} pièces` : 'la pièce'}
+            </Link>
+          </div>
+        </section>
+      ) : null}
 
       <Trust />
       <SocialProof />

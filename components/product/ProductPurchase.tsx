@@ -49,7 +49,11 @@ export function ProductPurchase({ product }: { product: Product }) {
 
         <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
           <Price price={product.price} compareAtPrice={product.compareAtPrice} size="lg" showDiscount />
-          <Stars rating={product.rating} reviewCount={product.reviewCount} />
+          {/* Pas d'étoiles tant qu'il n'y a pas de vrais avis : afficher une
+              note inventée serait une fausse preuve sociale. */}
+          {product.reviewCount > 0 ? (
+            <Stars rating={product.rating} reviewCount={product.reviewCount} />
+          ) : null}
         </div>
 
         <div className="mt-8">

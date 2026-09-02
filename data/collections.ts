@@ -29,7 +29,7 @@ export const collections: Collection[] = [
       'Les manteaux les plus convoités de la saison, ceux qui partent le plus vite.',
     categories: null,
     filter: 'bestsellers',
-    image: '/images/lifestyle/collection-best-sellers.jpg',
+    image: '/images/lifestyle/collection-manteaux.jpg',
   },
   {
     handle: 'vestes',
@@ -53,7 +53,7 @@ export const collections: Collection[] = [
     description:
       'Des coupes longues qui enveloppent la silhouette, du col tailleur à la ceinture nouée.',
     categories: ['manteaux-longs'],
-    image: '/images/lifestyle/collection-longs.jpg',
+    image: '/images/lifestyle/collection-manteaux.jpg',
   },
   {
     handle: 'manteaux-courts',
@@ -69,7 +69,7 @@ export const collections: Collection[] = [
     description:
       'Chaudes, légères et jamais banales. La doudoune qu’on garde tout l’hiver.',
     categories: ['doudounes'],
-    image: '/images/lifestyle/collection-doudounes.jpg',
+    image: '/images/lifestyle/collection-manteaux.jpg',
   },
   {
     handle: 'editions-hiver',

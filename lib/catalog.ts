@@ -1,5 +1,6 @@
 import { products } from '@/data/products';
 import { collections } from '@/data/collections';
+import { mainNav } from '@/data/site';
 import { priceOptions } from '@/data/filters';
 import type { Collection, Product, ProductFilters, Size, SortKey } from '@/types';
 
@@ -155,3 +156,47 @@ export const searchProducts = (query: string, limit = 12) => {
     )
     .slice(0, limit);
 };
+
+/* ------------------------------------------------------------------ */
+/*  Collections non vides                                              */
+/*                                                                     */
+/*  Le catalogue évolue au rythme des shootings : plutôt que de garder  */
+/*  une navigation figée qui mènerait à des pages « 0 pièce », on       */
+/*  n'affiche que les collections effectivement peuplées. Une famille   */
+/*  réapparaît d'elle-même dès qu'un produit lui est rattaché.          */
+/* ------------------------------------------------------------------ */
+
+export const hasProducts = (handle: string) => collectionCount(handle) > 0;
+
+export const visibleCollections = () =>
+  collections.filter((c) => productsForCollection(c).length > 0);
+
+/** Extrait le handle d'un lien /collections/xxx ; null pour les autres liens. */
+const handleFromHref = (href: string) => {
+  const match = href.match(/^\/collections\/([\w-]+)$/);
+  return match ? match[1] : null;
+};
+
+/**
+ * Filtre une liste de liens : retire ceux qui pointent vers une collection
+ * vide, et conserve tous les autres (pages d'aide, contact…).
+ */
+export function keepReachable<T extends { href: string }>(links: T[]): T[] {
+  return links.filter((link) => {
+    const handle = handleFromHref(link.href);
+    return handle === null || hasProducts(handle);
+  });
+}
+
+/**
+ * Navigation principale débarrassée des entrées qui ne mèneraient nulle
+ * part : un menu déroulant perd ses sous-familles vides, et une entrée
+ * sans destination ni sous-entrée disparaît entièrement.
+ */
+export const visibleNav = () =>
+  mainNav
+    .map((item) => ({
+      ...item,
+      children: item.children ? keepReachable(item.children) : undefined,
+    }))
+    .filter((item) => hasProducts(item.href.replace('/collections/', '')) || (item.children?.length ?? 0) > 0);

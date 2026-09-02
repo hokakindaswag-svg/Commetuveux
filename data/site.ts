@@ -115,16 +115,8 @@ export const media = {
   heroVideo: '/videos/hero.mp4',
   heroPoster: '/images/lifestyle/hero-poster.jpg',
   editorial: '/images/lifestyle/editorial-01.jpg',
-  editorialSecondary: '/images/lifestyle/editorial-02.jpg',
-  newsletter: '/images/lifestyle/editorial-03.jpg',
-  ugc: [
-    '/images/lifestyle/ugc-01.jpg',
-    '/images/lifestyle/ugc-02.jpg',
-    '/images/lifestyle/ugc-03.jpg',
-    '/images/lifestyle/ugc-04.jpg',
-    '/images/lifestyle/ugc-05.jpg',
-    '/images/lifestyle/ugc-06.jpg',
-  ],
+  /** Nombre d'emplacements réservés aux photos clientes (section « Le studio, porté »). */
+  ugcSlots: 6,
 } as const;
 
 /* ------------------------------------------------------------------ */

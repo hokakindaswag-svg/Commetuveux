@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { site } from '@/data/site';
+import { hasProducts } from '@/lib/catalog';
 import { HeroVideo } from './HeroVideo';
 
 /** Hero de campagne : vidéo verticale, typographie éditoriale, deux CTA. */
@@ -15,16 +16,20 @@ export function Hero() {
     </p>
   );
 
+  // Le second bouton mène aux nouveautés, et retombe sur la collection
+  // complète si aucune pièce n'est marquée comme nouvelle : un CTA de tête
+  // de page ne doit jamais pointer vers une page vide.
+  const secondary = hasProducts('nouveautes')
+    ? { href: '/collections/nouveautes', label: 'Voir les nouveautés' }
+    : { href: '/collections/fausse-fourrure', label: 'Voir les fourrures' };
+
   const actions = (fullWidth = false) => (
     <>
       <Link href="/collections/manteaux" className={`btn-primary ${fullWidth ? 'w-full' : ''}`}>
         Découvrir la collection
       </Link>
-      <Link
-        href="/collections/best-sellers"
-        className={`btn-secondary ${fullWidth ? 'w-full' : ''}`}
-      >
-        Voir les best-sellers
+      <Link href={secondary.href} className={`btn-secondary ${fullWidth ? 'w-full' : ''}`}>
+        {secondary.label}
       </Link>
     </>
   );

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Logo } from '@/components/ui/Logo';
 import { InstagramIcon, PinterestIcon, TiktokIcon } from '@/components/ui/Icons';
 import { footerNav, site, socialLinks } from '@/data/site';
+import { keepReachable } from '@/lib/catalog';
 import { LeopardRule } from '@/components/ui/Leopard';
 
 const socialIcons = {
@@ -60,7 +61,7 @@ export function Footer() {
               <nav key={group.title} aria-label={group.title}>
                 <h2 className="text-2xs uppercase tracking-brand text-pink">{group.title}</h2>
                 <ul className="mt-6 space-y-3.5">
-                  {group.links.map((link) => (
+                  {keepReachable(group.links).map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}

@@ -10,7 +10,8 @@ import {
   PinterestIcon,
   TiktokIcon,
 } from '@/components/ui/Icons';
-import { mainNav, site, socialLinks } from '@/data/site';
+import { site, socialLinks } from '@/data/site';
+import { visibleNav } from '@/lib/catalog';
 
 const socialIcons = {
   instagram: InstagramIcon,
@@ -33,7 +34,7 @@ export function MobileMenu() {
     >
       <nav aria-label="Navigation principale" className="px-5 py-3 sm:px-6">
         <ul className="divide-y divide-chocolate/10">
-          {mainNav.map((item) => (
+          {visibleNav().map((item) => (
             <li key={item.label}>
               {item.children ? (
                 <>

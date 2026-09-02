@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { allProducts } from '@/lib/catalog';
-import { collections } from '@/data/collections';
+import { allProducts, visibleCollections } from '@/lib/catalog';
 import { site } from '@/data/site';
 
 // Requis par `output: 'export'` (build GitHub Pages) : cette route n'a pas
@@ -31,7 +30,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly' as const,
       priority: route === '' ? 1 : 0.5,
     })),
-    ...collections.map((c) => ({
+    // Seules les collections peuplées ont une page.
+    ...visibleCollections().map((c) => ({
       url: `${site.url}/collections/${c.handle}`,
       lastModified: now,
       changeFrequency: 'weekly' as const,

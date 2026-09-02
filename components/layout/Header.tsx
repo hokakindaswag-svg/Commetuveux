@@ -13,7 +13,7 @@ import {
   SearchIcon,
   UserIcon,
 } from '@/components/ui/Icons';
-import { mainNav } from '@/data/site';
+import { visibleNav } from '@/lib/catalog';
 import { LeopardRule } from '@/components/ui/Leopard';
 
 /**
@@ -58,7 +58,7 @@ export function Header() {
 
             <nav aria-label="Navigation principale" className="hidden lg:block">
               <ul className="flex items-center gap-6 xl:gap-8">
-                {mainNav.map((item) => (
+                {visibleNav().map((item) => (
                   <li
                     key={item.label}
                     className="relative"

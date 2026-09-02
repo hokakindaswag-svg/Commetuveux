@@ -4,13 +4,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CollectionView } from '@/components/collection/CollectionView';
 import { Newsletter } from '@/components/layout/Newsletter';
-import { collections, getCollection } from '@/data/collections';
-import { productsForCollection } from '@/lib/catalog';
+import { getCollection } from '@/data/collections';
+import { productsForCollection, visibleCollections } from '@/lib/catalog';
 import { site } from '@/data/site';
 import { assetPath } from '@/lib/paths';
 
 export function generateStaticParams() {
-  return collections.map((c) => ({ handle: c.handle }));
+  // Une collection sans produit n'a pas de page : elle réapparaîtra
+  // d'elle-même dès qu'une pièce lui sera rattachée.
+  return visibleCollections().map((c) => ({ handle: c.handle }));
 }
 
 export async function generateMetadata({
@@ -47,6 +49,7 @@ export default async function CollectionPage({
   if (!collection) notFound();
 
   const products = productsForCollection(collection);
+  if (products.length === 0) notFound();
 
   return (
     <>
