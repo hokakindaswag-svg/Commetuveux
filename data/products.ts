@@ -205,6 +205,48 @@ export const products: Product[] = [
     reviewCount: 0,
     addedAt: '2026-09-02',
   },
+  {
+    // Produit réel — photos fournies par la marque.
+    id: 'SN-006',
+    slug: 'manteau-col-fourrure-vera',
+    name: 'MANTEAU COL FOURRURE VERA',
+    price: 50,
+    // Prix de référence à renseigner par la marque.
+    compareAtPrice: null,
+    category: 'manteaux-courts',
+    style: 'ceinture',
+    color: { name: 'Noir', hex: '#121212', group: 'Noir' },
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    images: [
+      '/images/products/manteau-col-fourrure-vera-1.jpg',
+      '/images/products/manteau-col-fourrure-vera-2.jpg',
+      '/images/products/manteau-col-fourrure-vera-3.jpg',
+      '/images/products/manteau-col-fourrure-vera-4.jpg',
+      '/images/products/manteau-col-fourrure-vera-5.jpg',
+    ],
+    badge: 'NOUVEAU',
+    description:
+      'Un manteau court en drap de laine noir, taillé autour d’un immense col fourrure brun qui couvre les épaules comme une étole. La ceinture à nouer marque la taille et fait tomber le bas en corolle. Le contraste noir et brun en fait une pièce de soirée autant qu’un manteau de tous les jours.',
+    details: [
+      'Coupe courte, bas évasé',
+      'Très large col fourrure couvrant les épaules',
+      'Ceinture à nouer, passants latéraux',
+      'Manches longues légèrement évasées',
+    ],
+    material: 'Laine mélangée',
+    // Corps en drap de laine. La nature du col (fourrure véritable ou
+    // synthétique) reste à confirmer par la marque : elle conditionne
+    // l'étiquetage réglementaire et le classement en « fausse fourrure ».
+    composition: 'Composition à confirmer par la marque.',
+    care: 'Nettoyage à sec uniquement. Brosser le col dans le sens du poil.',
+    featured: true,
+    bestseller: false,
+    newArrival: true,
+    inventory: { XS: 8, S: 12, M: 12, L: 10, XL: 6 },
+    rating: 0,
+    reviewCount: 0,
+    addedAt: '2026-09-02',
+  },
 ];
 
 export default products;
