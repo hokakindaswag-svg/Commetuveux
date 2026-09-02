@@ -18,20 +18,17 @@ export function Hero() {
 
   return (
     <section className="relative isolate" aria-labelledby="hero-title">
-      {/* Desktop / tablette */}
-      <div className="relative hidden h-[calc(100svh-var(--header-height))] min-h-[560px] w-full sm:block">
-        <Image
-          src={assetPath(media.hero)}
-          alt="Silhouettes d’hiver Studio Neige Paris photographiées en studio"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/70 to-transparent" />
-
-        <div className="container-site relative flex h-full items-center">
-          <div className="max-w-2xl">
+      {/*
+        Desktop / tablette — mise en page en deux colonnes plutôt qu'une
+        image plein cadre : nos photos produit sont des portraits pris au
+        téléphone (3:4), pas des bannières larges. Les afficher entières
+        dans un cadre vertical évite tout recadrage hasardeux — un visage
+        ou le bas d'un manteau coupé au mauvais endroit — et reste vrai
+        quelle que soit la prochaine photo envoyée.
+      */}
+      <div className="hidden sm:block">
+        <div className="container-site grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:py-24">
+          <div className="max-w-xl">
             {eyebrow}
             <h1 id="hero-title" className="display-title mt-7">
               Le vestiaire
@@ -48,6 +45,17 @@ export function Hero() {
                 Voir les best-sellers
               </Link>
             </div>
+          </div>
+
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden border border-chocolate/10 bg-ivory lg:max-w-none">
+            <Image
+              src={assetPath(media.hero)}
+              alt="Manteau Studio Neige Paris porté en intérieur"
+              fill
+              priority
+              sizes="(min-width: 1024px) 42vw, 60vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </div>

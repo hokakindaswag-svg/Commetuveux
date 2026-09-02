@@ -507,30 +507,43 @@ export const products: Product[] = [
     addedAt: '2026-07-19',
   },
   {
+    // Premier produit avec de vraies photos (les autres restent des
+    // illustrations de démonstration en attendant leurs visuels).
     id: 'LC-020',
-    slug: 'manteau-fourrure-iris',
-    name: 'MANTEAU FOURRURE IRIS',
+    slug: 'cape-fourrure-iris',
+    name: 'CAPE FOURRURE IRIS',
     price: 50,
     compareAtPrice: 159,
     category: 'fausse-fourrure',
-    style: 'crop',
+    style: 'statement',
     color: { name: 'Ivoire', hex: '#F6EFE6', group: 'Crème' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
-    images: ['/images/products/manteau-fourrure-iris-1.jpg', '/images/products/manteau-fourrure-iris-2.jpg'],
-    badge: null,
+    images: [
+      '/images/products/cape-fourrure-iris-1.jpg',
+      '/images/products/cape-fourrure-iris-2.jpg',
+      '/images/products/cape-fourrure-iris-3.jpg',
+    ],
+    badge: 'NOUVEAU',
     description:
-      'La pièce statement de la saison : une fausse fourrure ultra douce, effet immédiat. Décliné en ivoire, il adopte une coupe courte et se porte aussi bien sur un jean que sur une robe. Le mannequin mesure 175 cm et porte une taille S.',
-    details: ['Fausse fourrure très douce', 'Col montant enveloppant', 'Fermeture par crochets dissimulés', 'Deux poches latérales'],
+      'La pièce statement de la saison : une cape en maille ivoire à enfiler, bordée d’une fausse fourrure épaisse et ultra douce sur tout le tour — col, manches et ourlet. Coupe ample et drapée, elle se porte aussi bien sur un jean que sur une robe.',
+    details: [
+      'Cape oversize à enfiler',
+      'Col fourrure enveloppant',
+      'Manches et ourlet bordés de fausse fourrure épaisse',
+      'Coupe ample et drapée',
+    ],
     material: 'Fausse fourrure',
+    // Composition à confirmer par la marque — valeur reprise des autres
+    // pièces en fausse fourrure du catalogue, à ajuster si différente.
     composition: '80% acrylique, 20% polyester · Doublure : 100% polyester',
     care: 'Nettoyage à sec uniquement. Brosser délicatement dans le sens du poil.',
-    featured: false,
+    featured: true,
     bestseller: false,
-    newArrival: false,
+    newArrival: true,
     inventory: { XS: 17, S: 3, M: 9, L: 9, XL: 13 },
     rating: 4.9,
     reviewCount: 139,
-    addedAt: '2026-10-20',
+    addedAt: '2026-09-02',
   },
   {
     id: 'LC-021',
