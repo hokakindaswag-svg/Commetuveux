@@ -285,22 +285,22 @@ les URL canoniques et les données structurées pointent au bon endroit.
 Le catalogue étant entièrement statique (aucune base de données, aucune route serveur), le
 site peut aussi être publié directement sur GitHub Pages, sans compte ni service tiers.
 `.github/workflows/deploy-pages.yml` construit et publie automatiquement le site à chaque
-mise à jour de la branche `main`.
+mise à jour de la branche `claude/le-closet-ecommerce-7td2tx`.
 
 Étapes, à faire une seule fois, directement sur github.com :
 
-1. **Fusionner votre branche de travail dans `main`** (si ce n’est pas déjà fait) : ouvrez
-   une pull request depuis GitHub et cliquez sur *Merge pull request*.
-2. Dans le dépôt, allez dans **Settings → Pages**.
-3. Sous *Build and deployment* → *Source*, choisissez **GitHub Actions**.
-4. C’est tout. Le site se construit automatiquement (visible dans l’onglet **Actions**) et
+1. Dans le dépôt, allez dans **Settings → Pages**.
+2. Sous *Build and deployment* → *Source*, choisissez **GitHub Actions**.
+3. C’est tout. Le site se construit automatiquement (visible dans l’onglet **Actions**) et
    devient accessible sous 1 à 2 minutes à :
 
    ```
    https://<votre-compte>.github.io/<nom-du-dépôt>/
    ```
 
-À chaque nouveau `git push` sur `main`, le site se reconstruit et se met à jour tout seul.
+À chaque nouveau `git push` sur `claude/le-closet-ecommerce-7td2tx`, le site se reconstruit
+et se met à jour tout seul. Si ce projet est un jour fusionné dans une branche `main`,
+ajoutez-la à la liste `branches` de `.github/workflows/deploy-pages.yml`.
 
 Le workflow bascule automatiquement le site en mode export statique (`GITHUB_PAGES=true`) :
 basePath, préfixe des images et image Open Graph sont ajustés en conséquence

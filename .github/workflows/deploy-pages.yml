@@ -1,11 +1,16 @@
-# Publie automatiquement Le Closet sur GitHub Pages à chaque mise à jour
-# de la branche par défaut. Aucune action manuelle après la configuration
+# Publie automatiquement Studio Neige Paris sur GitHub Pages à chaque mise
+# à jour de cette branche. Aucune action manuelle après la configuration
 # initiale (voir README.md, section « Mettre le site en ligne »).
+#
+# Se déclenche sur claude/le-closet-ecommerce-7td2tx plutôt que sur "main" :
+# ce dépôt ne possède pas de branche main, et sa branche par défaut héberge
+# un projet distinct. Si ce site est un jour fusionné dans une branche
+# main, ajoutez-la simplement à la liste ci-dessous.
 name: Déployer sur GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [claude/le-closet-ecommerce-7td2tx]
   # Permet aussi de relancer le déploiement manuellement depuis l'onglet Actions.
   workflow_dispatch:
 
