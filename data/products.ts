@@ -97,7 +97,7 @@ export const products: Product[] = [
     compareAtPrice: 149,
     category: 'manteaux-courts',
     style: 'capuche',
-    color: { name: 'Camel', hex: '#D6BE9B', group: 'Beige' },
+    color: { name: 'Sable', hex: '#D9BB9A', group: 'Beige' },
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     images: [
       '/images/products/veste-capuche-alma-1.jpg',
@@ -107,23 +107,100 @@ export const products: Product[] = [
     ],
     badge: 'NOUVEAU',
     description:
-      'Une veste courte en maille camel, fermée par un zip, avec une capuche bordée d’une fourrure généreuse et doublée de satin. Bords-côtes à la taille et aux poignets pour une ligne nette, deux poches devant : la pièce qu’on enfile sur tout, du jean au pantalon de tailleur.',
+      'Une veste courte en maille camel, fermée par un zip, avec une capuche bordée d’une fausse fourrure généreuse et doublée de satin. Bords-côtes à la taille et aux poignets pour une ligne nette, deux poches devant : la pièce qu’on enfile sur tout, du jean au pantalon de tailleur.',
     details: [
       'Maille douce, coupe courte',
-      'Capuche bordée de fourrure, doublée satin',
+      'Capuche bordée de fausse fourrure, doublée satin',
       'Fermeture zippée sur toute la hauteur',
       'Bords-côtes taille et poignets, deux poches devant',
     ],
-    // Matière du corps de la veste. La nature de la fourrure de capuche
-    // (véritable ou synthétique) reste à confirmer par la marque : elle
-    // conditionne l’étiquetage réglementaire.
+    // Corps en maille ; fourrure de capuche synthétique (confirmé par la
+    // marque). Les pourcentages exacts restent à préciser sur l'étiquette.
     material: 'Laine mélangée',
-    composition: 'Composition à confirmer par la marque.',
-    care: 'Nettoyage à sec recommandé. Brosser la fourrure de la capuche dans le sens du poil.',
+    composition:
+      'Corps en maille · Capuche bordée de fausse fourrure, sans fourrure animale · Doublure : 100% polyester',
+    care: 'Nettoyage à sec recommandé. Brosser la fausse fourrure de la capuche dans le sens du poil.',
     featured: true,
     bestseller: false,
     newArrival: true,
     inventory: { XS: 10, S: 12, M: 12, L: 10, XL: 6 },
+    rating: 0,
+    reviewCount: 0,
+    addedAt: '2026-09-02',
+  },
+  {
+    // Produit réel — photos fournies par la marque.
+    id: 'SN-004',
+    slug: 'veste-fourrure-nina',
+    name: 'VESTE FOURRURE NINA',
+    price: 50,
+    // Prix de référence à renseigner par la marque : un prix barré est une
+    // allégation encadrée, il ne s'invente pas.
+    compareAtPrice: null,
+    category: 'fausse-fourrure',
+    style: 'crop',
+    color: { name: 'Ivoire', hex: '#EFE9E0', group: 'Crème' },
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    images: [
+      '/images/products/veste-fourrure-nina-1.jpg',
+      '/images/products/veste-fourrure-nina-2.jpg',
+    ],
+    badge: 'NOUVEAU',
+    description:
+      'Une veste courte qui joue sur deux matières : un plastron et un col en fausse fourrure nuancée crème et taupe, montés sur une maille côtelée ivoire. Les poignets sont bordés de la même fourrure, la taille resserrée par une côte large. Une pièce du soir qui se porte aussi sur un jean.',
+    details: [
+      'Coupe courte, taille marquée par une côte large',
+      'Plastron et col en fausse fourrure nuancée',
+      'Manches en maille côtelée, poignets bordés de fausse fourrure',
+      'Ouverture droite sans fermeture apparente',
+    ],
+    material: 'Fausse fourrure',
+    // Composition à confirmer par la marque.
+    composition: '80% acrylique, 20% polyester · Doublure : 100% polyester',
+    care: 'Nettoyage à sec uniquement. Brosser délicatement dans le sens du poil.',
+    featured: true,
+    bestseller: false,
+    newArrival: true,
+    inventory: { XS: 8, S: 12, M: 12, L: 10, XL: 6 },
+    rating: 0,
+    reviewCount: 0,
+    addedAt: '2026-09-02',
+  },
+  {
+    // Produit réel — photos fournies par la marque.
+    id: 'SN-005',
+    slug: 'veste-capuche-lea',
+    name: 'VESTE CAPUCHE LÉA',
+    price: 50,
+    // Prix de référence à renseigner par la marque.
+    compareAtPrice: null,
+    category: 'manteaux-courts',
+    style: 'capuche',
+    color: { name: 'Camel', hex: '#AB886D', group: 'Beige' },
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    images: [
+      '/images/products/veste-capuche-lea-1.jpg',
+      '/images/products/veste-capuche-lea-2.jpg',
+      '/images/products/veste-capuche-lea-3.jpg',
+    ],
+    badge: 'NOUVEAU',
+    description:
+      'La veste zippée en maille camel, capuche généreusement bordée de fausse fourrure et doublée de satin. Bords-côtes à la taille et aux poignets, tombé souple : elle se ferme jusqu’en haut les jours de grand froid, et se porte ouverte le reste du temps.',
+    details: [
+      'Maille douce, coupe courte',
+      'Capuche bordée de fausse fourrure, doublée satin',
+      'Fermeture zippée sur toute la hauteur',
+      'Bords-côtes taille et poignets',
+    ],
+    material: 'Laine mélangée',
+    // Composition exacte à confirmer par la marque.
+    composition:
+      'Corps en maille · Capuche bordée de fausse fourrure, sans fourrure animale · Doublure : 100% polyester',
+    care: 'Nettoyage à sec recommandé. Brosser la fausse fourrure de la capuche dans le sens du poil.',
+    featured: true,
+    bestseller: false,
+    newArrival: true,
+    inventory: { XS: 10, S: 12, M: 14, L: 10, XL: 6 },
     rating: 0,
     reviewCount: 0,
     addedAt: '2026-09-02',

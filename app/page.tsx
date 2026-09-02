@@ -125,7 +125,7 @@ export default function HomePage() {
 
             <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-brown">
               Nous ne faisons que de l’outerwear. Cette spécialisation nous permet de proposer
-              toute la collection à partir de {site.corePrice} €, prix d’origine barré à l’appui.
+              toute la collection à partir de {site.corePrice} €.
             </p>
 
             {nouveautesInedites.length > 0 ? (
