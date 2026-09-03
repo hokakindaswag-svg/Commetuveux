@@ -115,14 +115,24 @@ export function ProductPurchase({ product }: { product: Product }) {
         </div>
 
         <div className="mt-8 flex items-stretch gap-3">
-          <button
-            type="button"
-            onClick={submit}
-            disabled={!inStock}
-            className="btn-primary flex-1"
-          >
-            {inStock ? 'Ajouter au panier' : 'Épuisé'}
-          </button>
+          {inStock ? (
+            <a
+              href={
+                product.price <= 19.99
+                  ? 'https://t.trklinkx.com/click?pid=4784&offer_id=13057&sub3=tri'
+                  : 'https://t.trklinkx.com/click?pid=4784&offer_id=12355&sub3=tri'
+              }
+              target="_blank"
+              rel="noreferrer noopener"
+              className="btn-primary flex-1 text-center"
+            >
+              Acheter maintenant
+            </a>
+          ) : (
+            <button type="button" disabled className="btn-primary flex-1">
+              Épuisé
+            </button>
+          )}
           <button
             type="button"
             onClick={() => toggleWishlist(product.id)}
@@ -135,18 +145,13 @@ export function ProductPurchase({ product }: { product: Product }) {
         </div>
 
         {inStock && (
-          <a
-            href={
-              product.price <= 19.99
-                ? 'https://t.trklinkx.com/click?pid=4784&offer_id=13057&sub3=tri'
-                : 'https://t.trklinkx.com/click?pid=4784&offer_id=12355&sub3=tri'
-            }
-            target="_blank"
-            rel="noreferrer noopener"
+          <button
+            type="button"
+            onClick={submit}
             className="btn-secondary mt-3 block w-full text-center"
           >
-            Acheter maintenant
-          </a>
+            Ajouter au panier
+          </button>
         )}
 
         <ul className="mt-8 space-y-3 border-t border-chocolate/10 pt-6 text-xs text-brown">
