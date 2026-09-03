@@ -19,16 +19,16 @@ export default function FaqPage() {
       <div className="container-site py-14 lg:py-20">
         <div className="mx-auto max-w-2xl">
           <Accordion
-            defaultOpen="Pourquoi tous vos manteaux sont-ils à 50 € ?"
+            defaultOpen="Comment tenez-vous ces prix ?"
             items={[
               {
-                title: 'Pourquoi tous vos manteaux sont-ils à 50 € ?',
+                title: 'Comment tenez-vous ces prix ?',
                 content: (
                   <p>
                     Studio Neige Paris ne vend qu’une seule catégorie : le manteau. Cette spécialisation
-                    nous permet de commander en volume sur un nombre limité de modèles et
-                    d’appliquer un prix unique de {site.corePrice} € à toute la collection. Le
-                    prix barré affiché correspond au prix conseillé d’origine du modèle.
+                    nous permet de commander en volume sur un nombre limité de modèles. Les capes
+                    et les vestes à capuche sont à {site.corePrice} €, les autres pièces à 50 €.
+                    Le prix barré affiché correspond au prix pratiqué précédemment sur la pièce.
                   </p>
                 ),
               },

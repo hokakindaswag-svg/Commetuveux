@@ -20,10 +20,10 @@ export default function Page() {
         </p>
         <h2>2. Prix</h2>
         <p>
-          Les prix sont indiqués en euros toutes taxes comprises. Le prix barré correspond au
-          prix conseillé d’origine du modèle ; le prix de vente Studio Neige Paris est de{" "}
-          {site.corePrice} €. Les frais de livraison sont indiqués avant validation de la
-          commande.
+          Les prix sont indiqués en euros toutes taxes comprises. Le prix de vente de chaque
+          pièce figure sur sa fiche produit, à partir de {site.corePrice} € ; le prix barré
+          correspond au prix précédemment pratiqué sur cette même pièce. Les frais de livraison
+          sont indiqués avant validation de la commande.
         </p>
         <h2>3. Commande</h2>
         <p>

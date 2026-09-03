@@ -10,6 +10,7 @@ import { SectionHeading } from '@/components/home/SectionHeading';
 import { Trust } from '@/components/home/Trust';
 import { allProducts, getProduct, isInStock, relatedProducts } from '@/lib/catalog';
 import { site } from '@/data/site';
+import { formatPrice } from '@/lib/format';
 
 export function generateStaticParams() {
   return allProducts.map((p) => ({ slug: p.slug }));
@@ -25,7 +26,7 @@ export async function generateMetadata({
   if (!product) return { title: 'Produit introuvable' };
 
   return {
-    title: `${product.name} — ${site.corePrice},00 €`,
+    title: `${product.name} — ${formatPrice(product.price)}`,
     description: product.description,
     alternates: { canonical: `/products/${product.slug}` },
     openGraph: {

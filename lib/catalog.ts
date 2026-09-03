@@ -141,7 +141,7 @@ export const sortProducts = (list: Product[], sort: SortKey) => {
           b.rating - a.rating
       );
     case 'prix-croissant':
-      // Tous les manteaux sont à 50 € : on départage sur la valeur d'origine.
+      // À prix de vente égal, on départage sur la valeur d'origine.
       return copy.sort(
         (a, b) => a.price - b.price || (a.compareAtPrice ?? 0) - (b.compareAtPrice ?? 0)
       );

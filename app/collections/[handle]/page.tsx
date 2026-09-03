@@ -26,7 +26,7 @@ export async function generateMetadata({
 
   const count = productsForCollection(collection).length;
   return {
-    title: `${collection.title} — ${count} manteaux à ${site.corePrice} €`,
+    title: `${collection.title} — ${count} manteaux dès ${site.corePrice} €`,
     description: collection.description,
     alternates: { canonical: `/collections/${collection.handle}` },
     openGraph: {

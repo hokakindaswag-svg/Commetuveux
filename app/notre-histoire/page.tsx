@@ -6,7 +6,7 @@ import { site } from '@/data/site';
 export const metadata: Metadata = {
   title: 'Notre histoire',
   description:
-    'Studio Neige Paris, la maison française dédiée au vestiaire d’hiver : manteaux et vestes femme à partir de 50 €.',
+    'Studio Neige Paris, la maison française dédiée au vestiaire d’hiver : manteaux et vestes femme à partir de 20 €.',
 };
 
 export default function Page() {
@@ -29,8 +29,8 @@ export default function Page() {
         <p>
           Ne travailler qu’une seule catégorie change tout : on commande en volume sur un nombre
           limité de modèles, on suit chaque coupe de près, et on peut proposer la collection à
-          partir de {site.corePrice} €. Le prix barré indique la valeur d’origine du modèle ; le
-          prix Studio Neige Paris, lui, ne bouge pas.
+          partir de {site.corePrice} €. Le prix barré indique le prix précédemment pratiqué sur
+          la pièce.
         </p>
 
         <h2>Une allure, pas une tendance</h2>

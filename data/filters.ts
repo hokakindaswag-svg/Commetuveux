@@ -28,8 +28,8 @@ export const colorOptions: { name: string; hex: string }[] = [
 ];
 
 /**
- * Tous les manteaux sont à 50 €. Le filtre « Prix » porte donc sur la
- * valeur d’origine (prix barré), ce qui permet de trier par niveau de gamme.
+ * Le filtre « Prix » porte sur la valeur d'origine (le prix barré) plutôt
+ * que sur le prix de vente : c'est elle qui situe la pièce en gamme.
  */
 export const priceOptions = [
   { label: 'Valeur jusqu’à 99 €', min: 0, max: 99 },

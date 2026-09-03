@@ -174,7 +174,7 @@ export function FilterPanel({
       {prices.length > 1 ? (
         <Group label="Prix">
           <p className="pb-2 text-2xs leading-relaxed text-brown">
-            Toutes nos pièces sont à 50 €. Filtrez par valeur d’origine.
+            Filtrez par prix d’origine, celui qui apparaît barré.
           </p>
           {prices.map((option) => (
             <Checkbox
