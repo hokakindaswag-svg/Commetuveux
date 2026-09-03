@@ -243,6 +243,46 @@ export const products: Product[] = [
     reviewCount: 0,
     addedAt: '2026-09-02',
   },
+  {
+    // Produit réel — photos fournies par la marque.
+    id: 'SN-007',
+    slug: 'veste-capuche-cleo',
+    name: 'VESTE CAPUCHE CLÉO',
+    price: 50,
+    compareAtPrice: 169.99,
+    category: 'manteaux-courts',
+    style: 'capuche',
+    color: { name: 'Ivoire', hex: '#F3F0EA', group: 'Crème' },
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    images: [
+      '/images/products/veste-capuche-cleo-1.jpg',
+      '/images/products/veste-capuche-cleo-2.jpg',
+      '/images/products/veste-capuche-cleo-3.jpg',
+      '/images/products/veste-capuche-cleo-4.jpg',
+      '/images/products/veste-capuche-cleo-5.jpg',
+    ],
+    badge: 'NOUVEAU',
+    description:
+      'La veste zippée en maille ivoire, capuche bordée d’une fausse fourrure blanche très fournie et doublée de satin. Bords-côtes à la taille et aux poignets, tombé souple : le blanc d’hiver qui se porte du matin au soir, capuche relevée ou rabattue sur les épaules.',
+    details: [
+      'Maille douce, coupe courte',
+      'Capuche bordée de fausse fourrure blanche, doublée satin',
+      'Fermeture zippée sur toute la hauteur',
+      'Bords-côtes taille et poignets',
+    ],
+    material: 'Laine mélangée',
+    // Composition exacte à confirmer par la marque.
+    composition:
+      'Corps en maille · Capuche bordée de fausse fourrure, sans fourrure animale · Doublure : 100% polyester',
+    care: 'Nettoyage à sec recommandé. Brosser la fausse fourrure de la capuche dans le sens du poil.',
+    featured: true,
+    bestseller: false,
+    newArrival: true,
+    inventory: { XS: 10, S: 12, M: 14, L: 10, XL: 6 },
+    rating: 0,
+    reviewCount: 0,
+    addedAt: '2026-09-03',
+  },
 ];
 
 export default products;
