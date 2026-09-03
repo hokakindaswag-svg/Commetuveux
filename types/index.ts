@@ -109,18 +109,6 @@ export interface Collection {
   image: string;
 }
 
-export interface CartLine {
-  productId: string;
-  slug: string;
-  name: string;
-  price: number;
-  compareAtPrice: number | null;
-  image: string;
-  color: string;
-  size: Size;
-  quantity: number;
-}
-
 export interface NavLink {
   label: string;
   href: string;

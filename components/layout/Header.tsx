@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import { useStore } from '@/components/providers/StoreProvider';
 import { Logo } from '@/components/ui/Logo';
 import {
-  BagIcon,
   ChevronDown,
   HeartIcon,
   MenuIcon,
@@ -21,7 +20,7 @@ import { LeopardRule } from '@/components/ui/Leopard';
  * compacte au défilement pour libérer de la place sans perdre la marque.
  */
 export function Header() {
-  const { cartCount, wishlist, openCart, openSearch, openMenu, hydrated } = useStore();
+  const { wishlist, openSearch, openMenu, hydrated } = useStore();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [compact, setCompact] = useState(false);
   const pathname = usePathname();
@@ -122,7 +121,7 @@ export function Header() {
             />
           </div>
 
-          {/* Droite : recherche, compte, wishlist, panier */}
+          {/* Droite : recherche, compte, wishlist */}
           <div className="flex items-center justify-end gap-0.5 sm:gap-1">
             <button
               type="button"
@@ -153,20 +152,6 @@ export function Header() {
                 </span>
               ) : null}
             </Link>
-
-            <button
-              type="button"
-              onClick={openCart}
-              aria-label={`Panier${hydrated && cartCount ? ` (${cartCount} article${cartCount > 1 ? 's' : ''})` : ''}`}
-              className="relative p-2 text-chocolate transition-colors hover:text-burgundy"
-            >
-              <BagIcon width={19} height={19} />
-              {hydrated && cartCount > 0 ? (
-                <span className="absolute right-0 top-0 grid h-4 min-w-4 place-items-center rounded-full bg-burgundy px-1 text-[10px] leading-none text-ivory">
-                  {cartCount}
-                </span>
-              ) : null}
-            </button>
           </div>
         </div>
       </div>

@@ -4,7 +4,6 @@ import { StoreProvider } from '@/components/providers/StoreProvider';
 import { Header } from '@/components/layout/Header';
 import { TopBar } from '@/components/layout/PromoBanner';
 import { Footer } from '@/components/layout/Footer';
-import { CartDrawer } from '@/components/cart/CartDrawer';
 import { SearchDrawer } from '@/components/layout/SearchDrawer';
 import { MobileMenu } from '@/components/layout/MobileMenu';
 import { site } from '@/data/site';
@@ -96,7 +95,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main id="contenu">{children}</main>
           <Footer />
-          <CartDrawer />
           <SearchDrawer />
           <MobileMenu />
         </StoreProvider>

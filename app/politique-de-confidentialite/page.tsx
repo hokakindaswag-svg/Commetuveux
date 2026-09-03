@@ -33,8 +33,8 @@ export default function Page() {
         </p>
         <h2>Stockage local</h2>
         <p>
-          Votre panier et votre sélection sont enregistrés dans le stockage local de votre
-          navigateur. Ces informations ne quittent pas votre appareil et ne nous sont pas
+          Votre sélection (les pièces mises de côté) est enregistrée dans le stockage local de
+          votre navigateur. Ces informations ne quittent pas votre appareil et ne nous sont pas
           transmises.
         </p>
         <h2>Vos droits</h2>

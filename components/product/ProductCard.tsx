@@ -2,13 +2,12 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 import { useStore } from '@/components/providers/StoreProvider';
 import { Price } from '@/components/ui/Price';
 import { HeartIcon } from '@/components/ui/Icons';
-import { availableSizes, isInStock } from '@/lib/catalog';
+import { isInStock } from '@/lib/catalog';
 import { assetPath } from '@/lib/paths';
-import type { Product, Size } from '@/types';
+import type { Product } from '@/types';
 
 /** Badges maison : discrets, typographiés, jamais criards. */
 const badgeStyles: Record<string, string> = {
@@ -28,11 +27,9 @@ export function ProductCard({
   priority?: boolean;
   sizes?: string;
 }) {
-  const { addToCart, toggleWishlist, isWishlisted, hydrated } = useStore();
-  const [quickAdd, setQuickAdd] = useState(false);
+  const { toggleWishlist, isWishlisted, hydrated } = useStore();
   const wished = hydrated && isWishlisted(product.id);
   const inStock = isInStock(product);
-  const sizesAvailable = availableSizes(product);
 
   return (
     <article className="group relative">
@@ -106,34 +103,15 @@ export function ProductCard({
           />
         </button>
 
-        {/* Ajout rapide — desktop uniquement, pour garder la carte épurée */}
+        {/* Accès direct à la fiche — desktop uniquement, pour garder la carte épurée */}
         {inStock ? (
           <div className="pointer-events-none absolute inset-x-2 bottom-2 hidden lg:block">
-            {quickAdd ? (
-              <div className="pointer-events-auto flex animate-fade-in items-stretch gap-px bg-cream p-1">
-                {sizesAvailable.map((size) => (
-                  <button
-                    key={size}
-                    type="button"
-                    onClick={() => {
-                      addToCart(product, size as Size);
-                      setQuickAdd(false);
-                    }}
-                    className="flex-1 py-2.5 text-[10px] font-medium uppercase tracking-widest text-chocolate transition-colors hover:bg-burgundy hover:text-ivory"
-                  >
-                    {size}
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <button
-                type="button"
-                onClick={() => setQuickAdd(true)}
-                className="pointer-events-auto w-full translate-y-2 bg-cream/95 py-3.5 text-[10px] font-medium uppercase tracking-brand text-chocolate opacity-0 transition-all duration-300 ease-studio hover:bg-burgundy hover:text-ivory group-hover:translate-y-0 group-hover:opacity-100 focus-visible:translate-y-0 focus-visible:opacity-100"
-              >
-                Ajout rapide
-              </button>
-            )}
+            <Link
+              href={`/products/${product.slug}`}
+              className="pointer-events-auto block w-full translate-y-2 bg-cream/95 py-3.5 text-center text-[10px] font-medium uppercase tracking-brand text-chocolate opacity-0 transition-all duration-300 ease-studio hover:bg-burgundy hover:text-ivory group-hover:translate-y-0 group-hover:opacity-100 focus-visible:translate-y-0 focus-visible:opacity-100"
+            >
+              Voir la pièce
+            </Link>
           </div>
         ) : null}
       </div>

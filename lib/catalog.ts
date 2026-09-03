@@ -53,7 +53,7 @@ export const collectionCount = (handle: string) => {
   return collection ? productsForCollection(collection).length : 0;
 };
 
-/** Recommandations panier / fiche produit : même famille en priorité. */
+/** Recommandations en fiche produit : même famille en priorité. */
 export const relatedProducts = (product: Product, limit = 4) => {
   const sameCategory = products.filter(
     (p) => p.id !== product.id && p.category === product.category

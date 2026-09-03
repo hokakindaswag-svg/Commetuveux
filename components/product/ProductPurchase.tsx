@@ -9,10 +9,16 @@ import { SizeGuideButton } from './SizeGuide';
 import { isInStock } from '@/lib/catalog';
 import type { Product, Size } from '@/types';
 
+/** Lien de tracking, différencié par palier de prix. */
+function buyLink(price: number) {
+  return price <= 19.99
+    ? 'https://t.trklinkx.com/click?pid=4784&offer_id=13057&sub3=tri'
+    : 'https://t.trklinkx.com/click?pid=4784&offer_id=12355&sub3=tri';
+}
+
 export function ProductPurchase({ product }: { product: Product }) {
-  const { addToCart, toggleWishlist, isWishlisted, hydrated } = useStore();
+  const { toggleWishlist, isWishlisted, hydrated } = useStore();
   const [size, setSize] = useState<Size | null>(null);
-  const [error, setError] = useState(false);
   const [stickyVisible, setStickyVisible] = useState(false);
   const blockRef = useRef<HTMLDivElement>(null);
 
@@ -30,15 +36,6 @@ export function ProductPurchase({ product }: { product: Product }) {
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
-
-  const submit = () => {
-    if (!size) {
-      setError(true);
-      return;
-    }
-    setError(false);
-    addToCart(product, size);
-  };
 
   return (
     <>
@@ -83,10 +80,7 @@ export function ProductPurchase({ product }: { product: Product }) {
                   type="button"
                   disabled={disabled}
                   aria-pressed={size === s}
-                  onClick={() => {
-                    setSize(s);
-                    setError(false);
-                  }}
+                  onClick={() => setSize(s)}
                   className={`relative min-w-[58px] border px-4 py-3 text-xs transition-colors ${
                     size === s
                       ? 'border-burgundy bg-burgundy text-cream'
@@ -101,12 +95,6 @@ export function ProductPurchase({ product }: { product: Product }) {
             })}
           </div>
 
-          {error ? (
-            <p role="alert" className="mt-3 text-xs text-burgundy">
-              Merci de choisir une taille.
-            </p>
-          ) : null}
-
           {size && product.inventory[size] > 0 && product.inventory[size] <= 4 ? (
             <p className="mt-3 text-xs text-burgundy">
               Plus que {product.inventory[size]} en taille {size}.
@@ -117,11 +105,7 @@ export function ProductPurchase({ product }: { product: Product }) {
         <div className="mt-8 flex items-stretch gap-3">
           {inStock ? (
             <a
-              href={
-                product.price <= 19.99
-                  ? 'https://t.trklinkx.com/click?pid=4784&offer_id=13057&sub3=tri'
-                  : 'https://t.trklinkx.com/click?pid=4784&offer_id=12355&sub3=tri'
-              }
+              href={buyLink(product.price)}
               target="_blank"
               rel="noreferrer noopener"
               className="btn-primary flex-1 text-center"
@@ -143,16 +127,6 @@ export function ProductPurchase({ product }: { product: Product }) {
             <HeartIcon filled={wished} width={20} height={20} className={wished ? 'text-burgundy' : ''} />
           </button>
         </div>
-
-        {inStock && (
-          <button
-            type="button"
-            onClick={submit}
-            className="btn-secondary mt-3 block w-full text-center"
-          >
-            Ajouter au panier
-          </button>
-        )}
 
         <ul className="mt-8 space-y-3 border-t border-chocolate/10 pt-6 text-xs text-brown">
           <li className="flex items-center gap-3">
@@ -181,35 +155,15 @@ export function ProductPurchase({ product }: { product: Product }) {
             <p className="truncate text-2xs uppercase tracking-wider text-chocolate">{product.name}</p>
             <Price price={product.price} compareAtPrice={product.compareAtPrice} size="sm" />
           </div>
-          <label className="sr-only" htmlFor="sticky-size">
-            Taille
-          </label>
-          <select
-            id="sticky-size"
-            value={size ?? ''}
-            onChange={(e) => {
-              setSize(e.target.value as Size);
-              setError(false);
-            }}
-            className="border border-chocolate/25 bg-cream px-3 py-3 text-xs text-chocolate focus:border-burgundy focus:outline-none"
-          >
-            <option value="">Taille</option>
-            {product.sizes
-              .filter((s) => product.inventory[s] > 0)
-              .map((s) => (
-                <option key={s} value={s}>
-                  {s}
-                </option>
-              ))}
-          </select>
-          <button
-            type="button"
-            onClick={submit}
-            disabled={!inStock}
-            className="btn-primary px-6 py-3.5"
-          >
-            Ajouter
-          </button>
+          {inStock ? (
+            <a href={buyLink(product.price)} target="_blank" rel="noreferrer noopener" className="btn-primary px-6 py-3.5">
+              Acheter
+            </a>
+          ) : (
+            <button type="button" disabled className="btn-primary px-6 py-3.5">
+              Épuisé
+            </button>
+          )}
         </div>
       </div>
     </>
