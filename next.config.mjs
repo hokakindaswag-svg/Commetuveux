@@ -2,24 +2,20 @@
 // En local (npm run dev/build) ou sur Vercel/Netlify, cette variable n'est pas définie :
 // le site tourne alors normalement, avec l'optimisation d'images de Next.js.
 const isGithubPages = process.env.GITHUB_PAGES === 'true';
-// Nom du dépôt GitHub : sert de sous-dossier pour les pages de projet
-// (https://<utilisateur>.github.io/<depot>/). À adapter si le dépôt est renommé.
-const repoName = 'Commetuveux';
+// Le site est servi sur son propre nom de domaine (voir /public/CNAME), donc
+// à la racine — pas de sous-dossier /Commetuveux à préfixer aux chemins.
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   ...(isGithubPages && {
     output: 'export',
-    basePath: `/${repoName}`,
-    assetPrefix: `/${repoName}/`,
   }),
   env: {
-    // Next.js n'ajoute PAS automatiquement basePath aux chemins d'images du
-    // dossier /public référencés en dur (contrairement à next/link). On
-    // expose donc cette valeur pour que lib/paths.ts puisse la préfixer
-    // elle-même. Vide en local et sur Vercel/Netlify (pas de sous-dossier).
-    NEXT_PUBLIC_BASE_PATH: isGithubPages ? `/${repoName}` : '',
+    // Historiquement utilisé pour préfixer les chemins d'assets sous un
+    // sous-dossier de dépôt GitHub Pages. Vide désormais que le site est
+    // servi à la racine de son propre domaine.
+    NEXT_PUBLIC_BASE_PATH: '',
   },
   images: {
     // Les images produits sont locales (/public/images/...).
