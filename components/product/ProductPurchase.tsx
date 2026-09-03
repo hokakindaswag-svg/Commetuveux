@@ -134,6 +134,21 @@ export function ProductPurchase({ product }: { product: Product }) {
           </button>
         </div>
 
+        {inStock && (
+          <a
+            href={
+              product.price <= 19.99
+                ? 'https://t.trklinkx.com/click?pid=4784&offer_id=13057&sub3=tri'
+                : 'https://t.trklinkx.com/click?pid=4784&offer_id=12355&sub3=tri'
+            }
+            target="_blank"
+            rel="noreferrer noopener"
+            className="btn-secondary mt-3 block w-full text-center"
+          >
+            Acheter maintenant
+          </a>
+        )}
+
         <ul className="mt-8 space-y-3 border-t border-chocolate/10 pt-6 text-xs text-brown">
           <li className="flex items-center gap-3">
             <TruckIcon width={18} height={18} className="text-burgundy" />
