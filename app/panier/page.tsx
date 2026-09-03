@@ -15,7 +15,6 @@ import { assetPath } from '@/lib/paths';
 export default function CartPage() {
   const { lines, subtotal, savings, cartCount, setQuantity, removeFromCart, hydrated } = useStore();
   const recommendations = recommendationsFor(lines.map((l) => l.productId), 4);
-  const remaining = Math.max(0, site.freeShippingThreshold - subtotal);
 
   return (
     <div className="container-site py-12 lg:py-20">
@@ -118,17 +117,9 @@ export default function CartPage() {
                 ) : null}
                 <div className="flex justify-between">
                   <dt className="text-brown">Livraison</dt>
-                  <dd className="text-chocolate">
-                    {remaining > 0 ? 'Calculée à l’étape suivante' : 'Offerte'}
-                  </dd>
+                  <dd className="text-chocolate">Offerte</dd>
                 </div>
               </dl>
-
-              {remaining > 0 ? (
-                <p className="mt-5 bg-ivory px-4 py-3 text-center text-2xs uppercase tracking-wider text-chocolate">
-                  Plus que {formatPrice(remaining)} pour la livraison offerte
-                </p>
-              ) : null}
 
               <button type="button" className="btn-primary mt-6 w-full">
                 Passer commande

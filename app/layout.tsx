@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import '@/styles/globals.css';
 import { StoreProvider } from '@/components/providers/StoreProvider';
 import { Header } from '@/components/layout/Header';
-import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
+import { TopBar } from '@/components/layout/PromoBanner';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
 import { SearchDrawer } from '@/components/layout/SearchDrawer';
@@ -92,7 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <a href="#contenu" className="skip-link">
             Aller au contenu
           </a>
-          <AnnouncementBar />
+          <TopBar />
           <Header />
           <main id="contenu">{children}</main>
           <Footer />

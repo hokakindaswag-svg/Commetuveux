@@ -139,7 +139,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                       <div className="space-y-3">
                         <p>
                           Expédition depuis la France sous 48 h ouvrées, avec numéro de suivi.
-                          Livraison offerte dès {site.freeShippingThreshold} € d’achat.
+                          Livraison offerte sur toutes les commandes, sans minimum.
                         </p>
                         <p>
                           Vous avez 14 jours après réception pour nous retourner un article non

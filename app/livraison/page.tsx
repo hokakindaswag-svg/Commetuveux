@@ -20,9 +20,9 @@ export default function Page() {
         </p>
         <h2>Tarifs</h2>
         <ul>
-          <li>Livraison standard suivie : 4,90 €, 2 à 4 jours ouvrés.</li>
-          <li>Livraison offerte dès {site.freeShippingThreshold} € d’achat.</li>
-          <li>Point relais : 3,90 €, 2 à 5 jours ouvrés.</li>
+          <li>Livraison offerte sur toutes les commandes, sans minimum d’achat.</li>
+          <li>Livraison standard suivie à domicile : 2 à 4 jours ouvrés.</li>
+          <li>Point relais : 2 à 5 jours ouvrés.</li>
         </ul>
         <h2>Suivi</h2>
         <p>

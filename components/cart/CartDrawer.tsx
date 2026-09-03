@@ -19,7 +19,6 @@ export function CartDrawer() {
     lines.map((l) => l.productId),
     4
   );
-  const remaining = Math.max(0, site.freeShippingThreshold - subtotal);
 
   return (
     <Drawer
@@ -68,15 +67,9 @@ export function CartDrawer() {
         </div>
       ) : (
         <div className="px-5 sm:px-6">
-          {remaining > 0 ? (
-            <p className="mt-5 bg-ivory px-4 py-3 text-center text-2xs uppercase tracking-wider text-chocolate">
-              Plus que {formatPrice(remaining)} pour la livraison offerte
-            </p>
-          ) : (
-            <p className="mt-5 bg-ivory px-4 py-3 text-center text-2xs uppercase tracking-wider text-chocolate">
-              Livraison offerte 🎉
-            </p>
-          )}
+          <p className="mt-5 bg-ivory px-4 py-3 text-center text-2xs uppercase tracking-wider text-chocolate">
+            Livraison offerte sur toutes les commandes
+          </p>
 
           <ul className="divide-y divide-chocolate/10">
             {lines.map((line) => (

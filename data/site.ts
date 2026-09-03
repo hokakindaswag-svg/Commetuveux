@@ -26,7 +26,6 @@ export const site = {
    * annoncerait un prix unique serait donc fausse.
    */
   corePrice: 20,
-  freeShippingThreshold: 80,
 } as const;
 
 /* ------------------------------------------------------------------ */
@@ -34,7 +33,7 @@ export const site = {
 /* ------------------------------------------------------------------ */
 
 export const announcements = [
-  'MANTEAUX DÈS 20 € · LIVRAISON EN FRANCE',
+  'LIVRAISON OFFERTE · MANTEAUX DÈS 20 €',
   'STUDIO NEIGE PARIS · LE VESTIAIRE D’HIVER',
   'NOUVELLES PIÈCES CHAQUE SEMAINE',
 ];
@@ -128,8 +127,8 @@ export const media = {
 
 export const trustPoints = [
   {
-    title: 'Livraison en France',
-    text: 'Expédition depuis la France, avec numéro de suivi sur chaque commande.',
+    title: 'Livraison offerte',
+    text: 'Offerte sur toutes les commandes, sans minimum. Expédition depuis la France, avec numéro de suivi.',
     icon: 'truck' as const,
   },
   {
