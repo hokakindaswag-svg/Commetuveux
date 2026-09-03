@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { site } from '@/data/site';
+import { formatPrice } from '@/lib/format';
 import { hasProducts } from '@/lib/catalog';
 import { HeroVideo } from './HeroVideo';
 
@@ -36,7 +37,7 @@ export function Hero() {
 
           <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-brown sm:mx-0 sm:mt-7">
             Des manteaux désirables, pensés pour les journées froides et les looks qui ne
-            passent pas inaperçus. À partir de {site.corePrice} €.
+            passent pas inaperçus. À partir de {formatPrice(site.corePrice)}.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:mt-11 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">

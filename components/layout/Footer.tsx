@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Logo } from '@/components/ui/Logo';
 import { InstagramIcon, PinterestIcon, TiktokIcon } from '@/components/ui/Icons';
 import { footerNav, site, socialLinks } from '@/data/site';
+import { formatPrice } from '@/lib/format';
 import { keepReachable } from '@/lib/catalog';
 import { LeopardRule } from '@/components/ui/Leopard';
 
@@ -33,7 +34,7 @@ export function Footer() {
 
             <p className="mt-7 max-w-xs text-sm leading-relaxed text-ivory/70">
               Le vestiaire d’hiver. Des manteaux et des vestes désirables, pensés pour les
-              journées froides — à partir de {site.corePrice} €.
+              journées froides — à partir de {formatPrice(site.corePrice)}.
             </p>
 
             <ul className="mt-7 flex items-center gap-5">

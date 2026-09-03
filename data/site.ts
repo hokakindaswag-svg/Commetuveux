@@ -22,10 +22,10 @@ export const site = {
   /**
    * Prix d'entrée de gamme, affiché partout en « à partir de ».
    * Le catalogue n'a plus un prix unique : les capes et les vestes à
-   * capuche sont à 20 €, les autres pièces à 50 €. Toute formule qui
+   * capuche sont à 19,99 €, les autres pièces à 49,99 €. Toute formule qui
    * annoncerait un prix unique serait donc fausse.
    */
-  corePrice: 20,
+  corePrice: 19.99,
 } as const;
 
 /* ------------------------------------------------------------------ */
@@ -33,7 +33,7 @@ export const site = {
 /* ------------------------------------------------------------------ */
 
 export const announcements = [
-  'LIVRAISON OFFERTE · MANTEAUX DÈS 20 €',
+  'LIVRAISON OFFERTE · MANTEAUX DÈS 19,99 €',
   'STUDIO NEIGE PARIS · LE VESTIAIRE D’HIVER',
   'NOUVELLES PIÈCES CHAQUE SEMAINE',
 ];

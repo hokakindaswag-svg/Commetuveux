@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: '%s | Studio Neige Paris',
   },
   description:
-    'Studio Neige Paris, le vestiaire d’hiver : manteaux longs, vestes, doudounes et fausse fourrure pour femme, à partir de 20 €. Livraison en France.',
+    'Studio Neige Paris, le vestiaire d’hiver : manteaux longs, vestes, doudounes et fausse fourrure pour femme, à partir de 19,99 €. Livraison en France.',
   keywords: [
     'manteau femme',
     'veste femme hiver',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: site.fullName,
     title: 'Studio Neige Paris — Le vestiaire d’hiver',
     description:
-      'Des manteaux désirables, pensés pour les journées froides. À partir de 20 €, livrés en France.',
+      'Des manteaux désirables, pensés pour les journées froides. À partir de 19,99 €, livrés en France.',
     // URL absolue plutôt que résolue via metadataBase : une URL relative
     // commençant par "/" écraserait le sous-dossier /Commetuveux du
     // déploiement GitHub Pages (règles de résolution d'URL standard).
@@ -60,7 +60,7 @@ const organizationJsonLd = {
   name: site.fullName,
   url: site.url,
   description:
-    'Studio Neige Paris — manteaux et vestes femme, le vestiaire d’hiver, à partir de 20 €, livrés en France.',
+    'Studio Neige Paris — manteaux et vestes femme, le vestiaire d’hiver, à partir de 19,99 €, livrés en France.',
   areaServed: 'FR',
   currenciesAccepted: 'EUR',
 };

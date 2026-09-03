@@ -28,7 +28,7 @@ export default function CartPage() {
         <div className="mt-10 max-w-md">
           <p className="text-sm text-chocolate">Votre panier est vide.</p>
           <p className="mt-2 text-sm text-brown">
-            Le vestiaire d’hiver vous attend, à partir de {site.corePrice} €.
+            Le vestiaire d’hiver vous attend, à partir de {formatPrice(site.corePrice)}.
           </p>
           <Link href="/collections/manteaux" className="btn-primary mt-8">
             Découvrir la collection

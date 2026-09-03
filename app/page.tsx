@@ -14,6 +14,7 @@ import {
   newProducts,
 } from '@/lib/catalog';
 import { media, site } from '@/data/site';
+import { formatPrice } from '@/lib/format';
 import { LeopardTexture } from '@/components/ui/Leopard';
 
 /** Familles mises en avant — celles qui sont vides disparaissent d'elles-mêmes. */
@@ -125,7 +126,7 @@ export default function HomePage() {
 
             <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-brown">
               Nous ne faisons que de l’outerwear. Cette spécialisation nous permet de proposer
-              toute la collection à partir de {site.corePrice} €.
+              toute la collection à partir de {formatPrice(site.corePrice)}.
             </p>
 
             {nouveautesInedites.length > 0 ? (

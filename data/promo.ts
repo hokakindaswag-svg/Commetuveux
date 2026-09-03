@@ -9,7 +9,7 @@
 export const promo = {
   active: true,
   label: 'Offre de rentrée',
-  message: 'Capes et vestes à capuche à 20 € au lieu de 50 €',
+  message: 'Capes et vestes à capuche à 19,99 € au lieu de 50 €',
   /**
    * Fin de l'opération, incluse. Fuseau explicite : sans lui, la date
    * serait interprétée en UTC et l'offre se couperait deux heures trop tôt

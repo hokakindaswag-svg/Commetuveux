@@ -7,6 +7,7 @@ import { Newsletter } from '@/components/layout/Newsletter';
 import { getCollection } from '@/data/collections';
 import { productsForCollection, visibleCollections } from '@/lib/catalog';
 import { site } from '@/data/site';
+import { formatPrice } from '@/lib/format';
 import { assetPath } from '@/lib/paths';
 
 export function generateStaticParams() {
@@ -26,7 +27,7 @@ export async function generateMetadata({
 
   const count = productsForCollection(collection).length;
   return {
-    title: `${collection.title} — ${count} manteaux dès ${site.corePrice} €`,
+    title: `${collection.title} — ${count} manteaux dès ${formatPrice(site.corePrice)}`,
     description: collection.description,
     alternates: { canonical: `/collections/${collection.handle}` },
     openGraph: {

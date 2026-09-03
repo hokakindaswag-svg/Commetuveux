@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHeader, Prose } from '@/components/layout/PageHeader';
 import { site } from '@/data/site';
+import { formatPrice } from '@/lib/format';
 
 export const metadata: Metadata = {
   title: 'Conditions générales de vente',
@@ -21,7 +22,7 @@ export default function Page() {
         <h2>2. Prix</h2>
         <p>
           Les prix sont indiqués en euros toutes taxes comprises. Le prix de vente de chaque
-          pièce figure sur sa fiche produit, à partir de {site.corePrice} € ; le prix barré
+          pièce figure sur sa fiche produit, à partir de {formatPrice(site.corePrice)} ; le prix barré
           correspond au prix précédemment pratiqué sur cette même pièce. Les frais de livraison
           sont indiqués avant validation de la commande.
         </p>

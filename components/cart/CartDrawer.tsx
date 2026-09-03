@@ -59,7 +59,7 @@ export function CartDrawer() {
         <div className="px-5 py-16 text-center sm:px-6">
           <p className="text-sm text-chocolate">Votre sélection est vide.</p>
           <p className="mt-2 text-xs text-brown">
-            Le vestiaire d’hiver vous attend, à partir de {site.corePrice} €.
+            Le vestiaire d’hiver vous attend, à partir de {formatPrice(site.corePrice)}.
           </p>
           <Link href="/collections/manteaux" onClick={closeCart} className="btn-primary mt-8">
             Découvrir la collection
