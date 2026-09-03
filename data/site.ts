@@ -115,8 +115,6 @@ export const media = {
   heroVideoWebm: '/videos/hero.webm',
   heroPoster: '/images/lifestyle/hero-poster.jpg',
   editorial: '/images/lifestyle/editorial-01.jpg',
-  /** Nombre d'emplacements réservés aux photos clientes (section « Le studio, porté »). */
-  ugcSlots: 6,
 } as const;
 
 /* ------------------------------------------------------------------ */
