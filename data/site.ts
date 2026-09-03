@@ -107,12 +107,12 @@ export const media = {
   /**
    * Vidéo de campagne affichée en tête de page.
    * Format vertical (9:16), sans son, en lecture automatique et en boucle.
-   * Deux encodages : WebM (plus léger) puis MP4 (compatible partout).
+   * Deux encodages, MP4/H.264 en premier : voir HeroVideo.tsx pour l'ordre.
    * Pour la remplacer : déposez un nouveau MP4 ici et une image d'attente
    * (première image de la vidéo) dans heroPoster.
    */
-  heroVideoWebm: '/videos/hero.webm',
   heroVideo: '/videos/hero.mp4',
+  heroVideoWebm: '/videos/hero.webm',
   heroPoster: '/images/lifestyle/hero-poster.jpg',
   editorial: '/images/lifestyle/editorial-01.jpg',
   /** Nombre d'emplacements réservés aux photos clientes (section « Le studio, porté »). */
