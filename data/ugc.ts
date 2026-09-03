@@ -42,6 +42,10 @@ export const ugcPhotos: UgcPhoto[] = [
     image: '/images/ugc/ugc-05.jpg',
     alt: 'Veste à capuche camel portée de profil, capuche bordée de fausse fourrure',
   },
+  {
+    image: '/images/ugc/ugc-06.jpg',
+    alt: 'Veste à capuche camel sur cintre, capuche bordée de fausse fourrure beige',
+  },
 ];
 
 /**
