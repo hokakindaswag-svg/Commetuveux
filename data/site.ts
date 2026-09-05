@@ -20,10 +20,10 @@ export const site = {
   pinterest: process.env.NEXT_PUBLIC_PINTEREST_HANDLE || 'studioneigeparis',
   newsletterEndpoint: process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT || '',
   /**
-   * Prix d'entrée de gamme, affiché partout en « à partir de ».
-   * Le catalogue n'a plus un prix unique : les capes et les vestes à
-   * capuche sont à 19,99 €, les autres pièces à 49,99 €. Toute formule qui
-   * annoncerait un prix unique serait donc fausse.
+   * Prix unique du catalogue : toutes les pièces sont vendues 19,99 €.
+   * Les formules « à partir de » restent donc justes ; si une pièce est
+   * un jour vendue à un autre prix, remplacez-les par « à partir de »
+   * uniquement là où c'est encore vrai.
    */
   corePrice: 19.99,
 } as const;

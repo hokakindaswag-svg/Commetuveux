@@ -1,7 +1,7 @@
 # Studio Neige Paris
 
 Boutique en ligne **Studio Neige Paris** — le vestiaire d'hiver : manteaux, vestes, doudounes
-et fausse fourrure pour femme, à partir de **50 €**.
+et fausse fourrure pour femme, à **19,99 €** la pièce.
 
 Site ecommerce complet : page d’accueil éditoriale, pages collection avec filtres et tris,
 fiches produit, panier en tiroir, wishlist, recherche, pages d’aide et pages légales.
@@ -108,8 +108,8 @@ la grille, le sitemap et les données structurées sont générés automatiqueme
   id: 'LC-061',
   slug: 'manteau-long-victoire',        // → /products/manteau-long-victoire
   name: 'MANTEAU LONG VICTOIRE',
-  price: 50,
-  compareAtPrice: 149,                   // prix barré affiché
+  price: 19.99,
+  compareAtPrice: 50,                    // prix barré affiché
   category: 'manteaux-longs',
   style: 'ceinture',
   color: { name: 'Bordeaux', hex: '#530E0E', group: 'Bordeaux' },
@@ -238,7 +238,7 @@ l'ensemble du site.
 
 ## Politique de prix
 
-Tous les manteaux sont vendus **50,00 €**. Le champ `compareAtPrice` porte le prix conseillé
+Tous les manteaux sont vendus **19,99 €**. Le champ `compareAtPrice` porte le prix conseillé
 d’origine, affiché barré à côté du prix Studio Neige Paris, avec le pourcentage de remise.
 
 Comme le prix de vente est unique, le filtre « Prix » de la page collection porte sur la

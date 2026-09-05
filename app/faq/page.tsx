@@ -27,8 +27,8 @@ export default function FaqPage() {
                 content: (
                   <p>
                     Studio Neige Paris ne vend qu’une seule catégorie : le manteau. Cette spécialisation
-                    nous permet de commander en volume sur un nombre limité de modèles. Les capes
-                    et les vestes à capuche sont à {formatPrice(site.corePrice)}, les autres pièces à 49,99 €.
+                    nous permet de commander en volume sur un nombre limité de modèles. Toutes les
+                    pièces du catalogue sont vendues {formatPrice(site.corePrice)}.
                     Le prix barré affiché correspond au prix pratiqué précédemment sur la pièce.
                   </p>
                 ),
