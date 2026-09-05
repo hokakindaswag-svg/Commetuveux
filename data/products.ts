@@ -283,6 +283,44 @@ export const products: Product[] = [
     reviewCount: 0,
     addedAt: '2026-09-03',
   },
+  {
+    // Produit réel — photos de la marque.
+    id: 'SN-008',
+    slug: 'veste-fourrure-anouk',
+    name: 'VESTE FOURRURE ANOUK',
+    price: 49.99,
+    compareAtPrice: 169.99,
+    category: 'fausse-fourrure',
+    style: 'crop',
+    color: { name: 'Noir & fauve', hex: '#141414', group: 'Noir' },
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    images: [
+      '/images/products/veste-fourrure-anouk-1.jpg',
+      '/images/products/veste-fourrure-anouk-2.jpg',
+      '/images/products/veste-fourrure-anouk-3.jpg',
+      '/images/products/veste-fourrure-anouk-4.jpg',
+    ],
+    badge: 'NOUVEAU',
+    description:
+      'La version noire de notre veste bicolore : une maille côtelée noire structurée, plastron et large col châle en fausse fourrure nuancée brun et gris. Fermeture zippée sur toute la hauteur, bord-côte large à la taille pour une coupe courte qui marque la silhouette, et poignets terminés par de gros manchons de fourrure.',
+    details: [
+      'Coupe courte, taille marquée par un bord-côte large',
+      'Plastron et col châle en fausse fourrure nuancée',
+      'Fermeture zippée sur toute la hauteur',
+      'Manches en maille côtelée, poignets bordés de manchons de fausse fourrure',
+    ],
+    material: 'Fausse fourrure',
+    // Composition à confirmer par la marque.
+    composition: '80% acrylique, 20% polyester · Doublure : 100% polyester',
+    care: 'Nettoyage à sec uniquement. Brosser délicatement dans le sens du poil.',
+    featured: true,
+    bestseller: false,
+    newArrival: true,
+    inventory: { XS: 8, S: 12, M: 12, L: 10, XL: 6 },
+    rating: 0,
+    reviewCount: 0,
+    addedAt: '2026-09-05',
+  },
 ];
 
 export default products;
